@@ -1,0 +1,418 @@
+createdAt: "2018-09-28T10:05:33.708Z"
+updatedAt: "2019-01-05T21:39:39.420Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Building Web App Using Spring MVC, Hibernate, Bootstrap, and REST Services"
+content: '''
+  # Building Web App Using Spring MVC, Hibernate, Bootstrap, and REST Services
+  
+  
+  ## Spring Architecture
+  ### Core Coinraner
+  * core
+  * beans
+  * context
+  * expression language
+  
+  ### Data Acces/Integration
+  * jdbc
+  * ORM
+  * OXM - object xml mapping
+  * JMS - 
+  * Transactions - transaction management
+  
+  ### Web
+  * Web Sockets
+  * Web Servlets
+  * Web Structs
+  * Web Portlet
+  
+  ### Aspect Oriented Programming
+  
+  ### Test
+  
+  
+  ## Spring Inversion of control
+  
+  1. Configure Spring Beans
+  2. Create a Spring Container a.k.a Application Context
+  3. Retrieve Beans from Container
+  
+  
+  
+  ## Spring Dependecy Injection
+  
+  ### Types of Injection
+  * #### Constructor Injection 
+  	1. Define Interface and Class
+  
+  	2. Create a Constructor for Injection
+  	```java
+      	private  Card atmCard;
+  	
+  	public SavingAccount(Card atmCard) {
+  		super();
+  		this.atmCard = atmCard;
+  	}
+    ```
+  	3. Configure the Dependency Injection in Spring Config File
+    ```xml
+    	<bean id="myCard" class="com.ps.springm1.model.ATMCard">
+  	</bean>
+  
+  	<bean id="myAccount" class="com.ps.springm1.model.SavingAccount">
+  		<constructor-arg ref="myCard" />
+  	</bean>```
+  	
+  * #### Setter or Property Injection
+    1. Create setter methods for injections
+  ```java
+  	private Card creditCard;
+  
+  	public Card getCreditCard() {
+  		return creditCard;
+  	}
+  ```
+    2. Configure the Dependency Injection in Spring Config file
+  ```xml
+  	<bean id="myCard" class="com.ps.springm1.model.CreditCard">
+  	</bean>
+  	
+  	<bean id="myAccount" class="com.ps.springm1.model.CurrentAccount">
+  		<property name="creditCard" ref="myCard"/>
+  	</bean>
+  ```
+  
+  
+  
+  
+  
+  
+  ## Autowiring
+  ### Models of autowiring
+  1. **no(Default)**
+  		No auto wiring
+  2. **byName**
+  		Injects the Object Dependency according to the name of the Bean
+  3. **byType**
+  		Inject the object dependency according to Type
+  4. **constructor**
+  		Similar to byType but this mode applies to constructor arguments
+  5. **autodetect (Deprecated)**
+  		Uses either of two modes i.e. constructor or byType modes
+      
+  #### Example byName
+  ```xml
+  	<bean 
+          id="creditCard" 
+          
+          class="com.ps.springm1.model.CreditCard">
+  	</bean>
+  
+  	
+  	<bean id="myAccount" 
+          class="com.ps.springm1.model.CurrentAccount"
+  			autowire="byName"
+  			>		
+  	</bean>
+  
+  ```
+  
+  ```java
+    public class CurrentAccount implements Account {
+  
+  	private Card creditCard;
+      ...
+    }
+  ```
+  
+  
+  
+  
+  ## Spring Bean Scopes
+  
+  ### singleton
+  * only one shared instance of the Bean will be created
+  * all Request for the Bean will return a shared reference of the same Bean
+  
+  ### prototype
+  * creates a new Bean instance for each container request
+  
+  ### request
+  * Scoped to an HTTP web request
+  
+  ### session
+  * scoped to an HTTP web session
+  
+  ### global-session
+  * Scoped to a global HTTP web session
+  
+  
+  ## Annotations
+  
+  * Special Labels/Markers added to Java Classes
+  * Provide meta-data about the class
+  * Processed at compile time ot runtime
+  
+  ### @autowired
+  used to declare a constructor, field or setter method or configuration method
+  
+  ### @configurable 
+  Used to declare types whose properties should be injected
+  
+  ### @qualifier
+  Used to guide autowiring to be performed by means other the byType
+  
+  ### @required
+  Used to specify that a particular property must be injected
+  
+  ### @scope
+  Used to specify the scope of a bean either singleton, prototype, request, session etc
+  
+    ## Configuration Spring MVC APP
+    
+    1. web.xml
+    ```xml
+  	<servlet>
+  		<servlet-name>SpringController</servlet-name>
+  		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  		<init-param>
+  			<param-name>contextConfigLocation</param-name>
+  			<param-value>/WEB-INF/bankAppContext.xml</param-value>
+  		</init-param>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>SpringController</servlet-name>
+  		<url-pattern>/</url-pattern>
+  	</servlet-mapping>
+    ```
+    
+    2. Configuration file
+    WEB-INF -> bankAppContext.xml
+    
+    ```xml
+  <?xml version="1.0" encoding="UTF-8"
+  ?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xmlns:p="http://www.springframework.org/schema/p"
+  	xmlns:context="http://www.springframework.org/schema/context"
+  	xmlns:mvc="http://www.springframework.org/schema/mvc"
+  	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                             http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                             http://www.springframework.org/schema/context 
+                             http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                             http://www.springframework.org/schema/mvc
+                             http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+  	<context:component-scan
+  		base-package="com.ps.spirngmvc.psbankapp"/>
+  
+  	<mvc:annotation-driven/>
+  
+  	<bean id="ViewResolver"
+  		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  		<property name="prefix" value="/WEB-INF/Views/"></property>
+  		<property name="suffix" value=".jsp"></property>
+  	</bean>
+  </beans>
+  ```
+  
+  
+  
+  ## Creating a Spring Controller and View
+  
+  1. Create a Controller Class
+  2. Define a Controller Method
+  3. Add RequestMappings to Controller Method
+  4. Return the View name
+  5. Develop the View page
+  
+  ```java
+  //1. Create a Controller Class
+  @Controller
+  public class HomeController(){
+  	
+    //3. Add RequestMappings to Controller Method
+  	@RequestMapping("/")
+    //2. Define a Controller Method
+  	public String homePage(){
+      
+      //4. Return the View name
+  		return homePage;
+  	}
+  }
+  ```
+  
+  ## Spring tags
+  
+  ```xml
+  <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+  <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+  ```
+  
+  ## Handling Request Parameterest and Request Mappings
+  
+   ### @RequestParam
+  * Allows to read form data and automatically bind it to a parameter coming into yout method
+  * query String present with the URL, separated by ?
+  * access Key-Value of the query String present in the URL
+  
+  ```java
+  	/*http://localhost:8080/PSBankApp/user/new
+    */	
+  	@RequestMapping("/new")
+  	public String register(){
+  		return "register";
+  	}
+  ```
+  
+  ### @PathVariable
+  * part of the URL separated by /
+  * used to match a part of the URL as a Parameter
+  
+  ```java
+  	 /*http://localhost:8080/PSBankApp/test/dynamic/jakisciagznakow/Mateusz - DZIAŁA.'jakisciagznakow' pasuje do wyrażenia reguralnego {category:[a-z]+}
+     
+  	  * http://localhost:8080/PSBankApp/test/dynamic/123/Mateusz 			- NIE DZIAŁA. '123'  NIE pasuje do wyrażenia reguralnego {category:[a-z]+}
+  */	 @RequestMapping(value="/dynamic/{category:[a-z]+}/{userName}")
+  	public String dynamicUrtl(@PathVariable("userName") String userName) {
+  
+  		return "testRequestMapping";
+  	}
+  ```
+  
+  ## Applying Built-in Validation Rules
+  
+  ### Bean Validation Annotations
+  * @NotNull
+  * @Min
+  * @Max
+  * @Size
+  * @Pattern
+  * @Past
+  * @Future
+  
+  ## Performing CRUD Operations with Hibernate
+  
+  ### Steps to configure Hibernate with Springs MVC
+  1. define database data source
+  2. set up hibernate session factory
+  3. set up transaction manager
+  4. enable configuration of transactional annotations
+  
+  ![615c815c.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/615c815c.png)
+  
+  
+  ## HQL - Hibernate Query Language
+  * #### from 
+  used to load complete persistent object into memory
+  
+  ```java
+  Query query= session.createQuery("From Entiry E");
+  ```
+  
+  * #### as
+  used to proivide an alias to the entity class
+  
+  ```java
+  Query query= session.createQuery("From Entiry E")
+  Query query= session.createQuery("From Entiry  as E");
+  ```
+  * #### select 
+  provides more control over the result set. Used to retrieve few properties of object instead of the complete object 
+  
+  ```java
+  Query query= session.createQuery("select e.FieldName From Entiry E");
+  ```
+  * #### where 
+  used to filter the result set based on the condition
+  ```java
+  Query query= session.createQuery("From Entiry  E where E.FieldName=value");
+  ```
+  * #### order
+  used to sort the data based on the specified field name
+  ```java
+  Query query= session.createQuery("From Entiry  E order by E.FieldName DESC");
+  ```
+  
+  
+  ## Aspect Oriented Programming
+  
+  Programming technique based on context of an Aspect
+  
+  Aspect encapsulates cross-cutting concerns
+  
+  ![69507cf2.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/69507cf2.png)
+  
+  ![cee11ea5.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/cee11ea5.png)
+  
+  ### Terminology
+  * **Aspect** 
+   is a module of code for cross cutting concerns
+  * **Advice** 
+   used to specify what action is taken and when it should be applied
+  * **Join Point**
+   used to specify when to apply the code during program execution
+  * **Pointcut**
+   predicate expression to specify where the advice should be applied
+  
+  ### Advice types
+  * **Before** 
+   run the code before the actual method is executed
+  
+  * **After finaly**
+   run the code after the method finishes its execution
+  
+  * **After returning**
+   run the code after the method for a succesfull execution
+  
+  * **Around**
+   run the code before and after the method execution
+   
+   
+   ![c628dbeb.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/c628dbeb.png)
+   
+   # Bootstrap
+   
+   ![d9ea3e1e.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/d9ea3e1e.png)
+   
+   ![e4af6a74.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/e4af6a74.png)
+   
+   ![34bf228c.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/34bf228c.png)
+   
+   # Spring web flow
+   ![a20d3146.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/a20d3146.png)
+   
+   ![595c0014.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/595c0014.png)
+   ## 1. 
+   ![7af8a347.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/7af8a347.png)
+   
+   ![aadc26c2.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/aadc26c2.png)
+   
+   ![28112270.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/28112270.png)
+   
+   ![2d5ae7d4.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/2d5ae7d4.png)
+   
+   ![12c2bd09.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/12c2bd09.png)
+   
+   ## Transition and flow data elements of spring web flow
+   ![df79fa1c.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/df79fa1c.png)
+   
+   ![697d7ffa.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/697d7ffa.png)
+   
+   ![7d991e7d.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/7d991e7d.png)
+   
+   ### creating flow data
+   ![08020730.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/08020730.png)
+   
+   ![10bd86e1.png](:storage/8041c805-6d0e-4a91-b9d6-a1042e885a27/10bd86e1.png)
+'''
+tags: [
+  "java"
+  "spring"
+  "hibernate"
+]
+isStarred: true
+isTrashed: false

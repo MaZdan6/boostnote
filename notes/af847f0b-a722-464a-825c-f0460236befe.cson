@@ -1,0 +1,293 @@
+createdAt: "2019-06-10T07:11:51.956Z"
+updatedAt: "2019-06-16T07:33:54.997Z"
+type: "MARKDOWN_NOTE"
+folder: "a7e795acb6fcea97a14c"
+title: "Angular Szkolenie"
+tags: []
+content: '''
+  # Angular Szkolenie
+  
+  ## Dzień 1
+  
+  ### nodejs
+  środowisko uruchomieniowe dla javascrpit
+  
+  * node -v - wypisuje wersję node
+  
+  ### npm
+  * npm - node package modules
+  * taksrunner i package manager
+  
+  
+  * npm init -y
+  * npm install helloworld--save
+  npm i helloworld --s
+  
+  
+  #### ćwiczenie 1
+  Dodawanie bibliteki
+  * npm init -y - inicjowanie package.json
+  * npm i jquery lub npm i jquery@wersja - ściąganie biblioteki
+  
+  * cat package.json
+  **"jquery": "^3.4.1"** - ^ oznacza, że można ściągnąć wyższą wersję
+  
+  * package-lock.json - plik przechowuje konkretne numery wersji  bibliotek
+  
+  * npm i -D webpack -instalacja dla potrzeb developerskich. -D jest, to paczka nie będzie się znajdować w zbudowanym projekcie
+  
+  * npx webpack - instalacja i uruchomienie narzędzia developerskiego np. serwera
+  
+  getify/you-dont-know-js
+  
+  ### Linting
+  Narzędzia do statycznej analizy kodu
+  * ESLint
+  * JSLint
+  
+  ### Prettier
+  narzędzie do formatowania kodu
+  
+  
+  ### ECMAScript6
+  
+  
+  
+  #### Promise
+  [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
+  
+  ```javascript
+  
+  function getUser(id){
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        resolve(id*10)
+      },100)
+    })
+  }
+  
+  getUser(7).
+    then(data=>{
+      console.log(data)
+                });
+  ```
+  
+  ### ECMAScript7
+  
+  ### TypeScript
+  
+  enum
+  const
+  let
+  
+  ### Angular
+  
+  * **generowanie projektu**
+    * ng new tv-maniac --skip-tests --style=scss --prefix=tm --routing
+    * ng new angular-playground --skip-tests --style=scss --prefix=ap --routing
+  
+  
+  * **generowanie komponentu**
+  ng generate component home
+  
+  ## Dzień 2
+  
+  ### Debugowanie
+  Augury - wtyczka do chrome
+  
+  ### Bootstrap
+  scss - css 
+  
+  margin
+  mb-3 - margin botton - margines z dołu
+  mx
+  my
+  
+  
+  ### Routing
+  contact
+  
+  wygenerowanie modułu tv
+  ** ng g m tv
+  
+  g - generate
+  m - module
+  tv- nazwa modułu
+  
+  zarejestrowanie modułu w app
+  ng g m tv --module app --force
+  
+  ng g c tv/search
+  
+  
+  * AppRoutingModule 
+  ```js
+  import {NgModule} from '@angular/core';
+  import {Routes, RouterModule} from '@angular/router';
+  import {HomeComponent} from "./home/home.component";
+  import {SearchComponent} from "./tv/search/search.component";
+  import {ContactComponent} from "./pages/contact/contact.component";
+  
+  const routes: Routes = [
+    {path: '', component: HomeComponent},
+    {path: 'tv', component: SearchComponent},
+    {path: 'contact', component: ContactComponent},
+  ];
+  
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule {
+  }
+  
+  ```
+  
+  
+  * routerLink
+  ```html
+  <a class="nav-link" routerLink="">Home </a>
+  ```
+  
+  
+  styl po kliknięciu w link
+  ```html
+  routerLinkActive="active"
+  ```
+  
+  ### Prettier
+  
+  
+  
+  [](http://api.tvmaze.com/search/shows?q=batman)
+  
+  ### Usługa
+  ng g s tv/tv-maze
+  
+  ### RxJS
+  
+  diagramy
+  RxJS Marbles
+  
+  Promice - co robią, jak działają?
+  Gdzie w angularze używany jest JS? - wszędzie
+  
+  ### @Dyrektywy
+  * komponenty - dyketywy z szablonami
+  * atrybutowe
+  * strukturalne
+  
+  
+  1. generate component 'Poster' in tv module
+  
+    ng g c tv/tv-poster
+  
+  2. define show input see: HomeComponent
+  3. move img & h3 from seach.component.html
+  4. use <tm-poster [show]=show></tm-poster> in search.component.html
+  
+  ## Angular 3
+  ### Widok szcegółów
+  ng g c tv/show-details
+  
+  404
+  ng g c pages/not-found
+  
+  
+  devdocs.io
+  
+  kozackie wyrażenie emmet:
+  table>(thead>tr>th*3)+tbody>tr>tr*3
+  
+  ### Pipe
+  
+  ng g p tv/episodize
+  
+  Partial<Episode> - oznacza każde pole w Episode jako opcjonalne
+  
+  Pick<Episode>- 
+  
+  * generownie guarda
+  ng g guard  auth/logged-in
+    ng g guard  auth/has-roles
+  
+  
+  ng g m shared -m app -tworzenie modułu shared i rejestracja w module app
+  
+  ng g c shared/loading --export - tworzenie componentu, który można już uzywać wszędzie
+  
+  ng g m bookmarks -m tv
+  ng g s bookmarks/bookmarks
+  
+  ng g c bookmarks/bookmark-add
+  ng g c bookmarks/bookmark-remove
+  
+  ## Dzień 4
+  ### formularze
+  
+  
+  ### json-server
+  * instalacja: npm i -D json-server
+  
+  * ustawiamy nową komendę w  package.json w "scripts":
+  "backend": "json-server -w db.json"
+  * teraz możemy uruchomić server komnęndą:
+  npm run backend
+  
+  * baza  db.json znajduje się projekcie
+  * s+enter - zapisanie backup
+  
+  
+  ### NGRX
+  
+  * instalacja: npm i -D @ngrx/schematics
+  
+  * konfiguracja
+  ng generate @ngrx/schematics:store Store
+  ng config cli.defaultCollection @ngrx/schematics
+  
+  * utworzenie stora
+  ng generate store Store --root true --module app
+  
+  
+  ## Dzień 5
+  ngrx
+  
+  dyrektywy
+  
+  ### build
+  npm run build
+  npm run build --prod
+  
+  
+  * deploy
+  npx http-server dist/tv-maniac
+  npx http-server dist/tv-maniac -p:8084
+  
+  uruchomienie lokalnie wersji produkcyjnej
+  npm start --prod
+  
+  ### wzorce
+  observer-subscriber
+  decorator
+  strategia
+  fasada
+  stream
+  kompozyt
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+linesHighlighted: []
+isStarred: true
+isTrashed: false

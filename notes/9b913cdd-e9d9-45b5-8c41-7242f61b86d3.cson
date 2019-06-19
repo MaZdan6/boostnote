@@ -1,0 +1,23 @@
+createdAt: "2019-01-13T10:44:50.030Z"
+updatedAt: "2019-03-25T22:36:29.527Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Logging"
+content: '''
+  # Logging
+  
+  ## logback
+  ### struktura logu
+  [Chapter 6: Layouts](https://logback.qos.ch/manual/layouts.html#conversionWord)
+  
+  %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n
+  
+  - %d{yyyy-MM-dd HH:mm:ss} - data
+  - %-5p
+  - %c{1} - %m%n
+  - %m - message, komunikat loga
+  - %n
+'''
+tags: []
+isStarred: false
+isTrashed: false

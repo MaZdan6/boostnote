@@ -1,0 +1,101 @@
+createdAt: "2019-05-05T12:02:45.847Z"
+updatedAt: "2019-05-05T12:17:40.320Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "Git"
+content: '''
+  # Git
+  ## Export istniejącego kodu z repo lokalnego do zdalnego 
+  
+  1. commit : git commit -m "Opis commita" 
+  
+  2. dodanie adresu repozytorium zdalnego : git remote add origin adres 
+  
+  3. przesyłanie gałęzi z repozytorium lokalnego do repozytorium zdalnego 
+  git push [nazwa repozytorium zdalnego] [nazwa gałęzi zdalnej] 
+  
+  
+  ## Łączenie dwóch commitów 
+  
+   
+  
+  $ git rebase -i [id ostatniego commita]   
+  squash [id przed ostatniego commita]  [komentarz] 
+  
+   
+  
+  ## Dodawanie lokalnego repozytorium do zdalnego 
+  
+   
+  
+      Stwórz lokalne repo z przynajmniej jednym commitem 
+  
+   
+  
+      ustaw nowe zdalne repo 
+  
+  git remote add origin [remote repository URL]origin ori 
+  
+   
+  
+      Zweryfikuj nowe zdalne repo 
+  
+  git remote -v 
+  
+      Wyślij  gałąź główną do zdalnego repozytorium 
+  
+  git push origin master 
+  
+   
+  
+  ## Ignorowanie plików 
+  
+  gitignore 
+  	
+  
+  plik zapisywany w obrzarze roboczym 
+  
+  .git/info/exclude 
+  	
+  
+  plik zapisywany w repozytorium 
+  
+   
+  
+  ### reguły ignorowanych plików 
+  
+  *.[oa] 
+  
+  *.exe : ignorowanie plików z końcówką '.exe' 
+  
+   
+  
+  /tmp : ignorowanie plików z folderu 'tmp' 
+  
+  
+  ## Kurs
+  ### Tworzenie repozytorium 
+  
+  git  init : Tworzenie repo z folderu 
+  
+  git clone [hiperlink] : klonowanie repo z zewnętrznego serwera 
+  
+  git shortlog -s -n : sprawdzenie  uczestników projektu 
+  
+  git shortlog -s -n | wc -l :sprawdzenie liczby uczestników projektu 
+  
+  find . -type f -print | grep -v -E '/\\.git' | wc -l :ustalenie liczby plików projektu 
+  
+  git log --pretty=oneline | wc -l :liczba rewizji 
+  
+  git log :Przeglądanie zmian, sprawdzanie zmian wprowadzonych w repo. 
+  
+  [spacja] : przewijanie wyników  
+  
+  [Q]- wyłączanie 
+  
+  git log -3 :wydrukowanie info o trzech ostatnich rewizjach 
+'''
+tags: []
+isStarred: false
+isTrashed: false

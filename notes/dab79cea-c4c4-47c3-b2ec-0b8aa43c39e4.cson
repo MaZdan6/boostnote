@@ -1,0 +1,226 @@
+createdAt: "2018-10-15T19:22:40.906Z"
+updatedAt: "2019-05-19T09:36:47.956Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "Linux"
+content: '''
+  # Linux
+  
+  ## ogólne skróty klawiszowe
+  - terminal: **Ctrl+Alt +T**
+  
+  ## Instalacja programów 
+  - update repezytoriów: sudo apt-get update 
+  
+  - szukamy paczki: **sudo apt-cache search "foo"** 
+  - instalujemy: **sudo apt-get install "foo-base"** 
+  - instalacja plików .deb **sudo dpkg -i plik.deb** 
+  - wykonanie uprawnień administratora **sudo**  
+  
+  - Dodawanie repozytorium:  **sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ saucy universe multiverse"** 
+  
+  ### Instalacja JAVA
+  - sudo apt-get install openjdk-1.11-jdk
+  
+  
+  ## Operacje na paczkach i archiwach 
+  
+  
+  ### Rozpakowanie
+  
+  - Rozpakowanie archiwum "tar": **tar -xvf archiwum.tar** 
+  - "tar.gz": **tar -zxvf archiwum.tar.gz** 
+  - "tar.bz2": **tar -jxvf archiwum.tar.bz2** 
+  - zip unzip:  **unzip <nazwa_pliku>** 
+  - rar **unrar** 
+  
+    - **unrar x<nazwa_pliku>** 
+  
+  ### Tworzenie archiwum
+  
+  ##### tar
+  - tworzenie archiwum : tar -czvf NP.tar.gz 1111 
+  
+  [nazwa pliku].tar.gz [nazwa archiwum] 
+  
+  #### Nawjważniejsze parametry: 
+  
+   
+  
+    * c-kompresja 
+  
+    * x-rozpakowanie 
+  
+    * f-wskazanie pliku 
+  
+    * j- korzystanie z programu bzip2 
+  
+    * z- korzystanie z programu gzip 
+  
+    * c- wskazanie miejsca docelowego 
+  
+  ##### zip
+  - zip -r foo.zip dir_path 
+  * List Content of tar Archive File **tar -tvf uploadprogress.tar** 
+  
+  
+  
+  ### 7zip
+  
+  instrukcja: **7z**
+  
+  ## Zarządzanie pakietami 
+  
+  - Wyszukiwanie pakietów: **sudo apt-cache search [nazwa pakietu Ubuntu]** 
+  
+  - Instalowanie programu: **sudo apt-get install [nazwa programu]** 
+  
+  - Odinstalowanie programu:  **sudo apt-get remove [nazwa programu]** 
+  
+  - Usuwanie nieużywanych pakietów:  **sudo apt-get autoremove** 
+  
+  - Czyszczenie systemu:  **sudo apt-get clean lub** -**sudo apt-get autoclean** 
+  
+  - Naprawianie uszkodzonych pakietów:   **sudo dpkg --configure -a** 
+  
+  - Instalowanie pakietów Debiana:  - **sudo dpkg -i [nazwa pakietu].deb** 
+  
+  ## Aplikacje 
+  
+  - przykładowe uruchomienie  edytora tekstu  **getedit** 
+  - Dodawanie repezytoriów  **add-apt-repositiry ppa:[repozytorium]**  
+  - **sudo apr-get install [nazwa programu]** 
+  - usuwanie nieużywanych programów **sudo apt-get autoremove** 
+  
+  ### skrót do aplikacji
+  1. uruchomić nowy plik
+  gnome-desktop-item-edit --create-new ~/Pulpit
+  
+  ## Operacje na plikach i katalogach 
+  
+  - **pwd**- wyświetlenie ścieżki do bieżącego katalogu 
+  
+    - cd [nazwa katalogu]
+  
+    - cd / 
+  
+    - cd .. 
+  
+    -  cd - 
+  
+    - mkdir [nazwa katalogu] 
+  	
+  
+  - pwd  
+  
+    - touch [nazwa pliku] 
+  
+  - Usuwanie pliku:  - **rm [nazwa pliku]** 
+  
+  - Usuwanie rekurencyjne (katalog i podkatalogi):  - **rm -r [nazwa katalogu]** 
+  
+  - Kopiowanie pliku do katalogu  - **cp [nazwa pliku] [lokalizacja katalogu]** 
+  
+  - przenoszenie  - **mv [nazwa pliku] [lokalizacja katalogu]** 
+  
+  - Kopiowanie pliku firewall do katalogu init.d  - **sudo cp firewall /etc/init.d/** 
+  
+  - Wyświetlenie zawartości katalogu w którym się znajdujesz:  - **ls** 
+  
+  - Wyświetlenie zawartości katalogu z dodatkowymi informacjami (np. właściciel pliku/katalogu, prawa dostępu):  - **ls -l** 
+  
+  - wpisywanie komend do pliku  -  **[komenda]> [plik]** 
+  
+  - tworzenie pustego pliku  -  **touch [nazwa]** 
+  
+  - drzewko folderów  - **mkdir -p [katalog]/[podkatalog]** 
+  
+  - Otwieranie pliku z terminala: **xdg-open <nazwa_pliku>** 
+  
+  ## Informacje systemowe 
+  - Wyświetlenie wszystkich uruchomionych procesów na komputerze: **ps -el** 
+  
+  - Wyświetlenie numeru procesu PID programu gimp (program gimp musi być uruchomiony): **pidof gimp** 
+  
+  - Zakończenie procesu programu( na przykład PID 4895, w Debianie wpisujemy kill 4895 ): **kill -9 4895**  
+  
+  - Pid by port: **netstat -nlp | grep 8080** 
+  
+  - Wyświetlenie strony "manual" (podręcznika systemowego): **man [polecenie]** 
+  
+  - Wyświetlenie informacji o procesorze komputera: **cat /proc- /cpuinfo** 
+  **
+  Wyświetlenie informacji o wersji Ubuntu: **lsb_release -a- **
+  
+  - Wyświetlenie wszystkich** informacji o komputerze - - płycie głównej, procesorze ** jego architekturze, etc.: **sudo lshw- **** 
+  
+  - Wyświetlen**azwy jądra systemu operacyjnego, sieciową** nazwę systemu i numeru edycji jądra systemu: **uname -a** 
+  
+  - Wyświetlenie informacji o dostępnej pamięci w kilobajtach: **free** 
+    - w megabajtach: **free -m** 
+    - w gigabajtach: **free -g** 
+  
+  - Wyświetlanie użycia CPU **iostat -c 3** 
+  
+  - Uruchomienie interfejsu wysokiego poziomu dla menedżera pakietów: **aptitude** 
+  
+  
+  
+  
+  
+  
+    
+  ## Zmienne środowiskowe 
+  
+  - Zmienna PATH jest zapisywana w pliku **/etc/environment** 
+  
+  - Należy edytować plik jako root: **sudo xdg-open environment** 
+  
+  - Zmienna PATH dla użytkownika znajduje się w pliku **.profile** w kalatogu domowym.  
+  
+  - Nowy folder należy dodać z znakiem **':'** poprzedając ścieżkę folderu 
+  
+    - Przykład: $PATH="$HOME/bin:$HOME/.local/bin:$PATH:/home/fazol/.dropbox-dist/" 
+  
+  - zmiana zmiennej w terminalu: export $PATH=$PATH:/home/fazol/tools/gradle/gradle-5.3.1/bin/
+  
+  ## Narzędzia sieciowe 
+  
+  - wyświetlanie statusu aktywnych interfejsów sieciowych  - ipconfig 
+  
+  - Wyświetlenie wszystkich aktywnych połączeń z/do twojego systemu:  -  sudo netstat -tup 
+  
+  - sprawdzenie adresu IP : net lookup <domena> 
+  
+  - wyswietanie tablicy routingu(info o trasie przez węzły - scieżka)  - route 
+  
+  - droga jaką pokonuje pakiet do miejsca docelowego  - traceroute <domena> 
+  
+  ## ciekawe polecenia 
+  
+  - wyszukiwanie plików po zawartości  - grep -rli "<tekst>" <katalog> 
+  	
+  
+  - zignorowanie rożnic między małymi i wlk. lit. : i, --ignore-case
+  
+  - równoważne --directories=recurse . 
+  
+  
+  	
+  
+  - wypisanie tylko nazw PLIKÓW z trafieniami : -l, --files-with-matches   
+  
+  - wypisywanie zawrtości danego pliku  - cat <nazwa_pliku>   
+  - 
+  ## VIM editor
+  **:wq** - to save and exit
+  **:q!** - to trash all changes
+    
+  
+'''
+tags: [
+  "os"
+  "linux"
+]
+isStarred: false
+isTrashed: false

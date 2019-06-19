@@ -1,0 +1,115 @@
+createdAt: "2019-01-05T22:27:28.388Z"
+updatedAt: "2019-05-15T20:54:32.895Z"
+type: "MARKDOWN_NOTE"
+folder: "aca1f8e65d06e28b00e0"
+title: "Postgresql"
+content: '''
+  # Postgresql
+  
+  sudo apt-get install postgresql-11 postgresql-contrib
+  
+  
+  
+  
+  Success. You can now start the database server using:
+  
+      /usr/lib/postgresql/11/bin/pg_ctl -D /var/lib/postgresql/11/main -l plik dziennika start
+      
+  ls /etc/postgresql/11/main
+  
+  # komendy
+  * uruchomienie serwera: 
+      **service postgresql start**
+  * podstawowe komendy do bazy danych
+    **service postgresql**
+  
+  * logowanie użytkownika postgres 
+    **sudo su postgres**
+    poprosi o hasło aktualnego użytkownika
+    
+  * shell
+    **psql**
+  - konfiguracja
+    **/etc/postgresql/11/main/**
+  
+  - tworzenie nowego klastra
+      **pg_createcluster 11 main --start**
+  - lista baz danych : **\\l**
+  - wszyscy użytkownicy: **\\du**
+  - zmiana hasła użytkownika: **alter user *user* with password '*newPassword*';**
+  - tworzenie nowego użytkownika: **create user *user* with password '*Password*';**
+  - nadawanie uprawnień: **alter user *user* with *privilege*;** np: **alter user corporis with superuser;** 
+  - usuwanie użytkownika: **drop user *user*;**
+  
+  
+  
+  # Remove  postgresql
+  
+  
+  
+  Follow the commands:
+  
+      sudo apt-get --purge remove postgresql
+  
+  List all postgres related packages:
+  
+      dpkg -l | grep postgres
+  
+  remove all the above listed packages using the command :
+  
+      apt-get --purge remove package1 package2 ..
+  
+  Confirm all the files and folders related to postgres/postgresql are deleted using the command :
+  
+      whereis postgres
+      whereis postgresql
+  
+  Remove all the files and folders listed using rm command.
+  
+  Delete the user postgres using the command :
+  
+      userdel -f postgres
+      
+      
+      
+      
+      
+      
+      
+  Creating new PostgreSQL cluster 11/main ...
+  /usr/lib/postgresql/11/bin/initdb -D /var/lib/postgresql/11/main --auth-local peer --auth-host md5
+  Właścicielem plików należących do sytemu bazy danych będzie użytkownik "postgres".
+  Ten użytkownik musi jednocześnie być właścicielem procesu serwera.
+  
+  Klaster bazy zostanie utworzony z zestawem reguł językowych "pl_PL.UTF-8".
+  Podstawowe kodowanie bazy danych zostało ustawione jako "UTF8".
+  initdb: nie można znaleźć odpowiedniej konfiguracji wyszukiwania tekstowego dla lokalizacji "pl_PL.UTF-8"
+  Domyślna konfiguracja wyszukiwania tekstowego zostanie ustawiona na "simple".
+  
+  Sumy kontrolne stron danych są zablokowane.
+  
+  ustalanie uprawnień katalogu /var/lib/postgresql/11/main ... ok
+  tworzenie podkatalogów ... ok
+  wybieranie domyślnej wartości max_connections ... 100
+  wybieranie domyślnej wartości shared_buffers ... 128MB
+  wybór implementacji dynamicznej pamięci współdzielonej ... posix
+  tworzenie plików konfiguracyjnych ... ok
+  wykonywanie skryptu ładowania wstępnego ... ok
+  wykonywanie inicjacji po ładowaniu wstępnym ... ok
+  synchronizacja danych na dysk ... ok
+  
+  Sukces. Teraz możesz uruchomić serwer bazy danych używając:
+  
+      /usr/lib/postgresql/11/bin/pg_ctl -D /var/lib/postgresql/11/main -l plik dziennika start
+  
+  Ver Cluster Port Status Owner    Data directory              Log file
+  11  main    5432 online postgres /var/lib/postgresql/11/main /var/log/postgresql/postgresql-11-main.log
+  
+  
+'''
+tags: [
+  "postrgresql"
+  "sql"
+]
+isStarred: false
+isTrashed: false

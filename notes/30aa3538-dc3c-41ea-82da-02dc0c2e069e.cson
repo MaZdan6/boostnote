@@ -1,0 +1,218 @@
+createdAt: "2019-06-16T07:30:48.636Z"
+updatedAt: "2019-06-19T14:06:54.812Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Spring szkolenie"
+tags: []
+content: '''
+  # Spring szkolenie
+  
+  ## DZIEŃ 1
+  - AOP
+  - CORE
+  
+  - xml configurarion
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> 
+          <!-- bean definitions here -->
+  
+      <bean id="..." class="...">
+  		    <property name="isolation">
+  		        <bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
+  		                class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+  		    </property>
+  	</bean>
+  </beans>
+  - wstrzykiwanie zależności 
+  	- przez konstruktor	
+  	<bean id="dispositionService" class="pl.training.bank.disposition.DispositionService" scope="prototype" init-method="init" destroy-method="destroy">
+          <constructor-arg name="accountService" ref="accountService"/>
+          <constructor-arg name="operationService" ref="operationService"/>
+      </bean>
+  
+  	- przez setter
+   
+  - użycie depends on
+  
+  - wstrzykiwanie automatyczne (autowiązanie)
+  	autwire="byName"
+  
+  - dziedziczenie konfiguracji na poziomie XML
+  	<import resource="disposition.xml"/>
+  
+  - Zasięg beanów (scope)
+  	scope=""
+  	- singleton
+  		- jedna instancja na basie jednej definicji
+  		- domyślny zasięg
+  	- prototype
+  		- za każdym razem tworzona jest nowa instancja
+  	- request
+  	- session
+  	- global session
+  
+  - Inicjalizacja poprzez zdefinioiwanie metody w XML
+  	- init-method="init"
+  		- w <bean>
+  		- w <beans>
+  
+  - Finalizacja poprzez zdefiniowanie metody w XML
+  	- destroy-method="destroy"
+  		- w <bean>
+  		- default-destroy-method="destroy" w <beans>
+  
+  - Obiekty specjalne typu BeanPostProcessor
+  - Obiekty specjalne typu BeanFactoryPostProcessor
+  
+  - Cykl życia beanów
+  
+  
+  
+  - Adnotacje
+  service
+  component
+  bean
+  autowired
+  inject
+  depends on
+  postconstruct
+  predestroy
+  
+  Autowired bez setterów - antywzorzec
+  
+  ASPECT ORIENTED PROGRAMING
+  	JointPoint: punkt wywowania akcji aspektu np. metoda, której wywołanie chcemy zalogować
+  	pointcut - wyrażenie reguralne pasujący do miejsca w kodzie, w którym zostanie wywołany aspekt np. metoda wyjątku lub metoda jakiejś klasy
+  	advice - akcja wykonywana przez aspekt
+  	before - wywołanie aspektu przed wywołanie metody 
+  	after-returning
+  
+  Wszystkie aspekty muszą być zadeklarowane jako bean
+  
+  - przykładowa konfiguracja
+  	    <!--zawiera logikę wywoływaną przy pomocy aspektu-->
+      <bean id="profiler" class="pl.training.bank.common.profiler.Profiler"/>
+      <bean id="modelValidator" class="pl.training.bank.common.validator.ModelValidator">
+          <constructor-arg name="validatorService" ref="validatorService"/>
+      </bean>
+  
+      <!--konfiguracja aspektu-->
+      <aop:config>
+          <aop:aspect ref="profiler">
+              <!--szukamy adnotacji ExecutionTime i wywołujemy metodę logExecutionTime-->
+              <aop:around method="logExecutionTime" pointcut="@annotation(pl.training.bank.common.profiler.ExecutionTime)"/>
+          </aop:aspect>
+          <!--szukamy beana dispositionService-->
+          <!-- opakuj mi wszystkie metody beana i wywołaj przed  nimi metodę validate -->
+          <aop:aspect ref="modelValidator">
+              <aop:before method="validate" pointcut="bean(dispositionService)"/>
+          </aop:aspect>
+      </aop:config>
+  
+  
+  
+  
+  
+  # Dzień 2
+  
+  PostgerSQL
+  	port:5432
+  	hasło:admin
+  
+  
+  
+  napisać loggera (aspect) który loguje konta
+  po wykonaniu dyspozycji ma się wywołać aspect (logowanie aplikacji)
+  
+  - HIBERNATE
+  	- session
+  		- czas życia sescji jest powiązany z transakcją
+  	- sessionFaktory
+  		- konfiguruje połączenie z bazą danych
+  
+  java persistence with Hibernate, second edition
+  
+  dokonczyć JPa
+  
+  dodawać nowych użytkowników
+  przypisywać użytkowników do kont ( i odpinać)
+  
+  
+  (barki)		wznosy sztangielek ponad głowę 
+  (klata)		ROZPIĘTKI W SIADZIE NA MASZYNIE 
+  (plecy)		wyciąg górny 
+  (nogi)		przysiady 
+  (brzuch)	spięcia brzucha 
+  
+  (barki)		wznosy sztangielek bokiem 
+  (klata)		pompki 
+  (plecy)		wyciąg boczny 
+  (nogi)		PROSTOWNIE NÓG na maszynie
+  (brzuch)	wznosy nóg
+  
+  (barki)		wznosy sztangielek leżąc (aktony tylne) 
+  (klata)		pompki
+  (plecy)		wyciąg boczny
+  (nogi)		przysiady ze sztangą
+  (brzuch)	spięcia skośne
+  
+  
+  
+  # Dzień 3
+  ## Testy
+  - Mockito
+  	private Account account= mock(Account.class)
+  
+  	private static final long FUNDS= 1_100
+  
+  	test:
+  	new DepositOperation().execute(account,FUNDS)
+  	verify(account).deposit(FUNDS)
+  
+  	sprawdza, czy metoda deposit została wywołąna z parametrem wejściowym FUNDS
+  
+  - @MockBean
+  
+  - @DataJpaTest - podnosi bazę tesotową H2 i testuje na niej operacje na danych
+  konfigurację bazy  (port, hasło) pobiera z folderu test/resources
+  
+  ## MVC I REST
+  	- plik.http  - można odpalać zapytania z pliku
+  
+  
+  	- globalne przechwytywanie wyjątków
+  
+  	- globalne przychwytywanie wyjątków
+  	@ControllerAdvice
+  	public Class GlobalExceptionHndler()
+  
+  You dont know JS - seria książek o JS. from Zero to Hero
+  
+  
+  
+  rest
+  testy
+  baza danych
+  
+  sklep internetowy
+  
+  koszyk
+  towar
+  portfel
+  
+  
+  $ git config --global user.name "Mona Lisa"
+  git config [--global] user.email "mateusz.zdanowicz66@gmai.com"
+  
+  git config user.name "Mateusz Zdanowicz"
+  
+  
+  ssh-keygen -t rsa -C "mateusz.zdanowicz66@gmai.com" -b 4096
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

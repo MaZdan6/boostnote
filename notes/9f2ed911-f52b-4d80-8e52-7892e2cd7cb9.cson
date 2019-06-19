@@ -1,0 +1,51 @@
+createdAt: "2018-11-25T21:08:51.677Z"
+updatedAt: "2018-11-25T22:29:58.845Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "Eclipse"
+content: '''
+  # Eclipse
+  
+  
+  **CTRL+E**
+  Shows you a list of all open editors.
+  
+  **CTRL+F6**
+  Use to move between open editors. This is a slower alternative to Ctrl + E. It comes in handy in a situation when you want to periodically switch between two editors, something that is nearly impossible with Ctrl+E as it sorts entries quite randomly. Or you might just use Alt+Arrows.
+  
+  **CTRL+F7**
+  Move between views. When in the editor, press Ctrl+F7 to switch to the Package Explorer, or hold Ctrl and press F7 multiple times to switch to other views.
+  
+  **CTRL+F8**
+  Move between perspectives. The same as Ctrl+F7.
+  
+  **CTRL + F11**
+  Runs the application.
+  
+  **CTRL+SHIFT+O**
+  Organize imports.
+  
+  **CTRL+1**
+  activates the quick fix
+  
+  **CTRL+E**
+  Shows you a list of all open editors.
+  
+  **CTRL+SHIFT+G**
+  Bind this to "Generate getters and setters." This is a "must have."
+  
+  **ALT+C**
+  Bind this to SVN/CVS "Commit."
+  
+  **CTRL + D**
+  Delete row. Try it! You no longer need to grab the mouse and select the line, or select Home, Shift + End, Delete. Quick and clean.
+  
+  **ALT + Up/Down Arrow**
+  Move the row (or the entire selection) up or down. This is very useful when rearranging code. You can even select more rows and move them all at once. Notice that it will be always correctly indented.
+  
+  **ALT + Left/Right Arrow**
+  Move to the last location you edited. Imagine you just created a class "Foo," and now you are working on a class "Boo." Now, if you need to look at the "Foo" class, just press Alt+Left Arrow. Alt+Right Arrow brings you back to "Boo."
+'''
+tags: []
+isStarred: false
+isTrashed: false

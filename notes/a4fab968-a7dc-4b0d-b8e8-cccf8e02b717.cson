@@ -1,0 +1,174 @@
+createdAt: "2019-04-28T20:09:39.787Z"
+updatedAt: "2019-06-10T14:09:07.949Z"
+type: "MARKDOWN_NOTE"
+folder: "a7e795acb6fcea97a14c"
+title: "Angular"
+content: '''
+  # Angular
+  
+  ##  1. Komendy
+  *  uruchomienie serwera: **npm start** lub **ng serve**
+  *  wyłączenie serwera
+      * w terminalu: **ctrl + C**
+      * wyłączając proces:
+        * szukamy PID: ps -ef | grep "ng serve"
+        * zabijamy proces: kill -9 <PID>
+  ## 2. Component
+    
+    ![5589f6e3.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/5589f6e3.png)
+    
+    ![0b4b582b.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/0b4b582b.png)
+    
+    ### Creating a component class
+    ![123c478b.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/123c478b.png)
+    ![76efd8bd.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/76efd8bd.png)
+    
+    ### Decorator
+  A function that adds metadata to a class, its members, or its
+  method arguments.
+  Prefixed with an **@**.
+  Angular provides built-in decorators.
+  **@Component()**
+    
+    ### Metadata
+    ![b803af53.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/b803af53.png)
+    
+    ### New Component
+    1. add selector compoment to html template
+    
+    ```javascript
+    template:<div>
+      <h1>{{pageTitle}}</h1>
+      
+    <pm-products></pm-products>
+    
+    </div>`
+    
+    ```
+    
+    2. add component to app.modules.ts
+    
+    ```javascript
+    
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+  
+  import { AppComponent } from './app.component';
+  import { ProductListComponent } from './products/product-list.component';
+  
+  @NgModule({
+    declarations: [
+      AppComponent,
+      ProductListComponent
+    ],
+    imports: [
+      BrowserModule
+    ],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
+    ```
+    ## 3. Template, Interpolation, Directives
+    ### Template
+    ![31308e84.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/31308e84.png)
+    
+    ### Binding
+    ![cf58d760.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/cf58d760.png)
+    
+    ### Interpolation
+    ![dad2295f.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/dad2295f.png)
+    
+    ### Directive
+    Custom HTML element or attribute used to power up and extend our HTML.
+  • Custom
+  • Built-In
+    ![81d28b08.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/81d28b08.png)
+    
+    #### *ngif
+    ```html
+    <table class='table'
+                     *ngIf='products && products.length'>
+    ```
+      
+    #### *ngfor
+      
+      
+  ```html
+      <tr *ngFor='let product of products'>
+                          <td>
+                          </td>
+                          <td>{{product.productName}}</td>
+                          <td>{{product.productCode}}</td>
+                          <td>{{product.releaseDate}}</td>
+                          <td>{{product.price}}</td>
+                          <td>{{product.starRating}}</td>
+                      </tr>
+  ```
+  ## 4. Data binding and pipe
+  ![e3f740b8.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/e3f740b8.png)
+  ### Property Binding
+   ![37095644.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/37095644.png)
+  
+  ```html
+      <img [src]='product.imageUrl'
+                                   [title]='product.productName'
+                                   [style.width.px]='imageWidth'
+                                   [style.margin.px]='imageMargin'>
+  ```
+  ### Event Binding
+  ![d0a171ee.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/d0a171ee.png)
+  ```html
+  <button class='btn btn-primary' (click)='toogleImage()'>Show Image
+  </button>    
+  ```
+      
+  ### Two-way binding
+  
+  ![24940ab7.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/24940ab7.png)
+      
+  ### Pipe
+    used to format text
+  ![5b0030b7.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/5b0030b7.png)
+      
+  ## More on components
+  ### Interface
+  * A specification identifying a related set of properties and methods.
+  * A class commits to supporting the specification by implementing the interface.
+  * Use the interface as a data type.
+  * Development time only!
+  ```typescript
+  export interface IProduct {
+      productId: number;
+      productName: string
+      price: number
+  }
+  
+  export class Product implements IProduct {
+  
+      constructor(public productId: number,
+          public productName: string,
+          public price: number,) { }
+  
+      calculateDiscount(percent: number): number {
+          return this.price - (this.price * percent / 100);
+      }
+  
+  }
+  ```
+    ### CSS
+    ![8820ad88.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/8820ad88.png)
+      
+    ### Lifecycle hooks
+    ![90aa8481.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/90aa8481.png)
+    
+    * **OnInit**: Perform component initialization, retrieve data
+    * **OnChanges**: Perform action after change to input properties
+    * **OnDestroy**: Perform cleanup
+    
+    ![7a251af4.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/7a251af4.png)
+      
+'''
+tags: []
+isStarred: true
+isTrashed: false
+linesHighlighted: []

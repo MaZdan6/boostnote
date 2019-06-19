@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "key": "99518829502f949bd844",
+      "color": "#3FD941",
+      "name": "java"
+    },
+    {
+      "key": "a38bc68bbb6e2970c167",
+      "color": "#FF8E00",
+      "name": "narzędzia"
+    },
+    {
+      "key": "aca1f8e65d06e28b00e0",
+      "color": "#FF8E00",
+      "name": "sql"
+    },
+    {
+      "key": "a7e795acb6fcea97a14c",
+      "color": "#B013A4",
+      "name": "frontend"
+    }
+  ],
+  "version": "1.0"
+}
