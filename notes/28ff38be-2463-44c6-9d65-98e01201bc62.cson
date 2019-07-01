@@ -1,10 +1,14 @@
 createdAt: "2019-06-17T08:04:46.332Z"
-updatedAt: "2019-06-17T08:04:46.332Z"
+updatedAt: "2019-07-01T20:20:15.905Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
-title: ""
+title: "Spring Batch"
 tags: []
-content: ""
+content: '''
+  # Spring Batch
+  
+  ![a1c96613.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\a1c96613.png)
+'''
 linesHighlighted: []
 isStarred: false
 isTrashed: false
