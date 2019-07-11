@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-05-05T12:17:40.320Z"
+updatedAt: "2019-07-11T08:26:24.181Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -7,13 +7,20 @@ content: '''
   # Git
   ## Export istniejącego kodu z repo lokalnego do zdalnego 
   
-  1. commit : git commit -m "Opis commita" 
+  1. commit : 
+  ```
+  git commit -m "Opis commita" 
+  ```
   
-  2. dodanie adresu repozytorium zdalnego : git remote add origin adres 
+  2. dodanie adresu repozytorium zdalnego :
+  ```
+  git remote add origin adres 
+  ```
   
   3. przesyłanie gałęzi z repozytorium lokalnego do repozytorium zdalnego 
+  ```
   git push [nazwa repozytorium zdalnego] [nazwa gałęzi zdalnej] 
-  
+  ```
   
   ## Łączenie dwóch commitów 
   
@@ -28,24 +35,27 @@ content: '''
   
    
   
-      Stwórz lokalne repo z przynajmniej jednym commitem 
+  1. Stwórz lokalne repo z przynajmniej jednym commitem 
   
    
   
-      ustaw nowe zdalne repo 
+  2. ustaw nowe zdalne repo 
   
-  git remote add origin [remote repository URL]origin ori 
+    ```bash  
+      git remote add origin [remote repository URL]origin ori
+    ``` 
   
    
+  3. Zweryfikuj nowe zdalne repo 
   
-      Zweryfikuj nowe zdalne repo 
+  ```
+  git remote -v
+  ```
   
-  git remote -v 
-  
-      Wyślij  gałąź główną do zdalnego repozytorium 
-  
+  4. Wyślij  gałąź główną do zdalnego repozytorium 
+  ```
   git push origin master 
-  
+  ```
    
   
   ## Ignorowanie plików 
@@ -66,36 +76,54 @@ content: '''
   
   *.[oa] 
   
-  *.exe : ignorowanie plików z końcówką '.exe' 
+  *.exe : **ignorowanie plików z końcówką '.exe'**
   
    
   
-  /tmp : ignorowanie plików z folderu 'tmp' 
+  /tmp : **ignorowanie plików z folderu 'tmp'** 
   
   
   ## Kurs
   ### Tworzenie repozytorium 
   
-  git  init : Tworzenie repo z folderu 
+  git  init : **Tworzenie inicjalnego repo w folderze**
   
-  git clone [hiperlink] : klonowanie repo z zewnętrznego serwera 
+  git clone [hiperlink] : **klonowanie repo z zewnętrznego serwera**
   
-  git shortlog -s -n : sprawdzenie  uczestników projektu 
   
-  git shortlog -s -n | wc -l :sprawdzenie liczby uczestników projektu 
   
-  find . -type f -print | grep -v -E '/\\.git' | wc -l :ustalenie liczby plików projektu 
+  find . -type f -print | grep -v -E '/\\.git' | wc -l :**ustalenie liczby plików projektu**
   
-  git log --pretty=oneline | wc -l :liczba rewizji 
+  ### git log
+  **liczba rewizji**
+  ```
+  git log --pretty=oneline | wc -l :
+  ```
   
-  git log :Przeglądanie zmian, sprawdzanie zmian wprowadzonych w repo. 
+  **Przeglądanie zmian, sprawdzanie zmian wprowadzonych w repo.**
+  ```
+  git log
+  ```
   
-  [spacja] : przewijanie wyników  
+  [spacja] : **przewijanie wyników**
   
-  [Q]- wyłączanie 
+  [Q]- **wyłączanie**
   
-  git log -3 :wydrukowanie info o trzech ostatnich rewizjach 
+  **wydrukowanie info o trzech ostatnich rewizjach**
+  ```
+  git log -3
+  ```
+  
+  **sprawdzenie  uczestników projektu**
+  ```
+  git shortlog -s -n
+  ```
+  **sprawdzenie liczby uczestników projektu**
+  ```
+  git shortlog -s -n | wc -l
+  ```
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []
