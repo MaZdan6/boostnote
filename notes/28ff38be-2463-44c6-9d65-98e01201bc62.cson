@@ -1,5 +1,5 @@
 createdAt: "2019-06-17T08:04:46.332Z"
-updatedAt: "2019-08-04T17:17:04.261Z"
+updatedAt: "2019-08-05T21:59:10.237Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Batch"
@@ -31,7 +31,7 @@ content: '''
   
   **joba instance** posiada stan
   
-  **job  execution** pojedyńcza próba wykonania zadania
+  **job  execution** pojedyńcza próba wykonania joba
   
   **job parameters**
   
@@ -39,14 +39,33 @@ content: '''
   
   **step execution**
   
+  
+  
+  
   ## 4 Job Repository Database tables
   ![95cc0ae5.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\95cc0ae5.png)
   
+  ### [Schema do bazy danych](https://github.com/spring-projects/spring-batch/blob/master/spring-batch-core/src/main/resources/org/springframework/batch/core/schema-postgresql.sql)
+  
   ## 5 Job Configuration Classes
-  ![a08f61ab.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\a08f61ab.png)
+  ![397b3b0d.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\397b3b0d.png)
+  
+  Instancje job i step tworzone są w klasie:
+  ```java
+  @Configuration
+  public class BatchJobConfiguration {
+  
+      @Autowired
+      private JobBuilderFactory jobBuilderFactory;
+  
+      @Autowired
+      private StepBuilderFactory stepBuilderFactory;
+      }
+  ```
+  
   
   ## 6 Step Configuration
-  ![e2884f79.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\e2884f79.png)
+  ![2f97152d.png](:storage\\28ff38be-2463-44c6-9d65-98e01201bc62\\2f97152d.png)
   
 '''
 linesHighlighted: []
