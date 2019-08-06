@@ -1,0 +1,126 @@
+createdAt: "2019-08-06T13:41:40.893Z"
+updatedAt: "2019-08-06T14:24:45.000Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Java 8"
+tags: []
+content: '''
+  # Java 8
+  
+  ## 1 Optional< T > 
+  ### 1.1 Tworzenie
+  
+  Zwrócenie Optional z niepustą wartością
+  ```java
+  String str = "value";
+  Optional<String> optional = Optional.of(str);
+  ```
+  
+  **ofNullable** Zwrócenie Optional z konkretną wartością lub pusty Optional jeśli parametr Optionala jest pusty
+  ```java
+  Optional<String> optional = Optional.ofNullable(getString());
+  ```
+  
+  ### Użycie
+  
+  #### Przykład 1 orElseGet()
+  Spodziewam się listy, ale w przypadku nulla oczekuję zwrócenia nowej instancji listy
+  
+  ```java
+  List<String> listOpt = getList().orElseGet(() -> new ArrayList<>());
+  ```
+  
+  #### Przykład 2 Usunięcie potrzeby sprawdzania warunku != null
+  
+  Bez optionali należałoby sprawdzić, czy każde wywołanie metody nie zwraca null
+  ```java
+  User user = getUser();
+  if (user != null) {
+      Address address = user.getAddress();
+      if (address != null) {
+          String street = address.getStreet();
+          if (street != null) {
+              return street;
+          }
+      }
+  }
+  return "not specified";
+  
+  ```
+  
+  Wywołanie metody .map zwraca Optional. Stosowanie warunku **!= null** przestaje być konieczne
+  
+  ```java
+  Optional<User> user = Optional.ofNullable(getUser());
+  String result = user
+    .map(User::getAddress)
+    .map(Address::getStreet)
+    .orElse("not specified");
+  ```
+  
+  #### OptionalInt, OptionalLong and OptionalDouble
+  wołają domyślnie **orElse(0)** przy **null**
+  
+  biblio:
+  * [New Features in Java 8 \\| Baeldung](https://www.baeldung.com/java-8-new-features)
+  * [Stephen Colebourne's blog: Optional in Java SE 8](https://blog.joda.org/2014/11/optional-in-java-se-8.html)
+  
+  ## 2 Strumienie streams
+  ### 1 Pobieranie listy atrybutów z każdego obiektu listy
+  ```java
+  //Tworzenie listy z atrybutów elementów listy
+  List<String> namesList = personList.stream()
+                                     .map(Person::getName)
+                                     .collect(Collectors.toList());
+  ```
+  ### 2 filtrowanie
+  ```java
+  filtrowanie
+   List<String> result = lines.stream()// convert list to stream
+  .filter(line -> !"mkyong".equals(line))// we dont like mkyong
+  .collect(Collectors.toList());// collect the output and convert streams to a List
+  ```
+  
+  ### 3 Pobieranie pierwszego znalezionego elementu 
+  ```java
+  .findFirst().get()
+  ```
+  ## 3 Wyrażenia lambda
+  ### 1 Przykład
+  ```java
+  // Concatenating strings
+  (String s1, String s2) -> s1+s2;
+  
+  // Squaring up two integers
+  (i1, i2) -> i1*i2;
+  
+  // Summing up the trades quantity
+  (Trade t1, Trade t2) -> {
+    t1.setQuantity(t1.getQuantity() + t2.getQuantity());
+    return t1;
+  };
+  
+  // Expecting no arguments and invoking another method
+  () -> doSomething();
+  ```
+  
+  
+  ### 2 składnia
+  ```java
+  input arguments -> body
+  ```
+  
+  Lambda posiada 
+  * parametry wejściowe
+  * ciało
+  *  Optional jako zwracaną wartość
+  
+  ### 3 Interface funkcyjny 
+  Functional Interface
+  
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

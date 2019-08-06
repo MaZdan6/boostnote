@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-07-11T08:26:24.181Z"
+updatedAt: "2019-08-06T13:39:32.606Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -9,7 +9,7 @@ content: '''
   
   1. commit : 
   ```
-  git commit -m "Opis commita" 
+  git commit -m "Opis commita"
   ```
   
   2. dodanie adresu repozytorium zdalnego :
@@ -41,9 +41,9 @@ content: '''
   
   2. ustaw nowe zdalne repo 
   
-    ```bash  
-      git remote add origin [remote repository URL]origin ori
-    ``` 
+  ```bash  
+    git remote add origin [remote repository URL]origin ori
+  ``` 
   
    
   3. Zweryfikuj nowe zdalne repo 
