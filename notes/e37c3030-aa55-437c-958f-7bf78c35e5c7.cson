@@ -1,0 +1,210 @@
+createdAt: "2019-08-11T09:59:50.554Z"
+updatedAt: "2019-08-11T10:09:25.598Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Java Podstawy"
+tags: []
+content: '''
+  # Java Podstawy
+  
+  
+  
+  		
+  ## Akcesor Mutator Konstruktor
+  ```java	
+  //konstruktory
+  	public  Kolo(){
+  		
+  		this(1.0);
+  	}
+  	
+  	public  Kolo(double r){
+  		
+  		this(r,"cos");
+  	}
+  	
+  	public Kolo(double r, String j){
+  		
+  		promien=r;
+  		
+  		if(j.equals("km")){
+  			promien=r*1000;
+  		}
+  	}
+  	
+  	
+  	//mutator
+  	public  void setPromien(double r){
+  		promien=r;	
+  
+  		}
+  		
+  public void setX(double[]x)
+  	{
+  		this.x=x;
+  	}
+  	
+  	//akcesor
+  	public double  getPromien(){
+  		return promien;
+  	}
+  
+  
+  this	
+  // odwołuje sie do zmiennej obiektu
+  public class Point {
+      public int x = 0;
+      public int y = 0;
+          
+      //constructor
+      public Point(int x, int y) {
+          this.x = x;
+          this.y = y;
+      }
+  }
+  ```
+  
+  
+  
+  ## łączenie łańcuchów znaków(string)
+  ```java	
+  public String concat(String str)
+  ```
+  
+  Metoda reprezentuje obiektowe podejście do konkatenacji Stringów, którą opisałem wyżej w tym artykule. Metoda concat do podanego Stringu dodaje kolejny. Przykład:
+  
+  ```java
+  String tekst = "Ala";
+  // Poniższa linia zwróci tekst: Ala ma kota
+  System.out.println(tekst.concat(" ma kota");
+  ```
+  
+  ## konwersja danych
+  ```java
+  String na int: Integer.parseInt("3")
+  int na String: Integer.toString(i) lub new Integer(i).toString()
+  
+  date do String:
+  
+  Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  String s = formatter.format(date);
+  
+  ```
+  ## If
+  ```java
+  booleanExpression ? value1 : value2
+  ```
+  
+  The value of a variable often depends on whether a particular boolean expression is or is not true and on nothing else. For instance one common operation is setting the value of a variable to the maximum of two quantities. In Java you might write 
+  
+  ```java
+  if (a > b) {
+    max = a;
+  }
+  else {
+    max = b;
+  }
+  ```
+  Setting a single variable to one of two states based on a single condition is such a common use of if-else that a shortcut has been devised for it, the conditional operator, ?:. Using the conditional operator you can rewrite the above example in a single line like this: 
+  ```java
+  max = (a > b) ? a : b;
+  ```
+  
+  (a > b) ? a : b; is an expression which returns one of two values, a or b. The condition, (a > b), is tested. If it is true the first value, a, is returned. If it is false, the second value, b, is returned. Whichever value is returned is dependent on the conditional test, a > b. The condition can be any expression which returns a boolean value.
+  
+  
+  
+  ## pętle
+  ```java
+  //pętla for
+  for(int i=0; i<100; i++){}
+  for(){inicjalizacjal; test logiczny; wyrażenie iteracyjne}
+  
+  // for each - dla każdego elementu tablicy wykonuj daną czynność
+  for(Typ_Obiektu nazwa_obiektu : nazwa_tablicy){ ... }
+  
+  //przykład:
+  for(int x : tablica)
+  {
+              System.out.println(x);
+  }
+  
+  do while
+  do {
+  {ciało pętli}
+  } while ( {warunek pętli} );
+  			
+  ```
+  ## Operatory
+  
+  
+  ### operatory logiczne
+   
+  i AND 	&&
+  lub OR 	||
+  jest równy	==
+  nie jest równy: !=
+  mniejszy lub równy: <=
+  
+  ### operatory arytmetyczne
+  
+  **+**	Additive operator (also used for String concatenation)
+  **-** Subtraction operator
+  '*'	Multiplication operator
+  **/**	Division operator
+  **%**	Remainder operator - reszta z dzielenia
+  
+  
+  ## wczytywanie danych z konsoli
+  ```java
+  Scanner scanner= new Scanner(System.in);
+  String input= scanner.nextLine();
+  ```
+  ## inkrementacja
+  ```java
+  j += 3	j= j+3
+  ```
+  
+  ## Switch case
+  ```java
+  public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
+       String typeOfDay;
+       switch (dayOfWeekArg) {
+           case "Monday":
+               typeOfDay = "Start of work week";
+               break;
+           case "Tuesday":
+           case "Wednesday":
+           case "Thursday":
+               typeOfDay = "Midweek";
+               break;
+           case "Friday":
+               typeOfDay = "End of work week";
+               break;
+           case "Saturday":
+           case "Sunday":
+               typeOfDay = "Weekend";
+               break;
+           default:
+               throw new IllegalArgumentException("Invalid day of the week: " + dayOfWeekArg);
+       }
+       return typeOfDay;
+  }
+  ```
+  ## Try catch
+  
+  ### Handling More Than One Type of Exception. multicatch
+  
+  
+  ```java
+    catch (IOException|SQLException ex) {
+      logger.log(ex);
+      throw ex;
+  }
+  ```
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

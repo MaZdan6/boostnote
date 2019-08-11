@@ -1,5 +1,5 @@
 createdAt: "2019-08-06T13:41:40.893Z"
-updatedAt: "2019-08-06T14:24:45.000Z"
+updatedAt: "2019-08-10T22:46:03.176Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java 8"
@@ -16,20 +16,21 @@ content: '''
   Optional<String> optional = Optional.of(str);
   ```
   
-  **ofNullable** Zwrócenie Optional z konkretną wartością lub pusty Optional jeśli parametr Optionala jest pusty
+  #### ofNullable 
+  Zwrócenie Optional z konkretną wartością lub pusty Optional jeśli parametr Optionala jest pusty
   ```java
   Optional<String> optional = Optional.ofNullable(getString());
   ```
   
-  ### Użycie
   
-  #### Przykład 1 orElseGet()
+  
+  #### orElseGet()
   Spodziewam się listy, ale w przypadku nulla oczekuję zwrócenia nowej instancji listy
   
   ```java
   List<String> listOpt = getList().orElseGet(() -> new ArrayList<>());
   ```
-  
+  ### Użycie
   #### Przykład 2 Usunięcie potrzeby sprawdzania warunku != null
   
   Bez optionali należałoby sprawdzić, czy każde wywołanie metody nie zwraca null
@@ -117,8 +118,43 @@ content: '''
   
   ### 3 Interface funkcyjny 
   Functional Interface
+  [Functional Interfaces In Java - GeeksforGeeks](https://www.geeksforgeeks.org/functional-interfaces-java/)
   
+  * posiada tylko jedną metodę abtrakcyjną
+  * przykłady: Runnable, ActionListener, Comparable
+  * adnotacje **@FunctionalInterface** zapewnia, że interface nie może mieć więcej niż jedną metodę abstrakcyjną. Użycie tej adnotacji nie jest obowiązkowe
   
+  #### Wyrażenie lambda jako implementacha intefejsu funkcyjnego
+  
+  ```java
+  // Java program to demonstrate lamda expressions to implement 
+  // a user defined functional interface. 
+  
+  @FunctionalInterface
+  interface Square 
+  { 
+  	int calculate(int x); 
+  } 
+  
+  class Test 
+  { 
+  	public static void main(String args[]) 
+  	{ 
+  		int a = 5; 
+  
+  		// lambda expression to define the calculate method 
+  		Square s = (int x)->x*x; 
+  
+  		// parameter passed and return type must be 
+  		// same as defined in the prototype 
+  		int ans = s.calculate(a); 
+  		System.out.println(ans); 
+  	} 
+  } 
+  
+  ```
+  
+  #### Predicate
   
 '''
 linesHighlighted: []

@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:30:48.636Z"
-updatedAt: "2019-07-14T12:22:34.893Z"
+updatedAt: "2019-08-11T08:11:24.379Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring szkolenie"
@@ -12,6 +12,7 @@ content: '''
   - CORE
   
   - xml configurarion
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <beans xmlns="http://www.springframework.org/schema/beans"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -33,8 +34,9 @@ content: '''
           <constructor-arg name="accountService" ref="accountService"/>
           <constructor-arg name="operationService" ref="operationService"/>
       </bean>
-  
   	- przez setter
+  ```
+  
    
   - użycie depends on
   
@@ -71,29 +73,29 @@ content: '''
   - Cykl życia beanów
   
   
-  
-  - Adnotacje
-  service
-  component
-  bean
-  autowired
-  inject
-  depends on
-  postconstruct
-  predestroy
+  ## Adnotacje
+  * service
+  * component
+  * bean
+  * autowired
+  * inject
+  * depends on
+  * postconstruct
+  * predestroy
   
   Autowired bez setterów - antywzorzec
   
-  ASPECT ORIENTED PROGRAMING
-  	JointPoint: punkt wywowania akcji aspektu np. metoda, której wywołanie chcemy zalogować
-  	pointcut - wyrażenie reguralne pasujący do miejsca w kodzie, w którym zostanie wywołany aspekt np. metoda wyjątku lub metoda jakiejś klasy
-  	advice - akcja wykonywana przez aspekt
-  	before - wywołanie aspektu przed wywołanie metody 
-  	after-returning
+  ### ASPECT ORIENTED PROGRAMING
+  **JointPoint**: punkt wywowania akcji aspektu np. metoda, której wywołanie chcemy zalogować
+  **pointcut** - wyrażenie reguralne pasujący do miejsca w kodzie, w którym zostanie wywołany aspekt np. metoda wyjątku lub metoda jakiejś klasy
+  **advice** - akcja wykonywana przez aspekt
+  **before** - wywołanie aspektu przed wywołanie metody 
+  **after**-returning
   
   Wszystkie aspekty muszą być zadeklarowane jako bean
   
   - przykładowa konfiguracja
+  ```xml
   	    <!--zawiera logikę wywoływaną przy pomocy aspektu-->
       <bean id="profiler" class="pl.training.bank.common.profiler.Profiler"/>
       <bean id="modelValidator" class="pl.training.bank.common.validator.ModelValidator">
@@ -114,7 +116,7 @@ content: '''
       </aop:config>
   
   
-  
+  ```
   
   
   # Dzień 2
@@ -130,7 +132,7 @@ content: '''
   
   - HIBERNATE
   	- session
-  		- czas życia sescji jest powiązany z transakcją
+  		- czas życia sesji jest powiązany z transakcją
   	- sessionFaktory
   		- konfiguruje połączenie z bazą danych
   
@@ -140,26 +142,6 @@ content: '''
   
   dodawać nowych użytkowników
   przypisywać użytkowników do kont ( i odpinać)
-  
-  
-  (barki)		wznosy sztangielek ponad głowę 
-  (klata)		ROZPIĘTKI W SIADZIE NA MASZYNIE 
-  (plecy)		wyciąg górny 
-  (nogi)		przysiady 
-  (brzuch)	spięcia brzucha 
-  
-  (barki)		wznosy sztangielek bokiem 
-  (klata)		pompki 
-  (plecy)		wyciąg boczny 
-  (nogi)		PROSTOWNIE NÓG na maszynie
-  (brzuch)	wznosy nóg
-  
-  (barki)		wznosy sztangielek leżąc (aktony tylne) 
-  (klata)		pompki
-  (plecy)		wyciąg boczny
-  (nogi)		przysiady ze sztangą
-  (brzuch)	spięcia skośne
-  
   
   
   # Dzień 3
@@ -181,37 +163,17 @@ content: '''
   konfigurację bazy  (port, hasło) pobiera z folderu test/resources
   
   ## MVC I REST
-  	- plik.http  - można odpalać zapytania z pliku
+  - plik.http  - można odpalać zapytania z pliku
   
   
-  	- globalne przechwytywanie wyjątków
+  - globalne przechwytywanie wyjątków
   
-  	- globalne przychwytywanie wyjątków
+  - globalne przychwytywanie wyjątków
   	@ControllerAdvice
   	public Class GlobalExceptionHndler()
   
   You dont know JS - seria książek o JS. from Zero to Hero
   
-  
-  
-  rest
-  testy
-  baza danych
-  
-  sklep internetowy
-  
-  koszyk
-  towar
-  portfel
-  
-  
-  $ git config --global user.name "Mona Lisa"
-  git config [--global] user.email "mateusz.zdanowicz66@gmai.com"
-  
-  git config user.name "Mateusz Zdanowicz"
-  
-  
-  ssh-keygen -t rsa -C "mateusz.zdanowicz66@gmai.com" -b 4096
 '''
 linesHighlighted: []
 isStarred: false

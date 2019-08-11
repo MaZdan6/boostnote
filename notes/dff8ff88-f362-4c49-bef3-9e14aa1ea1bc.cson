@@ -1,0 +1,45 @@
+createdAt: "2019-08-11T12:36:26.145Z"
+updatedAt: "2019-08-11T13:17:20.505Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Rules of coding"
+tags: []
+content: '''
+  # Rules of coding
+  
+  ## NASA The Power of Ten – Rules for Developing Safety Critical Code
+  
+  * [How To Code Like The Top Programmers At NASA — 10 Critical Rules](https://fossbytes.com/nasa-coding-programming-rules-critical/)
+  * [The Power of Ten – Rules for Developing Safety Critical Code](http://pixelscommander.com/wp-content/uploads/2014/12/P10.pdf)
+  
+  ### 4
+  No function should be longer than what can be printed on a single sheet of paper in a standard reference format with one line per statement and one line per declaration. Typically, this means no more than about 60 lines of code per function.
+   
+   **Rationale**: Each function should be a logical unit in the code that is understandable and verifiable as a unit. It is much harder to understand a logical unit that spans multiple screens on a computer display or multiple pages when printed. Excessively long functions are often a sign of poorly structured code. 
+   
+  ### 6
+  Data objects must be declared at the smallest possible level of scope.
+  
+  **Rationale**: This rule supports a basic principle of data-hiding. Clearly if an object is not in scope, its value cannot be referenced or corrupted. Similarly, if an erroneous value of an object has to be diagnosed, the fewer the number of statements where the value could have been assigned; the easier it is to diagnose the problem. The rule discourages the re-use of variables for multiple, incompatible purposes, which can complicate fault diagnosis. 
+  
+  ### 7
+  The return value of non-void functions must be checked by each calling function, and the validity of parameters must be checked inside each function.
+   
+  ### 10
+  All code must be compiled, from the first day of development, with all compiler warnings enabled at the compiler’s most pedantic setting. All code must compile with these setting without any warnings. All code must be checked daily with at least one, but preferably more than one, state-of-the-art static source code analyzer and should pass the analyses with zero warnings. 
+  
+  *The rules act like the seatbelt in your car: initially they are perhaps a little uncomfortable, but after a while their use becomes second-nature and not using them becomes unimaginable.*
+  
+  
+  ## 15 Rules for Writing Quality Code
+  [15 Rules for Writing Quality Code \\| | InformIT](http://www.informit.com/articles/article.aspx?p=2223710)
+  
+  
+  
+  
+  ## Google Java Style Guide
+  [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html#s1-introduction)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
