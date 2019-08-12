@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-06T13:39:32.606Z"
+updatedAt: "2019-08-09T12:22:19.663Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -122,6 +122,9 @@ content: '''
   ```
   git shortlog -s -n | wc -l
   ```
+  
+  # cherry pick
+  
 '''
 tags: []
 isStarred: false

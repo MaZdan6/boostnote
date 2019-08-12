@@ -1,5 +1,5 @@
 createdAt: "2019-08-06T13:41:40.893Z"
-updatedAt: "2019-08-06T14:24:45.000Z"
+updatedAt: "2019-08-09T12:21:59.988Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java 8"
@@ -8,7 +8,7 @@ content: '''
   # Java 8
   
   ## 1 Optional< T > 
-  ### 1.1 Tworzenie
+  ### 1 Tworzenie
   
   Zwrócenie Optional z niepustą wartością
   ```java
@@ -16,19 +16,22 @@ content: '''
   Optional<String> optional = Optional.of(str);
   ```
   
-  **ofNullable** Zwrócenie Optional z konkretną wartością lub pusty Optional jeśli parametr Optionala jest pusty
+  #### ofNullable
+  Zwrócenie Optional z konkretną wartością lub pusty Optional jeśli parametr Optionala jest pusty
   ```java
   Optional<String> optional = Optional.ofNullable(getString());
   ```
   
-  ### Użycie
-  
-  #### Przykład 1 orElseGet()
+  ### orElseGet()
   Spodziewam się listy, ale w przypadku nulla oczekuję zwrócenia nowej instancji listy
   
   ```java
   List<String> listOpt = getList().orElseGet(() -> new ArrayList<>());
   ```
+  
+  
+  ### 2 Użycie
+  
   
   #### Przykład 2 Usunięcie potrzeby sprawdzania warunku != null
   
