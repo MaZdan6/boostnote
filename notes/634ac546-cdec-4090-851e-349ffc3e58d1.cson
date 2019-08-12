@@ -1,0 +1,17 @@
+createdAt: "2019-08-11T10:23:10.011Z"
+updatedAt: "2019-08-11T10:25:27.911Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Functional Programming in Java"
+tags: []
+content: '''
+  ## Functional Programming in Java
+  * [Can programming be liberated from the von Neumann style?](https://medium.com/luteceo-software-chemistry/can-programming-be-liberated-from-the-von-neumann-style-932ba107402b)
+  * [Java 101: Functional programming for Java developers, Part 1 \\| JavaWorld](https://www.javaworld.com/article/3314640/java-101-functional-programming-for-java-developers-part-1.html)
+  
+  ## Functional programming
+  is a programming style in which computations are codified as functional programming functions. These are mathematical function-like constructs (e.g., lambda functions) that are evaluated in expression contexts.
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

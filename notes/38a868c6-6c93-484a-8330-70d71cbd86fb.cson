@@ -1,0 +1,79 @@
+createdAt: "2019-08-10T21:37:47.375Z"
+updatedAt: "2019-08-11T08:00:40.085Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Java 9"
+tags: []
+content: '''
+  # Java 9
+  biblio:
+  * [Java 9 New Features \\| Baeldung](https://www.baeldung.com/new-java-9)
+  * [Java 9 Features with Examples - JournalDev](https://www.journaldev.com/13121/java-9-features-with-examples)
+  
+  ## 1 Optional To Stream
+  **java.util.Optional.stream()** gives us an easy way to you use the power of Streams on Optional elements
+  
+  ```java
+  List<String> filteredList = listOfOptionals.stream()
+    .flatMap(Optional::stream)
+    .collect(Collectors.toList());
+  ```
+  
+  ## 2 Immutable Set
+  ```java
+  Set<String> strKeySet = Set.of("key1", "key2", "key3");
+  ```
+  **java.util.Set.of()** – creates an immutable set of a given elements
+  
+  The Set returned by this method is JVM internal class: **java.util.ImmutableCollections.SetN**, which extends **public java.util.AbstractSet**. It is immutable – if we try to add or remove elements, an **UnsupportedOperationException** will be thrown.
+  
+  ## 3 Diamond Operator Extension
+  Now we can use diamond operator in conjunction with anonymous inner classes
+  
+  ```java
+  FooClass<Integer> fc = new FooClass<>(1) { // anonymous inner class
+  };
+    
+  FooClass<? extends Integer> fc0 = new FooClass<>(1) { 
+      // anonymous inner class
+  };
+    
+  FooClass<?> fc1 = new FooClass<>(1) { // anonymous inner class
+  };
+  ```
+  
+  
+  ## 4 Interface Private Method
+  Interfaces in the upcoming JVM version can have private methods, which can be used to split lengthy default methods
+  
+  ```java
+  interface InterfaceWithPrivateMethods {
+       
+      private static String staticPrivate() {
+          return "static private";
+      }
+       
+      private String instancePrivate() {
+          return "instance private";
+      }
+       
+      default void check() {
+          String result = staticPrivate();
+          InterfaceWithPrivateMethods pvt = new InterfaceWithPrivateMethods() {
+              // anonymous class
+          };
+          result = pvt.instancePrivate();
+      }
+  }}
+  ```
+  
+  # 5 JShell
+  
+  start: jshell
+  start verbose: jshell -v
+  stop: /exit
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
