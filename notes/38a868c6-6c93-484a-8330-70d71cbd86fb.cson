@@ -1,5 +1,5 @@
 createdAt: "2019-08-10T21:37:47.375Z"
-updatedAt: "2019-08-11T08:00:40.085Z"
+updatedAt: "2019-08-12T21:11:11.008Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java 9"
@@ -44,7 +44,7 @@ content: '''
   
   
   ## 4 Interface Private Method
-  Interfaces in the upcoming JVM version can have private methods, which can be used to split lengthy default methods
+  Interfaces can have private methods, which can be used to split lengthy default methods
   
   ```java
   interface InterfaceWithPrivateMethods {
