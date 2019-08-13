@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-09T12:22:19.663Z"
+updatedAt: "2019-08-13T08:32:44.721Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -8,27 +8,26 @@ content: '''
   ## Export istniejącego kodu z repo lokalnego do zdalnego 
   
   1. commit : 
-  ```
+  ```bash
   git commit -m "Opis commita"
   ```
   
   2. dodanie adresu repozytorium zdalnego :
-  ```
+  ```bash
   git remote add origin adres 
   ```
   
   3. przesyłanie gałęzi z repozytorium lokalnego do repozytorium zdalnego 
-  ```
+  ```bash
   git push [nazwa repozytorium zdalnego] [nazwa gałęzi zdalnej] 
   ```
   
   ## Łączenie dwóch commitów 
-  
-   
-  
-  $ git rebase -i [id ostatniego commita]   
+  ```bash
+  git rebase -i [id ostatniego commita]   
   squash [id przed ostatniego commita]  [komentarz] 
   
+  ```
    
   
   ## Dodawanie lokalnego repozytorium do zdalnego 
@@ -48,12 +47,12 @@ content: '''
    
   3. Zweryfikuj nowe zdalne repo 
   
-  ```
+  ```bash
   git remote -v
   ```
   
   4. Wyślij  gałąź główną do zdalnego repozytorium 
-  ```
+  ```bash
   git push origin master 
   ```
    
@@ -96,12 +95,12 @@ content: '''
   
   ### git log
   **liczba rewizji**
-  ```
+  ```bash
   git log --pretty=oneline | wc -l :
   ```
   
   **Przeglądanie zmian, sprawdzanie zmian wprowadzonych w repo.**
-  ```
+  ```bash
   git log
   ```
   
@@ -110,21 +109,29 @@ content: '''
   [Q]- **wyłączanie**
   
   **wydrukowanie info o trzech ostatnich rewizjach**
-  ```
+  ```bash
   git log -3
   ```
   
   **sprawdzenie  uczestników projektu**
-  ```
+  ```bash
   git shortlog -s -n
   ```
   **sprawdzenie liczby uczestników projektu**
-  ```
+  ```bash
   git shortlog -s -n | wc -l
   ```
   
-  # cherry pick
+  ## cherry pick
+  ```bash
+  git cherry-pick -x <numer_rewizji> -m <numer_gałęzi_rodzica>
   
+  przykład:
+  git cherry-pick -x ec0270dd0523ceae80a44e66d9b2f5620290641e -m 2
+  
+  ```
+  * -x - dodaje linię "(cherry picked from commit …​)" do komentarza commita 
+  * -m - podczas cherry-picka rewizji, która jest mergem dwóch gałęzi nalezy wybrać numer gałęzi-rodzica. Zazwyczaj mergowana jest gałąz feature do gałęzi develop. W takim przypadku należy wybrać gałąz feature.
 '''
 tags: []
 isStarred: false
