@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-13T08:32:44.721Z"
+updatedAt: "2019-08-15T19:13:30.614Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -132,6 +132,10 @@ content: '''
   ```
   * -x - dodaje linię "(cherry picked from commit …​)" do komentarza commita 
   * -m - podczas cherry-picka rewizji, która jest mergem dwóch gałęzi nalezy wybrać numer gałęzi-rodzica. Zazwyczaj mergowana jest gałąz feature do gałęzi develop. W takim przypadku należy wybrać gałąz feature.
+  
+  
+  ## fetch
+  
 '''
 tags: []
 isStarred: false
