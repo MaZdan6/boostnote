@@ -1,0 +1,62 @@
+createdAt: "2019-08-19T20:00:47.211Z"
+updatedAt: "2019-08-19T21:00:46.301Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Spring Helion"
+tags: []
+content: '''
+  # Spring Helion
+  
+  ## 3 konfiguracja komponentów
+  ### Dziedziczenie abstrakcyjnej difinicji komponentu
+  
+  #### 3.1 **Abstrakcyjna definicja komponentu** nie zawiera żadnej klasy w atrybucie class=""
+  ```xml
+  <bean id="daoTemplate" abstract="true">
+  		<property name="databaseOperations" ref="databaseOperations" />
+  	</bean>
+  ```
+  
+  Klasa dziedziczy referencje zawarte w definicji i umieszcza je w swojej w swoich atrybutach
+  
+  ```xml
+  <bean id="personalBankingDao" parent="daoTemplate"
+  		class="sample.spring.chapter03.bankapp.dao.PersonalBankingDaoImpl" />
+  ```
+  
+  * Bean **personalBankingDao** dziedziczy referencję **databaseOperations** znajdującą się w definicji **daoTemplate**
+  * **databaseOperations** jest polem klasy **PersonalBankingDaoImpl**
+  
+  przykład: ch03-bankapp-inheritance
+  
+  
+  
+  #### 3.2 **NieAbstrakcyjna definicja komponentu**  zawiera żadnej klasy w atrybucie class="referencjaDoKlasy"
+  
+  ```xml
+  <bean id="serviceTemplate"
+  		class="sample.spring.chapter03.bankapp.base.ServiceTemplate">
+  		<property name="jmsMessageSender" ref="jmsMessageSender" />
+  		<property name="emailMessageSender" ref="emailMessageSender" />
+  		<property name="webServiceInvoker" ref="webServiceInvoker" />
+  	</bean>
+  ```
+  Definicja **serviceTemplate** zawiera referencje do klas
+  jmsMessageSender, emailMessageSender i webServiceInvoker
+  
+  ```xml
+  <bean id="fixedDepositService"
+  		class="sample.spring.chapter03.bankapp.service.FixedDepositServiceImpl"
+  		parent="serviceTemplate">
+  		<property name="fixedDepositDao" ref="fixedDepositDao" />
+  	</bean>
+  ```
+  * Bean **fixedDepositService** dziedziczy referencje po **serviceTemplate**
+  
+  * klasa **FixedDepositServiceImpl** dziedziczy po klasie **ServiceTemplate**
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
