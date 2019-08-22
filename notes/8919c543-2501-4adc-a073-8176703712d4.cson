@@ -1,0 +1,71 @@
+createdAt: "2019-08-16T12:38:35.274Z"
+updatedAt: "2019-08-20T09:22:19.572Z"
+type: "MARKDOWN_NOTE"
+folder: "aca1f8e65d06e28b00e0"
+title: "T-SQL"
+tags: []
+content: '''
+  # T-SQL
+  
+  
+  ## sp_executesql
+  Skrypt tworzy sparametryzowane zapytanie i zapisuje jego wynik  w zmiennej
+  
+  ```sql
+  --deklaracja zmiennych
+  declare @SQLString nvarchar(500)
+         ,@ParmDefinition nvarchar(500)
+         ,@column_name varchar(255)
+         ,@nominal_sum_out int
+         ,@id_jednostki int
+  
+  --ustawienie parametrów wejściowych
+  set @column_name= 'nominal_500'
+  set @id_jednostki=666
+  
+  --deklaracja zmiennych zapytania
+  SET @ParmDefinition = N'@nominal_sum_out int OUTPUT
+                                         ,@id_jednostki int';
+  
+  --zapytania
+  set @SQLString= N'select @nominal_sum_out = sum('+@column_name+') 
+                                   from _rejestracja_pelna_nominaly 
+                                   where id_jednostki=@id_jednostki'
+  
+  --wywołanie zapytania
+  EXECUTE sp_executesql @SQLString, @ParmDefinition
+               ,@nominal_sum_out OUTPUT
+               ,@id_jednostki
+               ,@typ_rejestracji
+               ,@data_ksiegowa
+  
+  --wypisanie zmiennej
+  select @nominal_sum_out
+  ```
+  
+  ## cursor
+  ```sql
+  DECLARE kursor CURSOR FOR
+    SELECT tekst,wartosc 
+  	FROM dbo.table WHERE grupa = 'kryterium'
+    OPEN kursor
+    while 1=1
+      BEGIN 
+  	  FETCH NEXT FROM kursor_nominaly INTO @tekst,@wartosc
+        if @@fetch_status <> 0 break
+  						
+          select @tekst,@wartosc
+  	END 
+  CLOSE kursor
+  DEALLOCATE kursor
+  ```
+  
+  ### if exist
+  
+  ### wartość zmiennej z zapytania
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
