@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:30:48.636Z"
-updatedAt: "2019-08-11T08:11:24.379Z"
+updatedAt: "2019-08-17T22:08:36.814Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring szkolenie"
@@ -38,31 +38,31 @@ content: '''
   ```
   
    
-  - użycie depends on
+  ## użycie depends on
   
   - wstrzykiwanie automatyczne (autowiązanie)
   	autwire="byName"
-  
-  - dziedziczenie konfiguracji na poziomie XML
+  ## dziedziczenie konfiguracji na poziomie XML
   	<import resource="disposition.xml"/>
   
-  - Zasięg beanów (scope)
+  ## Zasięg beanów (scope)
   	scope=""
-  	- singleton
-  		- jedna instancja na basie jednej definicji
-  		- domyślny zasięg
-  	- prototype
+    
+  - singleton
+  	- jedna instancja na basie jednej definicji
+  	- domyślny zasięg
+  - prototype
   		- za każdym razem tworzona jest nowa instancja
-  	- request
-  	- session
-  	- global session
+  - request
+  - session
+  - global session
   
-  - Inicjalizacja poprzez zdefinioiwanie metody w XML
+  ## Inicjalizacja poprzez zdefinioiwanie metody w XML
   	- init-method="init"
   		- w <bean>
   		- w <beans>
   
-  - Finalizacja poprzez zdefiniowanie metody w XML
+  ## Finalizacja poprzez zdefiniowanie metody w XML
   	- destroy-method="destroy"
   		- w <bean>
   		- default-destroy-method="destroy" w <beans>
@@ -165,8 +165,6 @@ content: '''
   ## MVC I REST
   - plik.http  - można odpalać zapytania z pliku
   
-  
-  - globalne przechwytywanie wyjątków
   
   - globalne przychwytywanie wyjątków
   	@ControllerAdvice
