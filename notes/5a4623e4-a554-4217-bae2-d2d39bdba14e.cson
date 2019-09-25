@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-08-27T20:13:02.910Z"
+updatedAt: "2019-09-25T21:59:10.818Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -8,7 +8,7 @@ content: '''
   # Spring Helion
   
   ## 3 konfiguracja komponentów
-  ### Dziedziczenie abstrakcyjnej difinicji komponentu
+  ### Dziedziczenie abstrakcyjnej definicji komponentu
   
   #### 3.1 **Abstrakcyjna definicja komponentu** 
   * nie zawiera żadnej klasy w atrybucie class=""
@@ -18,7 +18,9 @@ content: '''
   	</bean>
   ```
   
-  Klasa dziedziczy referencje zawarte w definicji i umieszcza je w swojej w swoich atrybutach
+  * Klasa dziedziczy referencje zawarte w definicji i umieszcza je w swoich atrybutach
+  
+  
   
   ```xml
   <bean id="personalBankingDao" parent="daoTemplate"
@@ -57,7 +59,69 @@ content: '''
   
   * klasa **FixedDepositServiceImpl** dziedziczy po klasie **ServiceTemplate**
   
+  #### 3.3 Dopasowanie argumentu konstruktora 
   
+  Składnia
+  ```xml
+  <constructor-arg name="nazwa_pola" ref="nazwa_beana_wstrzykiwanego do konstruktora" />
+  ```
+  
+  Przykład:
+  ```java
+  public class UserRequestControllerImpl implements UserRequestController {
+  	private ServiceTemplate serviceTemplate;
+  	
+  	@ConstructorProperties({"serviceTemplate"})
+  	public UserRequestControllerImpl(ServiceTemplate serviceTemplate) {
+  		this.serviceTemplate = serviceTemplate;
+  	}
+  	
+  	@Override
+  	public void submitRequest(Request request) {
+  		// Wykonanie operacji z użyciem ServiceTemplate.
+  		serviceTemplate.getJmsMessageSender(); // Na przykład wysłanie komunikatu JMS.
+  	}
+  }
+  ```
+  
+  ```xml
+  	<bean id="userRequestController"
+  		class="sample.spring.chapter03.bankapp.controller.UserRequestControllerImpl">
+  		<constructor-arg name="serviceTemplate" ref="serviceTemplate" />
+  	</bean>
+  ```
+  
+  atrybut value=""
+  ```xml
+  <constructor-arg name="nazwa_pola" value="wartość typu prostego" />
+  ```
+  Przykład 2:
+  ```xml
+  <bean id="transferFundsService"
+  		class="sample.spring.chapter03.bankapp.service.TransferFundsServiceImpl">
+  		<constructor-arg name="webServiceUrl" value="http://someUrl.com/xyz" />
+  		<constructor-arg name="active" value="true" />
+  		<constructor-arg name="numberOfRetrialAttempts" value="5" />
+  		<constructor-arg name="timeout" value="200" />
+  	</bean>
+  ```
+  * jeżeli wykorzystujemy atrybut name, to w konstruktorze klasy powinniśmy zastosować adnotację @ConstructorProperties({"nazwa_argumentu konstruktora"})
+  
+  np:
+  ```java
+  	@ConstructorProperties({"webServiceUrl","active","timeout","numberOfRetrialAttempts"})
+  	public TransferFundsServiceImpl(String webServiceUrl, boolean active, long timeout,
+  			int numberOfRetrialAttempts) {
+  		this.webServiceUrl = webServiceUrl;
+  		this.active = active;
+  		this.timeout = timeout;
+  		this.numberOfRetrialAttempts = numberOfRetrialAttempts;
+  
+  		logger.info("Adres URL usługi sieciowej: " + webServiceUrl + ", aktywna : " + active + ", limit czasu : "
+  				+ timeout + ", numberOfRetrialAttempts "
+  				+ numberOfRetrialAttempts);
+  	}
+  ```
 '''
 linesHighlighted: []
 isStarred: false

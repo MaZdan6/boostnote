@@ -1,5 +1,5 @@
 createdAt: "2019-08-10T22:48:23.299Z"
-updatedAt: "2019-08-11T10:10:23.385Z"
+updatedAt: "2019-09-01T15:56:47.553Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java 10"
@@ -8,7 +8,37 @@ content: '''
   # Java 10
   * [What's New in Java 10](https://stackify.com/whats-new-in-java-10/)
   
+  ## Local variable type inference: var
+  Dziedziczenie typu dla zmiennej lokalnej
   
+  ```java
+  //zamiast
+  HashMap<String, String> ughThisIsSoVerbose = new HashMap<>();
+  
+  //można napisać króce
+  var succinct = new HashMap<String, String>();
+  ```
+  
+  * **var** nie jest zarezerwowanym słowem. Można nazywać zmienne i klasy używając tego słowa.
+  
+  ## unmodifiable view
+  
+  ```java
+  
+  var vegetables = new ArrayList<>(Lists.of("Brocolli", "Celery", "Carrot"));
+  var unmodifiable = Collections.unmodifiableList(vegetables);
+  vegetables.set(0, "Radish");
+  var v = unmodifiable.get(0);
+  ```
+  Zmienna **v** ma wartość **Radish**.
+  
+  An **unmodifiable view collection** is a collection that is unmodifiable and that is also a view onto a backing collection.
+  
+  Examples of unmodifiable view collections are those returned by the **Collections.unmodifiableCollection**, **Collections.unmodifiableList**, and related methods.
+  
+    Note that changes to the backing collection might still be possible, and if they occur, they are visible through the unmodifiable view.
+    
+    
 '''
 linesHighlighted: []
 isStarred: false
