@@ -1,0 +1,34 @@
+createdAt: "2019-10-06T12:50:42.845Z"
+updatedAt: "2019-10-06T13:34:03.996Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "Intellij shortcuts"
+content: '''
+  # Intellij shortcuts
+  
+  ## Wyszukiwanie
+  wyszukaj wszędzie **SHIFT SHIFT**
+  wyszukaj klasę **CTRL N**
+  wyszukaj plik **CTRL SHIFT N**
+  wszukaj akcję **CTRL SHIFT  A**
+  
+  ostatnio otwarte pliki **CTRL E**
+  panel nawigacji **ALT HOME**
+  
+  ## Edycja
+  pokaż możliwe akcje do edycji w kodzie **CTRL ENTER**
+  podstawowe kompletowanie kodu **CTRL SPACJA**
+  przejdź do okna edytowania **ESCAPE**
+  
+  ## Nawigowanie
+  idź do implementacji **CTRL ALT B**
+  pokaż wykorzystanie klasy w kodzie **ALT SHIFT 7**
+  podświetl użycie kodu w pliku **CTRL SHIFT F7**
+  
+  uruchomienie
+  debug
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false
