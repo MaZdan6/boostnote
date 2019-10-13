@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-09-25T21:59:10.818Z"
+updatedAt: "2019-10-13T21:52:46.424Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -122,6 +122,27 @@ content: '''
   				+ numberOfRetrialAttempts);
   	}
   ```
+  
+  # 4 Wstrzykiwanie zależności
+  
+  ## 4.2 Komponent wewnętrzny
+  
+  ```xml
+  	<bean id="service"
+  		class="sample.spring.chapter04.bankapp.service.FixedDepositServiceImpl">
+  		<property name="fixedDepositDao">
+  			<bean class="sample.spring.chapter04.bankapp.dao.FixedDepositDaoImpl" />
+  		</property>
+  		<constructor-arg index="0"
+  			value="META-INF/config/appConfig.properties" />
+  	</bean>
+  ```
+  **fixedDepositDao** jest komponentem wewnętrznym **service**
+  
+  ## 4.3 Wyraźna kontrola kolejności inicjalizacji procesu za pomocą atrybutu depends-on
+  
+  
+  
 '''
 linesHighlighted: []
 isStarred: false
