@@ -1,0 +1,32 @@
+createdAt: "2019-08-29T08:47:13.752Z"
+updatedAt: "2019-08-29T10:03:51.563Z"
+type: "MARKDOWN_NOTE"
+folder: "326f242ccc19a4907a8b"
+title: "Wyrażenia Reguralne Regural Expressions"
+tags: []
+content: '''
+  # Wyrażenia Reguralne Regural Expressions
+  
+  ## podstawy
+  [Język wyrażeń regularnych — podręczny wykaz \\| Microsoft Docs](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference)
+  
+  
+  * tylko cyfry 
+   ```bash
+   ^[0-9]+$ 
+   ```
+   
+  * **^** 	Domyślnie dopasowanie musi rozpoczynać się od ciągu; w tryb wielowierszowy musi zaczynać się od początku wiersza. 	
+   Wyrażenie **^\\d{3}** wykrywa	**"901"** w **"901-333-"**.
+   
+   * ** $ ** 	Domyślnie dopasowanie musi wystąpić na końcu ciągu lub przed \\n na końcu ciągu; w tryb wielowierszowy musi wystąpić przed końcem wiersza lub przed \\n na końcu wiersza.
+  Wyrażenie **-\\d{3}$** wykrywa	**"-333"** w **"-901-333"**.
+  
+  ## Kwantyfikatory
+  
+  * **+** 	Dopasowuje poprzedni element co najmniej raz. 	
+    "be+" 	"bee" w "been", "be" w "bent"
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

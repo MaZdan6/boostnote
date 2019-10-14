@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-20T13:48:02.020Z"
+updatedAt: "2019-08-29T08:32:57.875Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -135,7 +135,7 @@ content: '''
   
   ## usunięcie brancha ze zdalnego repo
   ```bash
-    git push --delete origin <nazwa_brancha>
+    git branch push --delete origin <nazwa_brancha>
   ```
   
   

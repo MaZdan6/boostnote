@@ -1,5 +1,5 @@
 createdAt: "2019-10-06T12:50:42.845Z"
-updatedAt: "2019-10-06T13:34:03.996Z"
+updatedAt: "2019-10-08T09:26:56.294Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Intellij shortcuts"
@@ -7,6 +7,7 @@ content: '''
   # Intellij shortcuts
   
   ## Wyszukiwanie
+  wyszukaj tekstu w projektcie **ctrl shift f**
   wyszukaj wszędzie **SHIFT SHIFT**
   wyszukaj klasę **CTRL N**
   wyszukaj plik **CTRL SHIFT N**
@@ -19,16 +20,37 @@ content: '''
   pokaż możliwe akcje do edycji w kodzie **CTRL ENTER**
   podstawowe kompletowanie kodu **CTRL SPACJA**
   przejdź do okna edytowania **ESCAPE**
+  wyniesienie kodu do stałej **CTRL ALT C**
+  wyniesienie do metody **CTRL ALT M**
+  zaznaczanie tekstu w górę  **CTRL W**
+  generowanie podstawowych metod (getter, setter) **ALT INSERT**
+  optymalizacja importów **CTRL ALT O** 
+  formatowanie kodu **alt ctrl L**
+  komentowanie kodu **ctrl //**
+  przesuwanie struktury kody w górę, dół **ctrl shift strzałka**
+  uppercase/lowercase  **ctrl shift u**
+  dokumentacja **ctrl Q**
+  zamykanie okna **ctrl F4**
+  
+  ## Refactor
+  rename **ctrl F6**  
   
   ## Nawigowanie
   idź do implementacji **CTRL ALT B**
-  pokaż wykorzystanie klasy w kodzie **ALT SHIFT 7**
+  pokaż wykorzystanie klasy w kodzie **ALT F7**
   podświetl użycie kodu w pliku **CTRL SHIFT F7**
+  idź do linii **ctrl G**
   
-  uruchomienie
-  debug
+  uruchomienie **SHIFT F10**
+  debug **SHIFT F9**
   
+  ## Debugger
+  step over **F8**
+  step into **F7**
+  kolejny breakpoint **F9**
+  ewaluacja **ALT F8**  
 '''
 tags: []
-isStarred: false
+isStarred: true
 isTrashed: false
+linesHighlighted: []

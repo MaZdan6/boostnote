@@ -1,0 +1,27 @@
+createdAt: "2019-10-08T06:37:00.800Z"
+updatedAt: "2019-10-08T06:53:31.517Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Selenium"
+tags: []
+content: '''
+  #Selenium
+  
+  ## Działania na js popup (alert, confirmation alert, prompt alert)
+  ```java
+  //1) void dismiss() // To click on the 'Cancel' button of the alert.
+  driver.switchTo().alert().dismiss();
+  
+  //2) void accept() // To click on the 'OK' button of the alert.
+  driver.switchTo().alert().accept();
+  
+  //3) String getText() // To capture the alert message.
+  driver.switchTo().alert().getText();			
+  
+  //4) void sendKeys(String stringToSend) // To send some data to alert box.
+  driver.switchTo().alert().sendKeys("Text");
+  ```
+'''
+linesHighlighted: []
+isStarred: true
+isTrashed: false
