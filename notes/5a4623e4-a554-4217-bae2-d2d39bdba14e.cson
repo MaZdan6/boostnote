@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-13T21:52:46.424Z"
+updatedAt: "2019-10-15T21:42:13.534Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -141,9 +141,27 @@ content: '''
   
   ## 4.3 Wyraźna kontrola kolejności inicjalizacji procesu za pomocą atrybutu depends-on
   
+  ## 4.4 Zależności w postaci komponentów o zasięgu singleton i prototypu
+  ## 4.5 Pobieranie w komponencie singleto nowego egzemplarza komponentu o zasięgu prototypu
+  ## 4.6 Automatyczne wiązanie zależności
+  
+  ```xml
+  	<bean id="customerRegistrationService"
+  		class="sample.spring.chapter04.bankapp.service.CustomerRegistrationServiceImpl"
+  		scope="prototype" 
+          
+          autowire="byType" />
+  ```
+  
+  ### Typy wiązania zależności
+  * **byType**-  wstrzykiwany jest bean odpowiedniej klasy
+  * **byName**- wstrzykiwany jest bean 
+  * **constructor**
+  * **no**
+  
   
   
 '''
 linesHighlighted: []
-isStarred: false
+isStarred: true
 isTrashed: false
