@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-29T08:32:57.875Z"
+updatedAt: "2019-10-15T21:50:55.940Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -138,6 +138,15 @@ content: '''
     git branch push --delete origin <nazwa_brancha>
   ```
   
+  ## Login i hasło
+  
+  
+  
+  ## globalne ustawienie
+  
+  git config --global user.name "your username"
+  
+  git config --global user.password "your password"
   
 '''
 tags: []
