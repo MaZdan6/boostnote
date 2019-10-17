@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-15T21:42:13.534Z"
+updatedAt: "2019-10-16T19:34:55.276Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -142,7 +142,7 @@ content: '''
   ## 4.3 Wyraźna kontrola kolejności inicjalizacji procesu za pomocą atrybutu depends-on
   
   ## 4.4 Zależności w postaci komponentów o zasięgu singleton i prototypu
-  ## 4.5 Pobieranie w komponencie singleto nowego egzemplarza komponentu o zasięgu prototypu
+  ## 4.5 Pobieranie w komponencie singleton nowego egzemplarza komponentu o zasięgu prototypu
   ## 4.6 Automatyczne wiązanie zależności
   
   ```xml
@@ -155,12 +155,20 @@ content: '''
   
   ### Typy wiązania zależności
   * **byType**-  wstrzykiwany jest bean odpowiedniej klasy
-  * **byName**- wstrzykiwany jest bean 
-  * **constructor**
-  * **no**
+  * **byName**- wstrzykiwany jest bean, którego id odpowiada nazwie parametru klasy
+  * **constructor** - wiąże beany odpowiadające typowi argumentu konstruktora
+  * **no** - wartość domyślan atrybutu **autowire**. Wyłącza automatyczne wiązanie zależności
   
+  ### Uniedostępnienie komponentu dla funkcji automatycznego wiązania
   
-  
+  ```xml
+  <bean id="accountStatementDao"
+  		class="sample.spring.chapter04.bankapp.dao.AccountStatementDaoImpl"
+  		autowire-candidate="false" />
+  ```
+  ### Ogranieczenia automatycznego wiązania
+  * nie można użyć do wstrzykiwania typów prostych (int, boolean, String)
+  * ukrywa ogólną strukturę aplikacji . Utrudnia poznanie sposobu działania  i konserwację . Nie zaleca się stosowania automatycznego wiązania w dużych aplikacjach. 
 '''
 linesHighlighted: []
 isStarred: true
