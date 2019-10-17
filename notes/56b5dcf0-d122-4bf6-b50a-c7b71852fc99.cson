@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-08-29T08:32:57.875Z"
+updatedAt: "2019-10-16T13:37:10.055Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -138,6 +138,13 @@ content: '''
     git branch push --delete origin <nazwa_brancha>
   ```
   
+  ## przywracanie gałęzi lokalnej do postaci gałęzi zdalnej
+  ```bash
+  git fetch origin
+  git reset --hard origin/develop
+  
+  develop jest nazwą gałęzi zdalnej
+  ```
   
 '''
 tags: []
