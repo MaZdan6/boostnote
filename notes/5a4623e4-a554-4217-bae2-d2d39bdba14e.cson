@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-17T21:58:13.176Z"
+updatedAt: "2019-10-20T21:37:25.972Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -195,6 +195,58 @@ content: '''
   #### destroy-method
   * **destroy-method="releaseDbConnection"**
   metoda wywoływana przed zamknięciem aplikacji
+  
+  
+  Można ustawić domyślne metody inicjalizacji i usuwanie dla wielu komponentów w tagu beans
+  ```xml
+  <beans 
+         default-init-method="nazwa_metody"
+         default-destroy-method="nazwa_metody" >
+    </beans>
+  ```
+  
+  #### @PostConstruct @PreDestroy
+  Powyższe odnotacje służą do oznaczenia metod wywoływanych podczas inicjalizacji/usuwania obiektu
+  
+  ```java
+  ublic class FixedDepositDaoImpl implements FixedDepositDao {
+  	private static Logger logger = Logger.getLogger(FixedDepositDaoImpl.class);
+  	private DatabaseConnection connection;
+  
+  	public FixedDepositDaoImpl() {
+  		logger.info("Wywołanie konstruktora klasy FixedDepositDaoImpl.");
+  	}
+  
+  	@PostConstruct
+  	public void initializeDbConnection() {
+  		logger.info("Wywołanie metody initializeDbConnection() klasy FixedDepositDaoImpl.");
+  		connection = DatabaseConnection.getInstance();
+  	}
+  
+  	
+  	public boolean createFixedDeposit(FixedDepositDetails fdd) {
+  		logger.info("Wywołanie metody createFixedDeposit() klasy FixedDepositDaoImpl.");
+  		// Zapis informacji o lokatach i zwrot wartości true.
+  		return true;
+  	}
+  	
+  	@PreDestroy
+  	public void releaseDbConnection() {
+  		logger.info("Wywołanie metody releaseDbConnection() klasy FixedDepositDaoImpl.");
+  		connection.releaseConnection();
+  	}
+  }
+  ```
+  
+  Aby adnotacje zostały przetworzone przez kontekst, należy w applicationContext.xml dodać inicjalizację bean:
+  
+  ```xml
+  	<bean
+  		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+  ```
+  
+  ### 5.3 Użycie interejsu BeanPostProcessor do pracy z nowo utworzonym egzemplarzem komponentu
+  
 '''
 linesHighlighted: []
 isStarred: true
