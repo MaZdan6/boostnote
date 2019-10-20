@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-16T19:34:55.276Z"
+updatedAt: "2019-10-17T21:58:13.176Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -157,7 +157,7 @@ content: '''
   * **byType**-  wstrzykiwany jest bean odpowiedniej klasy
   * **byName**- wstrzykiwany jest bean, którego id odpowiada nazwie parametru klasy
   * **constructor** - wiąże beany odpowiadające typowi argumentu konstruktora
-  * **no** - wartość domyślan atrybutu **autowire**. Wyłącza automatyczne wiązanie zależności
+  * **no** - wartość domyślna atrybutu **autowire**. Wyłącza automatyczne wiązanie zależności
   
   ### Uniedostępnienie komponentu dla funkcji automatycznego wiązania
   
@@ -169,6 +169,32 @@ content: '''
   ### Ogranieczenia automatycznego wiązania
   * nie można użyć do wstrzykiwania typów prostych (int, boolean, String)
   * ukrywa ogólną strukturę aplikacji . Utrudnia poznanie sposobu działania  i konserwację . Nie zaleca się stosowania automatycznego wiązania w dużych aplikacjach. 
+  
+  ## 5 Dostosowanie komponentów do ich definicji
+  ### 5.2 Dostosowanie logiki inicjalizacji i usuwania komponentu
+  
+  ```xml
+  <bean id="fixedDepositService"
+  		class="sample.spring.chapter05.bankapp.service.FixedDepositServiceImpl">
+  		<property name="myFixedDepositDao" ref="myFixedDepositDao" />
+  	</bean>
+  
+  	<bean id="myFixedDepositDao"
+  		class="sample.spring.chapter05.bankapp.dao.FixedDepositDaoImpl"
+  		
+          init-method="initializeDbConnection" 
+          destroy-method="releaseDbConnection" 
+      />
+  
+  ```
+  
+  #### init-method
+  * **init-method="initializeDbConnection"**
+  metoda wywoływana po utworzeniu obiektu, ale przed jego wstrzyknięciem
+  
+  #### destroy-method
+  * **destroy-method="releaseDbConnection"**
+  metoda wywoływana przed zamknięciem aplikacji
 '''
 linesHighlighted: []
 isStarred: true
