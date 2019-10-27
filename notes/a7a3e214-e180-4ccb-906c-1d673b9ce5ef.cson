@@ -1,5 +1,5 @@
 createdAt: "2019-08-12T21:18:56.384Z"
-updatedAt: "2019-08-12T21:42:00.393Z"
+updatedAt: "2019-10-27T15:52:12.056Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "gradle"
@@ -18,7 +18,7 @@ content: '''
   * name
   * version
   
-  ## Podstawy Gradnle DSL
+  ## Podstawy Gradle DSL
   
   ### Zadania
   definiują to co chcemy zrobić

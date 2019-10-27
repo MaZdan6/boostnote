@@ -1,0 +1,70 @@
+createdAt: "2019-10-27T13:41:19.282Z"
+updatedAt: "2019-10-27T22:12:55.697Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Micronaut framework"
+content: '''
+  # Micronaut framework
+  
+  Czym jest
+  
+  Charakterystyka
+  podstawoe cechy
+  
+  Różnicja między MC a Spring
+  
+  LiveCoding
+  zbudowanie rest api hello-world
+  
+  Porównanie do spring
+  testy obciążenia aplikacji spring i micronaut z tą samą funkcjonalnością
+  
+  Wady Micronaut
+  
+  Q&A
+  
+  ## Micronaut CLI
+  
+  tworzenie projektu: mn create-app example.micronaut.complete
+  
+  Domyślnie jest tworzony projekt gradle java
+  
+  ## Controller
+  ```java
+  @Controller("/hello")
+  public class HelloController {
+  
+      @Get("/{name}")
+      @Produces(MediaType.TEXT_PLAIN)
+      public String index(String name){
+          return "Hello "+name;
+      }
+  }
+  ```
+  wywołanie: http://localhost:8080/hello/Mateusz
+  
+  
+  ## Test
+  ```java
+  @MicronautTest
+  class HelloControllerTest {
+  
+      @Inject
+      @Client("/")
+      RxHttpClient client;
+  
+      @Test
+      void index() {
+  
+          HttpRequest<String> request = HttpRequest.GET("/hello");
+          String body = client.toBlocking().retrieve(request);
+  
+          assertNotNull(body);
+          //assertEquals("Hello World", body);
+      }
+  }
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

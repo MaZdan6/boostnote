@@ -1,5 +1,5 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-20T21:37:25.972Z"
+updatedAt: "2019-10-23T21:14:30.860Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring Helion"
@@ -246,6 +246,37 @@ content: '''
   ```
   
   ### 5.3 Użycie interejsu BeanPostProcessor do pracy z nowo utworzonym egzemplarzem komponentu
+  
+  ### 5.4 Modyfikacja definicji komponentu za pomocą BeanFactoryPostProcessor
+  #### Komponent PropertySourcesPlaceholderConfigurer
+  
+  Pobiera wartośći z określonych plików konfiguracyjnych i umożliwiaj umieszczenie  ich w beanach
+  
+  Plik konfiguracyjny webservice.properties
+  ```properties
+  webservice.url=some_url
+  ```
+  Definicja komponentu PropertySourcesPlaceholderConfigurer
+  ```xml
+  <bean
+  		class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+  		<property name="locations">
+  			<list>
+  				<value>classpath:database.properties</value>
+  				<value>classpath:webservice.properties</value>
+  			</list>
+  		</property>
+  		<property name="ignoreUnresolvablePlaceholders" value="false" />
+  	</bean>
+  ```
+  ignoreUnresolvablePlaceholders - nie zwraca błędu, jeśli jakaś wartość jest pusta lub jej nie ma
+  
+  Umieszczenie warości w bean
+  ```xml
+  	<bean id="webServiceConfiguration" class="sample.spring.chapter05.domain.WebServiceConfiguration">
+  		<property name="webServiceUrl" value="${webservice.url}" />
+  	</bean>
+  ```
   
 '''
 linesHighlighted: []

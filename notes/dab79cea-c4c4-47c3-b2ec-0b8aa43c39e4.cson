@@ -1,5 +1,5 @@
 createdAt: "2018-10-15T19:22:40.906Z"
-updatedAt: "2019-05-19T09:36:47.956Z"
+updatedAt: "2019-10-21T21:52:08.886Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Linux"
@@ -22,6 +22,8 @@ content: '''
   ### Instalacja JAVA
   - sudo apt-get install openjdk-1.11-jdk
   
+  ### zabijanie aplikacji zajmującej port
+  fuser -k 8080/tcp
   
   ## Operacje na paczkach i archiwach 
   
