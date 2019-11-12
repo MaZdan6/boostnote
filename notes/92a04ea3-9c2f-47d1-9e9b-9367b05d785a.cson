@@ -1,0 +1,82 @@
+createdAt: "2019-11-04T11:33:27.225Z"
+updatedAt: "2019-11-09T22:30:22.914Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Mikrousługi w javie"
+content: '''
+  # Mikrousługi w javie
+  
+  ## Domain driven development
+  ### I etap - projektowanie modelu dziedziny
+    * Model dziedziny stanowi abstrację, ogólny opis całej dziedziny
+    * współpraca projektantów aplikacji, developerów oraz expertów danej dziedziny
+    * zebranie informacji, podzielenie jej na odpowiednio niewielkie części
+    * logiczne uporządkowanie części i pogrupowanie ich w moduły
+    * 
+  ### II etap - projektowanie kodu
+  
+  ### Wszechobecne słownictwo
+  #### Architetkure wielowarstwa
+  Wartstwa przezentacji
+  Wartstwa aplikacji
+  Wartstwa dziedziny
+  Infrastruktura
+  
+  #### Artefacty związane z projetkowaniem sterowanym modelem dziedziny
+  
+  **Encje**
+  * Posiadają tożsamość- można odróżnic je między sobą (id)
+  * atrybuty nie definiują ich wartości
+  np. restauracja z przypisanym id, obywatel z numerem pesel
+  
+  **Obiekty wartości**
+  * zawierają jedynie atrybuty
+  * nie posiadają wartości
+  * łatwe w tworzeniu i usuwaniu
+  np. klient restauracji
+  
+  **Usługi**
+  * nie mają stanu
+  * metody usług nie są wykonują konkretne operacje na encjach i usługach, ale nie nie należą do konkretych encji i obiektów usług
+  np. generowanie miesięcznego raportu rezerwacji
+  
+  **Agregaty**
+  * określenie przynależności obiektu i ich granic
+  * pojedyńcza encja-korzeń, która jest powiązana z grupą obiektów. Odpowiada za spójność danych
+  np. klient agragujący obiejt adres i informacje kontaktowe
+  
+  **Repozytorium**
+  * pozyskuje obiekty ze źródeł danych
+  * odpowiada za zwracanie obiektów
+  
+  **Fabryka**
+  * odpowiada za tworzenie
+  * tworzy skomplikowane obiekty i agregaty, które wymagają stworzenia wielu obiektów powiązanych 
+  
+  **Moduły**
+  * separują powiązanie obiektów biznesowych
+  np zarządzanie użytkownikami , restaturacjami, stolikami
+  
+  
+  ### Projektowanie strategiczne i jego założenia
+  Raguły pozwalające zachować integralnośćmodelu dziedziny
+  #### Ograniczony kontekst
+  każdy zespół rozwija swój własny podmodel dziedziny- ograniczony kontekst
+  #### Integracja ciągła
+  Jenkins
+  testy jednostkowe
+  ciągły testowanie i integracja kodu pozwala na szybkie wychwytywanie niespójności w modelu dziedziny
+  #### Mapa kontektstu
+  Współdzielność jądra
+  relacja klient-dostawca
+  wzorzec konformisty
+  wartstwa ograniczająca przekłamania
+  niezależne drogi
+  usługa otwartego hosta
+  destylacja
+  ## Implementacja mikrousługi
+  ## Dobre praktyki
+'''
+tags: []
+isStarred: false
+isTrashed: false
