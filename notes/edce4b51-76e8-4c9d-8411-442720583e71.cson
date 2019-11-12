@@ -1,5 +1,5 @@
 createdAt: "2019-10-06T12:50:42.845Z"
-updatedAt: "2019-10-08T09:26:56.294Z"
+updatedAt: "2019-11-05T08:31:48.752Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Intellij shortcuts"
@@ -49,6 +49,8 @@ content: '''
   step into **F7**
   kolejny breakpoint **F9**
   ewaluacja **ALT F8**  
+  
+  rysowanie diagramu klas/tabel zaznaczamy kilka klas/tabel **ctrl alt shift U**
 '''
 tags: []
 isStarred: true

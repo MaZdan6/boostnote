@@ -1,5 +1,5 @@
 createdAt: "2019-05-05T12:02:45.847Z"
-updatedAt: "2019-10-16T13:37:10.055Z"
+updatedAt: "2019-11-05T09:42:19.976Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Git"
@@ -145,6 +145,8 @@ content: '''
   
   develop jest nazwą gałęzi zdalnej
   ```
+  
+  ## fork
   
 '''
 tags: []

@@ -1,15 +1,32 @@
 createdAt: "2019-08-31T08:34:31.983Z"
-updatedAt: "2019-08-31T08:35:43.438Z"
+updatedAt: "2019-11-07T09:16:42.651Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
-title: "Spring REST"
+title: "Spring"
 tags: []
 content: '''
-  # Spring REST
+  # Spring
   
-  * best practices: https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
+  * best practices for REST: https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
   
-    * 
+  * wywoływanie procedury przechowywanej: [A Guide to Stored Procedures with JPA \\| Baeldung](https://www.baeldung.com/jpa-stored-procedures)
+  
+  * logowaniu ruchu sieciowego : [GitHub - akihyro/logback-access-spring-boot-starter: Spring Boot Starter for Logback-access](https://github.com/akihyro/logback-access-spring-boot-starter)
+  
+  
+  
+  
+  ## adnotacje
+  
+  ### Testy
+  **@RunWith(SpringRunner.class)** is used to provide a bridge between Spring Boot test features and JUnit. Whenever we are using any Spring Boot testing features in our JUnit tests, this annotation will be required.
+  
+  **@DataJpaTest** provides some standard setup needed for testing the persistence layer:
+  * configuring H2, an in-memory database
+  * setting Hibernate, Spring Data, and the DataSource
+  * performing an @EntityScan
+  * turning on SQL logging
+  
   
 '''
 linesHighlighted: []
