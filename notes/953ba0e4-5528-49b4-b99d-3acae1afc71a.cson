@@ -1,5 +1,5 @@
 createdAt: "2019-08-31T08:34:31.983Z"
-updatedAt: "2019-08-31T08:35:43.438Z"
+updatedAt: "2019-11-11T13:36:47.867Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Spring REST"
@@ -9,7 +9,7 @@ content: '''
   
   * best practices: https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
   
-    * 
+    * REST. Nejlepsze praktyki i wzrorce w języku Java (Helion 2015) 
   
 '''
 linesHighlighted: []
