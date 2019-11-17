@@ -1,0 +1,199 @@
+createdAt: "2019-11-16T22:16:09.339Z"
+updatedAt: "2019-11-17T20:44:20.126Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Quartz"
+content: '''
+  Quartz
+  
+  
+  ## 1 Użytkowanie 
+  1. utwórz factory schedulera
+  2. utwórz scheduler
+  3. uruchom scheduler
+  4. Zdefiniuj Job
+  5. Zdefiniuj Trigger
+  6. Dodaj JOB i TRIGGER do SCHEDULER
+  
+  ```java
+  SchedulerFactory schedFact = new org.quartz.impl.StdSchedulerFactory();
+  
+    Scheduler sched = schedFact.getScheduler();
+  
+    sched.start();
+  
+    // define the job and tie it to our HelloJob class
+    JobDetail job = newJob(HelloJob.class)
+        .withIdentity("myJob", "group1")
+        .build();
+  
+    // Trigger the job to run now, and then every 40 seconds
+    Trigger trigger = newTrigger()
+        .withIdentity("myTrigger", "group1")
+        .startNow()
+        .withSchedule(simpleSchedule()
+            .withIntervalInSeconds(40)
+            .repeatForever())
+        .build();
+  
+    // Tell quartz to schedule the job using our trigger
+    sched.scheduleJob(job, trigger);
+  ```
+  ## 2 Quarts Api
+  Główne interfejsy:
+  
+  * **Scheduler** - the main API for interacting with the scheduler.
+  * **Job** - an interface to be implemented by components that you wish to have executed by the scheduler.
+  * **JobDetail** - used to define instances of Jobs.
+  * **Trigger** - a component that defines the schedule upon which a given Job will be executed.
+  * **JobBuilder** - used to define/build JobDetail instances, which define instances of Jobs.
+  * **TriggerBuilder** - used to define/build Trigger instances.
+  
+  ### identyfikatory
+  Joby i Triggery posiadają własne identyfikatory: JobKey i TriggerKey
+  Można je grupować np joby do raportowania lub do księgowania
+  
+  ## 3 Jobs and Jobs Details
+  
+  Job to klasa która implementuje prosty interface:
+  ```java
+    package org.quartz;
+  
+    public interface Job {
+  
+      public void execute(JobExecutionContext context)
+        throws JobExecutionException;
+    }
+  ```
+  
+  **JobDetail** nadaje id i grupę dla Job
+  ```java
+   // define the job and tie it to our HelloJob class
+    JobDetail job = newJob(HelloJob.class)
+        .withIdentity("myJob", "group1") // name "myJob", group "group1"
+        .build();
+  ```
+  
+  **JobDataMap** przechowuje przymitywne wartości wykorzystywane przez **Job**
+  
+  Zapis wartości:
+  ```java
+   // define the job and tie it to our DumbJob class
+    JobDetail job = newJob(DumbJob.class)
+        .withIdentity("myJob", "group1") // name "myJob", group "group1"
+        .usingJobData("jobSays", "Hello World!")
+        .usingJobData("myFloatValue", 3.141f)
+        .build();
+  ```
+  
+  Wykorzystanie zapisanych wartości:
+  ```java
+  public class DumbJob implements Job {
+  
+      public DumbJob() {
+      }
+  
+      public void execute(JobExecutionContext context)
+        throws JobExecutionException
+      {
+        JobKey key = context.getJobDetail().getKey();
+  
+        JobDataMap dataMap = context.getJobDetail().getJobDataMap();
+  
+        String jobSays = dataMap.getString("jobSays");
+        float myFloatValue = dataMap.getFloat("myFloatValue");
+  
+        System.err.println("Instance " + key + " of DumbJob says: " + jobSays + ", and val is: " + myFloatValue);
+      }
+    }
+  ```
+  
+  Triggery równierz mogą mieć przypisaną JobDataMap. Można pobrać mapę połączoną z mapy JobDetail i Trigger. W takiej mapie wartości poprzednika są nadpisane wartościami następnika
+  
+  ```java
+  public class DumbJob implements Job {
+  
+      public DumbJob() {
+      }
+  
+      public void execute(JobExecutionContext context)
+        throws JobExecutionException
+      {
+        JobKey key = context.getJobDetail().getKey();
+  
+        JobDataMap dataMap = context.getMergedJobDataMap();  // Note the difference from the previous example
+  
+        String jobSays = dataMap.getString("jobSays");
+        float myFloatValue = dataMap.getFloat("myFloatValue");
+        ArrayList state = (ArrayList)dataMap.get("myStateData");
+        state.add(new Date());
+  
+        System.err.println("Instance " + key + " of DumbJob says: " + jobSays + ", and val is: " + myFloatValue);
+      }
+    }
+  ```
+  
+  Wartości z mapy można wstrzykiwać do Joba. Zapewnia to czystrzy kod w metodzie execute()
+  ```java 
+  public class DumbJob implements Job {
+  
+  
+      String jobSays;
+      float myFloatValue;
+      ArrayList state;
+  
+      public DumbJob() {
+      }
+  
+      public void execute(JobExecutionContext context)
+        throws JobExecutionException
+      {
+        JobKey key = context.getJobDetail().getKey();
+  
+        JobDataMap dataMap = context.getMergedJobDataMap();  // Note the difference from the previous example
+  
+        state.add(new Date());
+  
+        System.err.println("Instance " + key + " of DumbJob says: " + jobSays + ", and val is: " + myFloatValue);
+      }
+  
+      public void setJobSays(String jobSays) {
+        this.jobSays = jobSays;
+      }
+  
+      public void setMyFloatValue(float myFloatValue) {
+        myFloatValue = myFloatValue;
+      }
+  
+      public void setState(ArrayList state) {
+        state = state;
+      }
+  
+    }
+  ```
+  
+  ### Wielowątkowość
+  
+  **@DisallowConcurrentExecution**
+  Dodanie adnotacji do Job sprawia, że tylko jedna instancja joba będzie mogła być wykonywana jednocześnie
+  
+  
+  **@PersistJobDataAfterExecution**
+  Dodanie adnotacji do Job sprawia, że 
+  
+  ## Triggers
+  ### Główne atrybuty:
+  **jobKey** - identyfikator joba, który trigger uruchamia
+  **startTime** - data uruchomienia joba
+  **endTime** - data, po której job nie będzie uruchomiony
+  
+  Priority
+  Misfire Instructions
+  Calendars
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false
