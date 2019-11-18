@@ -1,5 +1,5 @@
 createdAt: "2019-01-05T22:27:28.388Z"
-updatedAt: "2019-07-14T12:22:03.288Z"
+updatedAt: "2019-11-15T08:57:26.165Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "Postgresql"
@@ -40,6 +40,25 @@ content: '''
   - tworzenie nowego użytkownika: **create user *user* with password '*Password*';**
   - nadawanie uprawnień: **alter user *user* with *privilege*;** np: **alter user corporis with superuser;** 
   - usuwanie użytkownika: **drop user *user*;**
+  
+  
+  # Programowanie
+  
+  ## Deklaracja zmiennej
+  ```sql
+  WITH vars AS (SELECT 42 AS answer, 3.14 AS appr_pi)
+  SELECT  vars.answer, vars.appr_pi FROM  vars;
+  ```
+  
+  ## while
+  ```sql
+  DO $$
+      BEGIN
+          FOR counter IN 1..5 LOOP
+                  RAISE NOTICE 'Counter: %', counter;
+              END LOOP;
+      END; $$
+  ```
   
   
   
