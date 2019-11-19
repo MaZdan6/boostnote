@@ -1,5 +1,5 @@
 createdAt: "2019-11-16T22:16:09.339Z"
-updatedAt: "2019-11-17T20:44:20.126Z"
+updatedAt: "2019-11-19T22:54:56.589Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Quartz"
@@ -181,7 +181,7 @@ content: '''
   **@PersistJobDataAfterExecution**
   Dodanie adnotacji do Job sprawia, że 
   
-  ## Triggers
+  ## 4 Triggers
   ### Główne atrybuty:
   **jobKey** - identyfikator joba, który trigger uruchamia
   **startTime** - data uruchomienia joba
@@ -191,8 +191,35 @@ content: '''
   Misfire Instructions
   Calendars
   
+  ## 5 SimpleTrigger
+  [Tutorial 5](http://www.quartz-scheduler.org/documentation/2.3.1-SNAPSHOT/tutorials/tutorial-lesson-05.html)
+  a job execute exactly once at a specific moment in time, or at a specific moment in time followed by repeats at a specific interval. For example, if you want the trigger to fire at exactly 11:23:54 AM on January 13, 2015, or if you want it to fire at that time, and then fire five more times, every ten seconds.
   
+  ## 6 CronTrigger
+  [Tutorial 6](http://www.quartz-scheduler.org/documentation/2.3.1-SNAPSHOT/tutorials/tutorial-lesson-06.html)
   
+  “0 0/5 * * * ?” - co 5 minut
+  
+  Build a trigger that will fire every other minute, between 8am and 5pm, every day:
+  ```java
+   trigger = newTrigger()
+      .withIdentity("trigger3", "group1")
+      .withSchedule(cronSchedule("0 0/2 8-17 * * ?"))
+      .forJob("myJob", "group1")
+      .build();
+  ```
+  
+  ## 7 TriggerListeners and JobListeners
+  [Tutorial 7](http://www.quartz-scheduler.org/documentation/2.3.1-SNAPSHOT/tutorials/tutorial-lesson-07.html)
+  
+  Listeners are objects that you create to perform actions based on events occurring within the scheduler. As you can probably guess, TriggerListeners receive events related to triggers, and JobListeners receive events related to jobs.
+  
+  ## 8 SchedulerListeners
+  [Tutorial 8](http://www.quartz-scheduler.org/documentation/2.3.1-SNAPSHOT/tutorials/tutorial-lesson-08.html)
+  
+   receive notification of events within the Scheduler itself - not necessarily events related to a specific trigger or job.
+   
+   ## 9 Job Stores
 '''
 tags: []
 isStarred: false
