@@ -1,5 +1,5 @@
 createdAt: "2019-11-16T22:16:09.339Z"
-updatedAt: "2019-11-19T22:54:56.589Z"
+updatedAt: "2019-11-20T21:38:35.870Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Quartz"
@@ -220,6 +220,9 @@ content: '''
    receive notification of events within the Scheduler itself - not necessarily events related to a specific trigger or job.
    
    ## 9 Job Stores
+  * **MEMORY**— It keeps all of its data in RAM so once the application ends or crashes all the scheduling information is lost. Since it keeps its data in RAM, it is very fast and simple to configure
+       
+  * **JDBC** — JDBC JobStore keeps all of its data in a database via JDBC. Since it relies on database, configuration is a bit complicated and certainly is not as fast as RAM JobStore
 '''
 tags: []
 isStarred: false
