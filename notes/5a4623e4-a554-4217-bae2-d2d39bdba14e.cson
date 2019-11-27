@@ -1,7 +1,7 @@
 createdAt: "2019-08-19T20:00:47.211Z"
-updatedAt: "2019-10-23T21:14:30.860Z"
+updatedAt: "2019-11-27T22:54:40.121Z"
 type: "MARKDOWN_NOTE"
-folder: "99518829502f949bd844"
+folder: "7ba3f8bd31f2504f595e"
 title: "Spring Helion"
 tags: []
 content: '''
@@ -250,7 +250,7 @@ content: '''
   ### 5.4 Modyfikacja definicji komponentu za pomocą BeanFactoryPostProcessor
   #### Komponent PropertySourcesPlaceholderConfigurer
   
-  Pobiera wartośći z określonych plików konfiguracyjnych i umożliwiaj umieszczenie  ich w beanach
+  Pobiera wartośći z określonych plików konfiguracyjnych i umożliwia umieszczenie  ich w beanach
   
   Plik konfiguracyjny webservice.properties
   ```properties
@@ -277,6 +277,43 @@ content: '''
   		<property name="webServiceUrl" value="${webservice.url}" />
   	</bean>
   ```
+  
+  
+  ### Komponent  PropertyOverrideConfigurer
+  
+  Robi to samo co **PropertySourcesPlaceholderConfigurer**, ale jeśli nie znajdzie wartości, to wstawia wartość domyślną zapisaną w atrybucie **value**
+  
+  np. *name="webServiceUrl" **value=**"this webservice url needs to be replaced"*
+  
+  ```xml
+  <bean id="datasource" class="sample.spring.chapter05.domain.DataSource">
+  		<property name="url" value="test url value" />
+  		<property name="username" value="test username value" />
+  		<property name="password" value="test password value" />
+  		<property name="driverClass" value="test driverClass value" />
+  	</bean>
+  
+  	<bean id="webServiceConfiguration" class="sample.spring.chapter05.domain.WebServiceConfiguration">
+  		<property name="webServiceUrl" value="this webservice url needs to be replaced" />
+  	</bean>
+  	
+  	<bean
+  		class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+  		<property name="locations">
+  			<list>
+  				<value>classpath:database.properties</value>
+  				<value>classpath:webservice.properties</value>
+  			</list>
+  		</property>
+  	</bean>
+  ```
+  plik webservice.properties przechowujący wartość webServiceUrl
+  ```properties
+  webServiceConfiguration.webServiceUrl=some_url
+  ```
+  
+  
+  
   
 '''
 linesHighlighted: []

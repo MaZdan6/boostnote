@@ -1,0 +1,128 @@
+createdAt: "2019-11-27T22:26:02.218Z"
+updatedAt: "2019-11-27T22:35:26.049Z"
+type: "MARKDOWN_NOTE"
+folder: "7ba3f8bd31f2504f595e"
+title: "Spring 4 Programowanie oparte na odnotacjach"
+content: '''
+  # Spring 4 Programowanie oparte na odnotacjach
+  
+  ### @Component
+  ### @Service
+  ### @Repository
+  
+  
+  ### @Autowired
+  wiąże zależność w danej klasie
+  
+  used to declare a constructor, field or setter method or configuration method
+  
+  ### @Qualifier
+  razem z @autowired umożliwia wiązanie zależności według nazwy
+  
+  ```java
+  //tworzenie komponentu o danej nazwie
+  @Repository(value="myFixedDepositDao")
+  public class FixedDepositDaoImpl implements FixedDepositDao {}
+  
+  //wstrzykiwanie komponentu po danej nazwie
+  	@Autowired
+  	@Qualifier(value="myFixedDepositDao")
+  	private FixedDepositDao myFixedDepositDao;
+  ```
+  
+  
+  ### @Inject i @Named
+  Wstrzykują zależności zgodnie z specyfikacją JSR330. Działają analogicznie do 
+  @autowired i @qualifiler
+  
+  ```java
+  //tworzenie komponentu o danej nazwie
+  @Named(value="myFixedDepositDao")
+  public class FixedDepositDaoImpl implements FixedDepositDao {
+  	public boolean createFixedDeposit(FixedDepositDetails fdd) {
+  		// Zapis informacji o lokatach i zwrot wartości true.
+  		return true;
+  	}
+    
+  //wstrzykiwanie komponentu po danej nazwie
+  @Inject
+  @Named(value="myFixedDepositDao")
+  private FixedDepositDao myFixedDepositDao;
+  
+  ```
+   aby korzystać z tych adnotacji, należy w pom.xml dodać zależność:
+   ```xml
+  <dependency>
+  			<groupId>javax.inject</groupId>
+  			<artifactId>javax.inject</artifactId>
+  			<version>1</version>
+  		</dependency>
+  ```
+  
+  
+  ### @Resource
+  Wiąże zależność po nazwie. Implementuje JSR250. Powienien być używany zamiast pary @Autowired i @Qualifiler. Adnotacja @Resource nie uwzględnia typu componentu, a jednynie nazwię
+  ```java
+  //tworzenie komponentu o danej nazwie
+  @Repository(value="myFixedDepositDao")
+  public class FixedDepositDaoImpl implements FixedDepositDao {}
+  
+  //wstrzykiwanie komponentu po danej nazwie
+  	@Resource(value="myFixedDepositDao")
+  	private FixedDepositDao myFixedDepositDao;
+  ```
+  
+  ### @scope @Lazy @DependsOn @Primary - adnotacje konfigurujące tworzenie komponentu
+  @Scope - Used to specify the scope of a bean either singleton, prototype, request, session etc
+  
+  
+  ### @Value
+  przypisuje wartości z plików konfiguracyjnych lub metod do zmiennych
+  ```java
+  @Component(value="sample")
+  public class Sample {
+  	@Value("#{configuration.environment}")
+  	private String environment;
+  
+  	@Value("Dowolna waluta")
+  	private String currency;
+  
+  	@Value("#{configuration.getCountry()}")
+  	private String country;
+  
+  	@Value("#{configuration.state}")
+  	private String state;
+  
+  	private String[] splitName;
+  	private String city;
+  
+  	@Autowired
+  	public void splitName(
+  			@Value("#{configuration.splitName('FirstName LastName')}") String[] splitName) {
+  		this.splitName = splitName;
+  	}
+  
+  	@Autowired
+  	@Value("#{configuration.getCity()}")
+  	public void city(String city) {
+  		this.city = city;
+  	}
+  
+  	@Override
+  	public String toString() {
+  		return "Sample [environment=" + environment + ", currency=" + currency
+  				+ ", country=" + country + ", state=" + state + ", splitName="
+  				+ Arrays.toString(splitName) + ", city=" + city + "]";
+  	}
+  }
+  ```
+  ### @configurable 
+  Used to declare types whose properties should be injected
+  
+  
+  ### @required
+  Used to specify that a particular property must be injected
+'''
+tags: []
+isStarred: false
+isTrashed: false
