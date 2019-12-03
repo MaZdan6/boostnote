@@ -1,5 +1,5 @@
 createdAt: "2019-11-27T22:26:02.218Z"
-updatedAt: "2019-11-27T22:35:26.049Z"
+updatedAt: "2019-12-03T22:19:06.494Z"
 type: "MARKDOWN_NOTE"
 folder: "7ba3f8bd31f2504f595e"
 title: "Spring 4 Programowanie oparte na odnotacjach"
@@ -115,7 +115,35 @@ content: '''
   				+ Arrays.toString(splitName) + ", city=" + city + "]";
   	}
   }
+  
   ```
+  
+  ### @Configuration i @Bean
+  Używane do przeprowadzenia programowej konfiguracji.
+  
+  Klasa oznaczona @Coniguration posiada metody oznaczone @Bean zwracające egzemplarze komponentów przeznaczone do zarejestrowania w kontenerze Springa.
+  
+  ```java
+  
+  @Configuration
+  public class BankAppConfiguration {
+  
+  	@Bean(name = "accountStatementService")
+  	public AccountStatementService accountStatementService() {
+  		return new AccountStatementServiceImpl();
+  	}
+  }
+  ```
+  
+  Rejestracja komponentów z klasy konfiguracyjnej
+  ```java
+  public class BankApp {
+  	public static void main(String args[]) throws Exception {
+  		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+  				BankAppConfiguration.class);
+  
+  ```
+  
   ### @configurable 
   Used to declare types whose properties should be injected
   
