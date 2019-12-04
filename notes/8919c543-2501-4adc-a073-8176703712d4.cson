@@ -1,5 +1,5 @@
 createdAt: "2019-08-16T12:38:35.274Z"
-updatedAt: "2019-08-20T09:22:19.572Z"
+updatedAt: "2019-12-04T16:36:16.720Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "T-SQL"
@@ -59,12 +59,155 @@ content: '''
   CLOSE kursor
   DEALLOCATE kursor
   ```
+  ### TRY CATCH
+  ```sql
+  BEGIN TRY  
+       --code to try 
+  END TRY  
+  BEGIN CATCH  
+       --code to run if error occurs
+  --is generated in try
+  END CATCH
+  ```
+  ### transakcja
+  ```sql
   
+  DECLARE @TranName VARCHAR(20);
+  
+  SELECT @TranName = 'MyTransaction';
+  
+  BEGIN TRANSACTION @TranName;
+  
+    DELETE FROM AdventureWorks2012.HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+  
+  COMMIT TRANSACTION @TranName;
+  ```
+  ### komunikaty błędów
+  * ERROR_NUMBER – Returns the internal number of the error
+  * ERROR_STATE – Returns the information about the source
+  * ERROR_SEVERITY – Returns the information about anything from informational errors to errors user of DBA can fix, etc.
+  * ERROR_LINE – Returns the line number at which an error happened on
+  * ERROR_PROCEDURE – Returns the name of the stored procedure or function
+  * ERROR_MESSAGE – Returns the most essential information and that is the message text of the error
+  
+  ```sql
+  	SELECT
+  		ERROR_NUMBER() AS ErrorNumber,
+  		ERROR_STATE() AS ErrorState,
+  		ERROR_SEVERITY() AS ErrorSeverity,
+  		ERROR_PROCEDURE() AS ErrorProcedure,
+  		ERROR_LINE() AS ErrorLine,
+  		ERROR_MESSAGE() AS ErrorMessage;
+  ```
+      
+  
+  
+  ### tworzenie procedury
+  ```sql
+  USE database
+  GO
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  -- =============================================
+  -- Author:		autor
+  -- Create date:
+  -- Description:
+  -- Test:
+  -- =============================================
+  IF OBJECT_ID('schemat._nazwa_procedury','P') IS NOT NULL
+      BEGIN
+          DROP PROCEDURE schemat._nazwa_procedury
+      END
+  GO
+  CREATE PROCEDURE schemat._nazwa_procedury
+      @param_data date = null,
+      @debug_flaga bit=0
+  AS
+  BEGIN
+      SET NOCOUNT ON;
+      DECLARE
+          _@uzytkownik_modyfikujacy as char(8),
+          @_data_modyfikacji as datetime,
+          @_kategoria_bledu as varchar(50),
+          @_wynik_liczba as int=0,
+          @_wynik_text as varchar(255)
+      BEGIN TRANSACTION
+      BEGIN TRY
+          set @_kategoria_bledu = '_nazwa_procedury'
+  
+          IF @debug_flaga=1
+              SELECT @_kategoria_bledu as '@_kategoria_bledu'
+                   ,@param_data as '@param_data'
+  
+  
+          SET _@uzytkownik_modyfikujacy='uzytkownik_modyfikujacy'
+          SET @_data_modyfikacji=getdate();
+  
+  
+          SET @_wynik_liczba = 0
+          SET @_wynik_text = 'wynik_text'
+          COMMIT TRANSACTION
+          RETURN @_wynik_liczba
+      END TRY
+      BEGIN CATCH
+  
+          IF @@TRANCOUNT <> 0
+              BEGIN
+                  ROLLBACK TRANSACTION
+              END
+          SET @_wynik_liczba = -1
+          SET @_wynik_text = 'error'
+          --obsługa błędu
+      END CATCH
+  
+  END
+  GO
+  ```
+  ### funkcja
+  ```sql
+  USE [bm2]
+  GO
+  
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  -- =============================================
+  -- Author:		
+  -- Create date: 
+  -- Description:	
+  -- Test: 
+  -- =============================================
+  IF OBJECT_ID('schemat._nazwa_funkcji','FN') is not null
+      BEGIN
+          DROP FUNCTION [schemat]._nazwa_funkcji
+      END
+  GO
+  CREATE FUNCTION [schemat].[_nazwa_funkcji] (
+      @param_rach AS INT,
+      @param_char AS CHAR(2))
+      RETURNS CHAR(1)
+  AS
+  BEGIN
+  
+      DECLARE @_nazwa_funkcji as char(1)
+  
+      IF @param_char='wn'
+          BEGIN
+              SELECT @_nazwa_funkcji=nazwa_kolumny FROM schemat.nazwa_tabeli WHERE param_rach=@param_rach
+          END
+  
+      RETURN @_nazwa_funkcji
+  
+  END
+  GO
+  ```
   ### if exist
   
   ### wartość zmiennej z zapytania
-  
-  
 '''
 linesHighlighted: []
 isStarred: false
