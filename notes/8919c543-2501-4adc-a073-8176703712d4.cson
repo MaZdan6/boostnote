@@ -1,5 +1,5 @@
 createdAt: "2019-08-16T12:38:35.274Z"
-updatedAt: "2019-12-04T16:36:16.720Z"
+updatedAt: "2019-12-04T16:44:20.655Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "T-SQL"
@@ -193,14 +193,14 @@ content: '''
   AS
   BEGIN
   
-      DECLARE @_nazwa_funkcji as char(1)
+      DECLARE @_zwracana_wartosc as char(1)
   
       IF @param_char='wn'
           BEGIN
-              SELECT @_nazwa_funkcji=nazwa_kolumny FROM schemat.nazwa_tabeli WHERE param_rach=@param_rach
+              SELECT @_zwracana_wartosc=nazwa_kolumny FROM schemat.nazwa_tabeli WHERE param_rach=@param_rach
           END
   
-      RETURN @_nazwa_funkcji
+      RETURN @_zwracana_wartosc
   
   END
   GO
