@@ -1,5 +1,5 @@
 createdAt: "2019-08-16T12:38:35.274Z"
-updatedAt: "2019-12-04T16:44:20.655Z"
+updatedAt: "2019-12-13T09:22:19.246Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "T-SQL"
@@ -24,17 +24,17 @@ content: '''
   set @id_jednostki=666
   
   --deklaracja zmiennych zapytania
-  SET @ParmDefinition = N'@nominal_sum_out int OUTPUT
+  SET @ParmDefinition = N'@zmienna int OUTPUT
                                          ,@id_jednostki int';
   
   --zapytania
-  set @SQLString= N'select @nominal_sum_out = sum('+@column_name+') 
-                                   from _rejestracja_pelna_nominaly 
+  set @SQLString= N'select @zmienna = sum('+@column_name+') 
+                                   from _tabela 
                                    where id_jednostki=@id_jednostki'
   
   --wywołanie zapytania
   EXECUTE sp_executesql @SQLString, @ParmDefinition
-               ,@nominal_sum_out OUTPUT
+               ,@zmienna OUTPUT
                ,@id_jednostki
                ,@typ_rejestracji
                ,@data_ksiegowa
@@ -205,6 +205,55 @@ content: '''
   END
   GO
   ```
+  
+  ### Usuwanie procedury, jeżeli istnieje
+  ```sql
+  if OBJECT_ID('dbo._kopiuj_info_do_transakcji', 'P') is not null
+  begin
+    drop procedure dbo._kopiuj_info_do_transakcji
+  end
+  ```	
+  AF = Aggregate function (CLR)
+  C = CHECK constraint
+  D = DEFAULT (constraint or stand-alone)
+  F = FOREIGN KEY constraint
+  **FN = SQL scalar function**
+  FS = Assembly (CLR) scalar-function
+  FT = Assembly (CLR) table-valued function
+  IF = SQL inline table-valued function
+  IT = Internal table
+  **P = SQL Stored Procedure**
+  PC = Assembly (CLR) stored-procedure
+  PG = Plan guide
+  PK = PRIMARY KEY constraint
+  R = Rule (old-style, stand-alone)
+  RF = Replication-filter-procedure
+  S = System base table
+  SN = Synonym
+  SO = Sequence object
+  **U = Table (user-defined)**
+  V = View
+  
+  ## miejsca wywołań procedury
+  ```sql
+  declare @procedure_name as varchar(100)
+  set @procedure_name = '_km'
+  
+  select schema_name(o.schema_id) + '.' + o.name as [procedure],
+         'is used by' as ref,
+         schema_name(ref_o.schema_id) + '.' + ref_o.name as [object],
+         ref_o.type_desc as object_type
+  from sys.objects o
+  join sys.sql_expression_dependencies dep
+       on o.object_id = dep.referenced_id
+  join sys.objects ref_o
+       on dep.referencing_id = ref_o.object_id
+  where o.type in ('P', 'X')
+        and schema_name(o.schema_id) = 'dbo'  -- put schema name here
+        and o.name = @procedure_name -- put procedure name here
+  order by [object];
+  ```
+  
   ### if exist
   
   ### wartość zmiennej z zapytania
