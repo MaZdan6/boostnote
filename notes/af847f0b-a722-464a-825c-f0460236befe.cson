@@ -1,5 +1,5 @@
 createdAt: "2019-06-10T07:11:51.956Z"
-updatedAt: "2019-06-16T07:33:54.997Z"
+updatedAt: "2020-01-20T22:40:49.053Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular Szkolenie"
@@ -12,7 +12,7 @@ content: '''
   ### nodejs
   środowisko uruchomieniowe dla javascrpit
   
-  * node -v - wypisuje wersję node
+  * node -v - **wypisuje wersję node**
   
   ### npm
   * npm - node package modules
@@ -26,17 +26,17 @@ content: '''
   
   #### ćwiczenie 1
   Dodawanie bibliteki
-  * npm init -y - inicjowanie package.json
-  * npm i jquery lub npm i jquery@wersja - ściąganie biblioteki
+  * npm init -y - **inicjowanie package.json**
+  * npm i jquery lub npm i jquery@wersja - **ściąganie biblioteki**
   
   * cat package.json
   **"jquery": "^3.4.1"** - ^ oznacza, że można ściągnąć wyższą wersję
   
-  * package-lock.json - plik przechowuje konkretne numery wersji  bibliotek
+  * package-lock.json - **plik przechowuje konkretne numery wersji  bibliotek**
   
-  * npm i -D webpack -instalacja dla potrzeb developerskich. -D jest, to paczka nie będzie się znajdować w zbudowanym projekcie
+  * npm i -D webpack **-instalacja dla potrzeb developerskich. -D jest, to paczka nie będzie się znajdować w zbudowanym projekcie**
   
-  * npx webpack - instalacja i uruchomienie narzędzia developerskiego np. serwera
+  * npx webpack **- instalacja i uruchomienie narzędzia developerskiego np. serwera**
   
   getify/you-dont-know-js
   

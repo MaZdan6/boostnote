@@ -1,5 +1,5 @@
 createdAt: "2019-04-28T20:09:39.787Z"
-updatedAt: "2019-06-10T14:09:07.949Z"
+updatedAt: "2020-01-20T22:49:29.457Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular"
@@ -7,12 +7,21 @@ content: '''
   # Angular
   
   ##  1. Komendy
-  *  uruchomienie serwera: **npm start** lub **ng serve**
-  *  wyłączenie serwera
-      * w terminalu: **ctrl + C**
-      * wyłączając proces:
+  ### Angular CLI
+  * **nowy projekt** : 
+    * ng new <nazwa_apki> np. ng new my-dream-app
+    * ng new tv-maniac --skip-tests --style=scss --prefix=tm --routing
+    * ng new angular-playground --skip-tests --style=scss --prefix=ap --routing
+  * **generowanie komponentu**
+    ng generate component home
+  *  **uruchomienie aplikacji** ng serve (uruchomin w foldere aplikacji)
+  *  **Wyłączenie aplikacji**
+      * w terminalu: ctrl + C
+      * wyłączając proces
         * szukamy PID: ps -ef | grep "ng serve"
-        * zabijamy proces: kill -9 <PID>
+        * zabijamy proces:  kill -9 <PID>
+  
+    
   ## 2. Component
     
     ![5589f6e3.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/5589f6e3.png)
