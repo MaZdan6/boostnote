@@ -1,0 +1,48 @@
+createdAt: "2020-01-30T08:24:28.032Z"
+updatedAt: "2020-01-30T14:39:08.299Z"
+type: "MARKDOWN_NOTE"
+folder: "326f242ccc19a4907a8b"
+title: "FOP"
+tags: []
+content: '''
+  # FOP
+  
+  [xml - Where is the schema for XSL-FO? - Stack Overflow](https://stackoverflow.com/questions/31222697/where-is-the-schema-for-xsl-fo/32199774)
+  
+  [fo:block](http://www.datypic.com/sc/fo11/e-fo_block.html)
+  
+  
+  
+  ## Style
+  
+  ### zapisanie stylu
+  Styl powinien być zapisany przed <xsl:template >
+  ```xml
+      <xsl:attribute-set name="myBorder">
+          <xsl:attribute name="border">solid 0.5mm black</xsl:attribute>
+      </xsl:attribute-set>
+  ```
+  wykorzystanie:
+  ```xml
+  <fo:table-column column-width="3cm" xsl:use-attribute-sets="myBorder"/>
+  ```
+  
+  łączenie komórek
+  
+  ```xml
+  <fo:table-cell number-columns-spanned="5">
+    <fo:block>Podsumowanie</fo:block>
+  </fo:table-cell>
+  ```
+  
+  ## Dane
+  wypisanie wartości
+  ```xml
+  <xsl:value-of select="payment/destinationName"/>
+  ```
+  
+  spacja: **& # 160;**
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
