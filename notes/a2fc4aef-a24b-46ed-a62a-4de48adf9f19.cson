@@ -1,0 +1,22 @@
+createdAt: "2020-02-07T07:31:20.968Z"
+updatedAt: "2020-02-07T07:31:39.165Z"
+type: "MARKDOWN_NOTE"
+folder: "7ba3f8bd31f2504f595e"
+title: "Spring testy"
+tags: []
+content: '''
+  # Spring testy
+  
+  ## adnotacje
+  
+  **@RunWith(SpringRunner.class)** is used to provide a bridge between Spring Boot test features and JUnit. Whenever we are using any Spring Boot testing features in our JUnit tests, this annotation will be required.
+  
+  **@DataJpaTest** provides some standard setup needed for testing the persistence layer:
+  * configuring H2, an in-memory database
+  * setting Hibernate, Spring Data, and the DataSource
+  * performing an @EntityScan
+  * turning on SQL logging
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
