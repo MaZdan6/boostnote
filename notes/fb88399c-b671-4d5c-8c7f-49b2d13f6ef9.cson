@@ -1,0 +1,20 @@
+createdAt: "2020-02-07T07:31:58.864Z"
+updatedAt: "2020-02-07T13:56:56.759Z"
+type: "MARKDOWN_NOTE"
+folder: "7ba3f8bd31f2504f595e"
+title: "Spring konfiguracja"
+tags: []
+content: '''
+  # Spring konfiguracja
+  
+  
+  **uruchamianie aplikacji z profilem** : -Dspring.profiles.active=local
+  
+  ### pobieranie pliku z resources
+  ```java
+  File cfgFile = ResourceUtils.getFile("classpath:fop-xconf.xml");
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
