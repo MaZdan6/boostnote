@@ -1,10 +1,20 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2019-06-16T07:31:46.526Z"
+updatedAt: "2020-02-11T19:57:15.743Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
 tags: []
-content: "TypeScript"
+content: '''
+  # TypeScript
+  
+  ## Variable Declarations
+  [Variable Declarations · TypeScript](https://www.typescriptlang.org/docs/handbook/variable-declarations.html)
+  
+  ### var
+  ```typescript
+  var a = 10;
+  ```
+'''
 linesHighlighted: []
 isStarred: false
 isTrashed: false
