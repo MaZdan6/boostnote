@@ -1,5 +1,5 @@
 createdAt: "2019-04-28T20:09:39.787Z"
-updatedAt: "2020-01-21T11:53:35.887Z"
+updatedAt: "2020-03-03T06:02:59.471Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular"
@@ -20,6 +20,9 @@ content: '''
       * wyłączając proces
         * szukamy PID: ps -ef | grep "ng serve"
         * zabijamy proces:  kill -9 <PID>
+  * **Dodanie nowego modułu z neta**
+    ng add <nazwa modułu>
+    ng add @angular/material
   
     
   ## 2. Component
