@@ -1,5 +1,5 @@
 createdAt: "2019-08-06T13:41:40.893Z"
-updatedAt: "2019-08-10T22:46:03.176Z"
+updatedAt: "2020-02-17T07:41:14.194Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java 8"
@@ -81,6 +81,9 @@ content: '''
   .filter(line -> !"mkyong".equals(line))// we dont like mkyong
   .collect(Collectors.toList());// collect the output and convert streams to a List
   ```
+  
+  
+  
   
   ### 3 Pobieranie pierwszego znalezionego elementu 
   ```java
