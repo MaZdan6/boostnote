@@ -1,0 +1,24 @@
+createdAt: "2020-02-10T09:25:07.122Z"
+updatedAt: "2020-02-10T09:29:36.835Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "Sublime"
+tags: []
+content: '''
+  # Sublime
+  
+  [Sublime Text 3 - Useful Shortcuts (Windows) · GitHub](https://gist.github.com/mrliptontea/4c793ebdf72ed145bcbf)
+  
+  
+  Find Ctrl + F
+  Replace Ctrl + H
+  Find in files Ctrl + ⇧ + F
+  Transform to Uppercase Ctrl + K, Ctrl + U
+  Transform to Lowercase Ctrl + K, Ctrl + L
+  
+  
+  zamykanie notatki: ctrl + W
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

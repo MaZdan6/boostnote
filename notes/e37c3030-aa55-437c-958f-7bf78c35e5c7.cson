@@ -1,5 +1,5 @@
 createdAt: "2019-08-11T09:59:50.554Z"
-updatedAt: "2019-08-11T10:09:25.598Z"
+updatedAt: "2020-02-26T10:08:23.812Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Java Podstawy"
@@ -193,6 +193,19 @@ content: '''
   ```
   ## Try catch
   
+  ```java
+  try {
+        if (exceptionName.equals("First")) {
+          throw new FirstException();
+        } else {
+          throw new SecondException();
+        }
+      } catch (IOException|SQLException ex) {
+      logger.log(ex);
+      throw ex;
+  }
+  ```
+  
   ### Handling More Than One Type of Exception. multicatch
   
   
@@ -203,6 +216,23 @@ content: '''
   }
   ```
   
+  ## zmienna lokalna
+  
+  ```sql
+  DECLARE @var1 varchar(30);
+  
+  SELECT @var1 = 'Generic Name';
+  
+  SELECT @var1 = Name         
+    FROM Sales.Store         
+    WHERE CustomerID = 1000;
+  
+  SELECT @var1 = (SELECT Name   
+    FROM Sales.Store   
+    WHERE CustomerID = 1000) 
+  
+  SELECT @var1 AS 'Company Name';  
+  ```
   
 '''
 linesHighlighted: []
