@@ -1,10 +1,10 @@
 createdAt: "2019-10-06T12:50:42.845Z"
-updatedAt: "2019-11-05T08:31:48.752Z"
+updatedAt: "2020-03-19T06:22:32.050Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
-title: "Intellij shortcuts"
+title: "Intellij"
 content: '''
-  # Intellij shortcuts
+  # Intellij
   
   ## Wyszukiwanie
   wyszukaj tekstu w projektcie **ctrl shift f**
@@ -51,6 +51,9 @@ content: '''
   ewaluacja **ALT F8**  
   
   rysowanie diagramu klas/tabel zaznaczamy kilka klas/tabel **ctrl alt shift U**
+  
+  ## Typescript debuger
+  [Compiling TypeScript into JavaScript - Help | IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-typescript-to-javascript.html#)
 '''
 tags: []
 isStarred: true
