@@ -1,0 +1,46 @@
+createdAt: "2020-03-20T06:28:41.008Z"
+updatedAt: "2020-03-20T06:40:18.133Z"
+type: "MARKDOWN_NOTE"
+folder: "a7e795acb6fcea97a14c"
+title: "Angular material"
+content: '''
+  # Angular material
+  
+  
+  ## dodanie modułu material
+  1. wywołać komendę
+  ng add @angular/material
+  
+  ## tabela
+  ## snackbar
+  1. import w komponencie
+  ```typescript
+  import {MatSnackBar} from '@angular/material/snack-bar';
+  ```
+  
+  2. wstrzykiwanie w konstruktorze komponentu
+  ```typecript
+    constructor(private service: TransactionPostService,
+                private snackBar: MatSnackBar) {
+    }
+  ```
+  3. Wywołanie snackbar
+  ```typescript
+  this.snackBar.open('Success', 'Transaction saved', {
+            duration: 3000
+          }
+  ```
+  4. import modułu w app.module.ts
+  ```typescript
+  import {MatSnackBarModule} from '@angular/material/snack-bar';
+  
+  /*dodać moduł do listy imports*/
+    imports: [
+          MatSnackBarModule
+    ],
+  ```
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false
