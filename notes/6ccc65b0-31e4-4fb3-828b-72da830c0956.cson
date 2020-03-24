@@ -1,5 +1,9 @@
 createdAt: "2019-01-05T22:27:28.388Z"
+<<<<<<< HEAD
+updatedAt: "2020-03-20T06:49:09.145Z"
+=======
 updatedAt: "2020-03-19T06:19:58.789Z"
+>>>>>>> 8be70c8c2c146579832b55be395e88b1f43aa60d
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "Postgresql"
@@ -60,7 +64,46 @@ content: '''
       END; $$
   ```
   
+  ## Cursor
   
+  ```sql
+  CREATE OR REPLACE FUNCTION update_table_var2() RETURNS varchar(255) AS
+  $$
+  DECLARE
+      _var1    varchar(255);
+      _record  RECORD;
+      _var2 varchar(255);
+      _cursor CURSOR
+          FOR
+          SELECT var1
+          from table;
+  BEGIN
+      OPEN _cursor;
+  
+      LOOP
+          FETCH perm_cursor INTO _record;
+          EXIT WHEN NOT FOUND;
+  
+          _var1 := _record.name;
+          var2 := split_part(_name, '_', 1);
+          update table set context=_context where var1 = _var1;
+  
+      END LOOP;
+      CLOSE _cursor;
+      return _var2;
+  end ;
+  
+  $$ LANGUAGE plpgsql
+      VOLATILE -- Says the function is implemented in the plpgsql language; VOLATILE says the function has side effects.
+      COST 100; -- Estimated execution cost of the function.
+  
+  
+  select update_permission_context();
+  drop FUNCTION update_permission_context();
+  /*select *
+  from permission
+  order by name;*/
+  ```
   
   # Remove  postgresql
   
