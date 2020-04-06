@@ -1,5 +1,5 @@
 createdAt: "2019-08-16T12:38:35.274Z"
-updatedAt: "2019-12-13T09:22:19.246Z"
+updatedAt: "2020-03-25T12:46:58.818Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "T-SQL"
@@ -13,7 +13,7 @@ content: '''
   
   ```sql
   --deklaracja zmiennych
-  declare @SQLString nvarchar(500)
+  declare @SQLString nvarchar(500)  
          ,@ParmDefinition nvarchar(500)
          ,@column_name varchar(255)
          ,@nominal_sum_out int

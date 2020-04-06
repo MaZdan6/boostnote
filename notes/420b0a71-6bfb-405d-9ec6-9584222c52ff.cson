@@ -1,0 +1,24 @@
+createdAt: "2020-03-30T07:37:29.536Z"
+updatedAt: "2020-03-30T08:58:58.922Z"
+type: "MARKDOWN_NOTE"
+folder: "a38bc68bbb6e2970c167"
+title: "SonarQube"
+tags: []
+content: '''
+  # SonarQube
+  
+  ## Wyłączanie klas z analizy pokrycia kodów
+  dodać maski klas tag w pom.xml w tagu properties
+  
+  ```xml
+          <sonar.exclusions>
+              **/*DTO.java,
+          </sonar.exclusions>
+  
+  ```
+  
+  [Narrowing the Focus \\| SonarQube Docs](https://docs.sonarqube.org/latest/project-administration/narrowing-the-focus/)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
