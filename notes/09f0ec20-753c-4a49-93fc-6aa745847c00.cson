@@ -1,5 +1,5 @@
 createdAt: "2020-01-30T08:24:28.032Z"
-updatedAt: "2020-01-30T14:39:08.299Z"
+updatedAt: "2020-04-07T12:27:58.088Z"
 type: "MARKDOWN_NOTE"
 folder: "326f242ccc19a4907a8b"
 title: "FOP"
@@ -42,6 +42,19 @@ content: '''
   ```
   
   spacja: **& # 160;**
+  
+  
+  ## choose
+  ```xml
+  <xsl:choose>
+      <xsl:when test="atrybut/kod=162 and atrybut/nr=112" >
+          <fo:block>AAA</fo:block>
+      </xsl:when>
+      <xsl:otherwise>
+          <fo:block>BBB</fo:block>
+      </xsl:otherwise>
+  </xsl:choose>
+  ```
 '''
 linesHighlighted: []
 isStarred: false

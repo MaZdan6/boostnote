@@ -1,5 +1,5 @@
 createdAt: "2019-01-12T22:28:35.319Z"
-updatedAt: "2019-01-12T22:28:39.991Z"
+updatedAt: "2020-04-06T10:15:18.415Z"
 type: "SNIPPET_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: ""
@@ -13,4 +13,4 @@ snippets: [
 ]
 tags: []
 isStarred: false
-isTrashed: false
+isTrashed: true
