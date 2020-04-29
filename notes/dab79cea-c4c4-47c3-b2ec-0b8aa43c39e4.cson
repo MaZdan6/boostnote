@@ -1,5 +1,5 @@
 createdAt: "2018-10-15T19:22:40.906Z"
-updatedAt: "2019-12-07T12:18:04.346Z"
+updatedAt: "2020-04-07T20:54:12.984Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Linux"
@@ -156,11 +156,11 @@ content: '''
   
   - Wyświetlenie informacji o procesorze komputera: **cat /proc- /cpuinfo** 
   **
-  Wyświetlenie informacji o wersji Ubuntu: **lsb_release -a- **
+  Wyświetlenie informacji o wersji Ubuntu: **lsb_release -a-**
   
-  - Wyświetlenie wszystkich** informacji o komputerze - - płycie głównej, procesorze ** jego architekturze, etc.: **sudo lshw- **** 
+  - Wyświetlenie wszystkich** informacji o komputerze - - płycie głównej, procesorze ** jego architekturze, etc.: **sudo lshw-** 
   
-  - Wyświetlen**azwy jądra systemu operacyjnego, sieciową** nazwę systemu i numeru edycji jądra systemu: **uname -a** 
+  - Wyświetlenie nazwy jądra systemu operacyjnego, sieciową nazwę systemu i numeru edycji jądra systemu: **uname -a** 
   
   - Wyświetlenie informacji o dostępnej pamięci w kilobajtach: **free** 
     - w megabajtach: **free -m** 
