@@ -1,0 +1,25 @@
+createdAt: "2020-05-07T21:13:43.341Z"
+updatedAt: "2020-05-07T21:50:23.062Z"
+type: "MARKDOWN_NOTE"
+folder: "99518829502f949bd844"
+title: "Wzorce projektowe kreacyjne (desing pattern creational)"
+content: '''
+  # Wzorce projektowe kreacyjne (desing pattern creational)
+  
+  ## 1 Singleton
+  ## 2 Builder
+  ### zalety
+  * nie trzeba tworzyć wielu konstruktorów
+  * nie trzeba tworzyć setterówć wewnętrzną klasą
+  * nie musi by
+  ### wady
+  * niezmienalny
+  * wewnętrzna. statyczna klasa
+  * bardziej złożony niż seria konstruktorów i zestaw setterów
+  ## 3 Prototype
+  ## 4 Factory
+  ## 5 Abstract Factory
+'''
+tags: []
+isStarred: false
+isTrashed: false
