@@ -1,5 +1,5 @@
 createdAt: "2020-05-07T21:13:43.341Z"
-updatedAt: "2020-05-07T21:50:23.062Z"
+updatedAt: "2020-05-10T21:44:03.940Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Wzorce projektowe kreacyjne (desing pattern creational)"
@@ -7,18 +7,235 @@ content: '''
   # Wzorce projektowe kreacyjne (desing pattern creational)
   
   ## 1 Singleton
-  ## 2 Builder
+  ## 2 Builder  
+  ![6a639221.png](:storage/98ea39c1-3d79-460a-8aa8-e07f50866253/6a639221.png)
   ### zalety
   * nie trzeba tworzyć wielu konstruktorów
-  * nie trzeba tworzyć setterówć wewnętrzną klasą
-  * nie musi by
+  * nie trzeba tworzyć setterów
   ### wady
   * niezmienalny
   * wewnętrzna. statyczna klasa
   * bardziej złożony niż seria konstruktorów i zestaw setterów
+  
+  ### przykład: StringBuilder
+  ```java
+  //
+  
+  
+  	public static void main(String args[]) {
+  		
+  		StringBuilder builder = new StringBuilder();
+  		
+  		builder.append("This is an example ");
+  		
+  		builder.append("of the builder pattern. ");
+  		
+  		builder.append("It has methods to append ");
+  		
+  		builder.append("almost anything we want to a String. ");
+  		
+  		builder.append(42);
+  		
+  		System.out.println(builder.toString());
+  	}
+  ```
+  ### przykład
+  ```java
+  public class LunchOrder {
+    
+    //wewnętrzny builder
+  	public static class Builder {
+  		private String bread;
+  		private String condiments;
+  		private String dressing;
+  		private String meat;
+  		
+  		public Builder() {
+  			
+  		}
+  		
+      //metoda build zwraca zbudowany obiekt
+  		public LunchOrder build() {
+  			return new LunchOrder(this);
+  		}
+  		
+      //każda metoda ustawiająca zmienną zwraca instancję buildera
+  		public Builder bread(String bread) {
+  			this.bread = bread;
+  			return this;
+  		}
+  		
+  		public Builder condiments(String condiments) {
+  			this.condiments = condiments;
+  			return this;
+  		}
+  		
+  		public Builder dressing(String dressing) {
+  			this.dressing = dressing;
+  			return this;
+  		}
+  		
+  		public Builder meat(String meat) {
+  			this.meat = meat;
+  			return this;
+  		} 
+  		
+  	}
+  	
+  	private final String bread;
+  	private final String condiments;
+  	private final String dressing;
+  	private final String meat;
+  
+    //konstruktor z builderem jako argument
+  	private LunchOrder(Builder builder) {
+  		this.bread = builder.bread;
+  		this.condiments = builder.condiments;
+  		this.dressing = builder.dressing;
+  		this.meat = builder.meat;
+  	}
+    //brak konieczności tworzenia setterów i konstruktorów
+  	public String getBread() {
+  		return bread;
+  	}
+  
+  	public String getCondiments() {
+  		return condiments;
+  	}
+  	
+  	public String getDressing() {
+  		return dressing;
+  	}
+  	
+  	public String getMeat() {
+  		return meat;
+  	}
+  	
+  }
+  ```
   ## 3 Prototype
+  ![6ed6c979.png](:storage/98ea39c1-3d79-460a-8aa8-e07f50866253/6ed6c979.png)
+  
+  ### koncepcja
+  Avoids costly creation
+  * Avoids subclassing
+  * Typically doesn’t use “new”
+  * Often utilizes an Interface
+  * Usually implemented with a Registry
+  * Example: java.lang.Object#clone()
+  
+  
+  ### design
+  * Clone / Cloneable
+  * Avoids keyword “new”
+  * Although a copy, each instance unique
+  * Costly construction not handled by client
+  * Can still utilize parameters for construction
+  * Shallow VS Deep Copy
+  
+  ```java
+  //example
+  public  class  Statement  implements  Cloneable  {  
+    
+     public  Statement(String  sql,  List<String>  parameters,  Record  record)  {  
+     this.sql  =  sql;  
+     this.parameters  =  parameters;  
+     this.record  =  record;  
+  }  
+     
+  } public  Statement  clone()  {  
+     try  {  
+        return  (Statement)  super.clone();  
+     }  catch  (CloneNotSupportedException  e)  {}  
+     return  null
+  ```
+  * metoda clone tworzy płytką kopię obiektu (shallow copy). Powstaje nowa instancja obiektu, ale referencję odnoszą się to tych samych obiektów które posiada kopiowany obiekt no. ta sama lista.
+  
+  * Guarantee unique instance
+  * Often refactored in
+  * Can help with performance issues
+  * Don’t always jump to a Factory
+  
   ## 4 Factory
+  ![ec92d1f9.png](:storage/98ea39c1-3d79-460a-8aa8-e07f50866253/ec92d1f9.png)
+  * przy użyciu parametryzacji można tworzyć złożone obiekty
+  * przeciwieństwo singletona
+  * Factory is responsible for lifecycle
+  * Common Interface
+  * Concrete Classes
+  * Parameterized create method
+  
+  ### przykład z życia: Calendar
+  ```java
+  Calendar cal = Calendar.getInstance();
+  		//Calendar cal = Calendar.get
+  		
+  		System.out.println(cal);
+  		
+  		System.out.println(cal.get(Calendar.DAY_OF_MONTH));
+  	}
+  ```
+  ### wzorcowa implementacja
+  ```java
+  //example
+  public class WebsiteFactory {
+  
+  	public static Website getWebsite(WebsiteType siteType) {
+  		switch(siteType) {
+  			case BLOG : {
+  				return new Blog();
+  			}
+  		
+  			case SHOP : {
+  				return new Shop();
+  			}
+  			
+  			default : {
+  				return null;
+  			}
+   		}
+  	}
+  	
+  }
+  
+  public class Blog extends Website {
+  
+  	@Override
+  	public void createWebsite() {
+  		pages.add(new PostPage());
+  		pages.add(new AboutPage());
+  		pages.add(new CommentPage());
+  		pages.add(new ContactPage());
+  	}
+  
+  }
+  
+  
+  public class Shop extends Website {
+  
+  	@Override
+  	public void createWebsite() {
+  		pages.add(new CartPage());
+  		pages.add(new ItemPage());
+  		pages.add(new SearchPage());
+  	}
+  
+  }
+  ```
   ## 5 Abstract Factory
+  
+  ![9ca3ca7b.png](:storage/98ea39c1-3d79-460a-8aa8-e07f50866253/9ca3ca7b.png)
+  
+  * fabryka fabryki
+  ### przykład: DocumentBuilderFactory
+  ```java
+  DocumentBuilderFactory  abstractFactory  = DocumentBuilderFactory.newInstance();  
+  DocumentBuilder  factory  =  abstractFactory.newDocumentBuilder();  
+          
+  Document  doc  =  factory.parse(bais);
+  ```
+  
+  
 '''
 tags: []
 isStarred: false
