@@ -1,5 +1,5 @@
 createdAt: "2020-05-07T21:13:43.341Z"
-updatedAt: "2020-05-10T21:44:03.940Z"
+updatedAt: "2020-05-11T21:55:41.777Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Wzorce projektowe kreacyjne (desing pattern creational)"
@@ -234,7 +234,86 @@ content: '''
           
   Document  doc  =  factory.parse(bais);
   ```
+  ### przykład
+  ```java
+  //AbstractFactory
+  public abstract class CreditCardFactory {
+    
+    //statyczna metoda tworząca właściwą fabrykę w zależności od parametru
+  	public static CreditCardFactory getCreditCardFactory(int creditScore) {
+  	
+  		if(creditScore > 650) {
+  			return new AmexFactory();
+  		}
+  		else {
+  			return new VisaFactory();
+  		}
+  	}
+  	
+  	public abstract CreditCard getCreditCard(CardType cardType);
+  		
+  	public abstract Validator getValidator(CardType cardType);
+  }
   
+  //fabryka
+  public class AmexFactory extends CreditCardFactory {
+    
+    //implementacja abstrakcyjnych metod odziedziczonych po abstrakcyjnej fabryce
+  	@Override
+  	public CreditCard getCreditCard(CardType cardType) {
+  		
+  		switch (cardType) {
+  			case GOLD:
+  				return new AmexGoldCreditCard();
+  	
+  			case PLATINUM:
+  				return new AmexPlatinumCreditCard();	
+  				
+  			default:
+  				break;
+  		}
+  		
+  		return null;
+  	}
+  
+  	@Override
+  	public Validator getValidator(CardType cardType) {
+  		
+  		switch (cardType) {
+  			case GOLD:
+  				
+  				return new AmexGoldValidator();
+  	
+  			case PLATINUM:
+  				
+  				return new AmexPlatinumValidator();	
+  		
+  		}
+  		
+  		return null;
+  	}
+  }
+  
+  //wykorzystanie
+  public class AbstractFactoryDemo {
+  
+  	public static void main(String[] args) {
+  		
+  		CreditCardFactory abstractFactory = CreditCardFactory.getCreditCardFactory(775);
+  		
+  		CreditCard card = abstractFactory.getCreditCard(CardType.PLATINUM);
+  		
+  		System.out.println(card.getClass());
+  		
+  		abstractFactory = CreditCardFactory.getCreditCardFactory(600);
+  		
+  		CreditCard card2 = abstractFactory.getCreditCard(CardType.GOLD);
+  		
+  		System.out.println(card2.getClass());
+  	}
+  
+  }
+  ```
   
 '''
 tags: []
