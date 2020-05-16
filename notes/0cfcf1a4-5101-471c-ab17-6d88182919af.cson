@@ -1,9 +1,165 @@
 createdAt: "2020-05-10T21:50:08.686Z"
-updatedAt: "2020-05-10T21:50:22.191Z"
+updatedAt: "2020-05-16T12:17:56.402Z"
 type: "MARKDOWN_NOTE"
 folder: "99518829502f949bd844"
 title: "Wzorce projektowe strukturalne (desing pattern structural)"
-content: "# Wzorce projektowe strukturalne (desing pattern structural)"
+content: '''
+  # Wzorce projektowe strukturalne (desing pattern structural)
+  
+  ## 2 Adapter
+  
+  ![741a142b.png](:storage/0cfcf1a4-5101-471c-ab17-6d88182919af/741a142b.png)
+  
+  
+  ### problem
+  użycie obiektu, w miejscu gdzie jego interfejs nie jest obsługiwany. Adapter rozwiązuje ten problem “tłumacząc” go na coś zrozumiałego dla klienta.
+  [Wzorzec projektowy adapter - Samouczek Programisty](https://www.samouczekprogramisty.pl/wzorzec-projektowy-adapter/)
+  ### przykład z życia: Arrays.asList()
+  
+  ```java
+  //zamiana tablicy na listę
+  Integer[]  arrayOfInts  =  new  Integer[]  {  42,  43,  44  };  
+          
+  List<Integer>  listOfInts  =  Arrays.asList(arrayOfInts);  
+          
+  System.out.println(arrayOfInts);  
+          
+  System.out.println(listOfInts);
+  ```
+  
+  ### przykład:
+  ```java
+  //implementacja
+  
+  //1 stary interface, do którego trzeba zaadaptować dane
+  public interface Employee {
+  
+  	public String getId();
+  	public String getFirstName();
+  	public String getLastName();
+  	public String getEmail();
+  	
+  }
+  
+  //2 nowa struktura danych
+  public class EmployeeCSV {
+  
+  	private int id;
+  	private String firstname;
+  	private String lastname;
+  	private String emailAddress;
+  
+  	public EmployeeCSV(String values) {
+  		StringTokenizer tokenizer = new StringTokenizer(values, ",");
+  		if (tokenizer.hasMoreElements()) {
+  			id = Integer.parseInt(tokenizer.nextToken());
+  		}
+  		if (tokenizer.hasMoreElements()) {
+  			firstname = tokenizer.nextToken();
+  		}
+  		if (tokenizer.hasMoreElements()) {
+  			lastname = tokenizer.nextToken();
+  		}
+  		if (tokenizer.hasMoreElements()) {
+  			emailAddress = tokenizer.nextToken();
+  		}
+  	}
+  
+  	public String getEmailAddress() {
+  		return emailAddress;
+  	}
+  
+  	public String getFirstname() {
+  		return firstname;
+  	}
+  
+  	public int getId() {
+  		return id;
+  	}
+  
+  	public String getLastname() {
+  		return lastname;
+  	}
+  
+  	public void setEmailAddress(String emailAddress) {
+  		this.emailAddress = emailAddress;
+  	}
+  
+  	public void setFirstname(String firstname) {
+  		this.firstname = firstname;
+  	}
+  
+  	public void setId(int id) {
+  		this.id = id;
+  	}
+  
+  	public void setLastname(String lastname) {
+  		this.lastname = lastname;
+  	}
+  
+  }
+  
+  //3 Implementacja adaptera
+  //a adapter implementuje stary interface
+  public class EmployeeAdapterCSV implements Employee {
+    
+    //b nowa strukrura danych
+  	private EmployeeCSV instance;
+  	
+  	public EmployeeAdapterCSV(EmployeeCSV instance) {
+  		this.instance = instance;
+  	}
+  	
+  	@Override
+  	public String getId() {
+  		return instance.getId() + "";
+  	}
+  
+  	@Override
+  	public String getFirstName() {
+  		return instance.getFirstname();
+  	}
+  
+  	@Override
+  	public String getLastName() {
+  		return instance.getLastname();
+  	}
+    
+    //c konwersja nowego pola na stare pole
+  	@Override
+  	public String getEmail() {
+  		return instance.getEmailAddress();
+  	}
+  
+  }
+  //4 wykorzystanie
+  public class EmployeeClient {
+  
+  	public List<Employee> getEmployeeList() {
+  	
+  		List<Employee> employees = new ArrayList<>();
+  		
+      // stara implementacja struktury danych
+  		Employee employeeFromDB = new EmployeeDB("1234", "John", "Wick", "john@wick.com");
+  		
+      //bez problemu zapisuje w liście
+  		employees.add(employeeFromDB);
+  		
+      //nowa struktura danych
+  		EmployeeCSV employeeFromCSV = new EmployeeCSV("567,Sherlock,Holmes,sherlock@holmes.com");
+  		
+      //adaptacja nowej struktury na starą
+  		employees.add(new EmployeeAdapterCSV(employeeFromCSV));
+  		
+  		return employees;
+  		
+  	}
+  	
+  }
+  ```
+  
+  
+'''
 tags: []
 isStarred: false
 isTrashed: false

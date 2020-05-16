@@ -1,5 +1,5 @@
 createdAt: "2020-05-10T09:44:15.851Z"
-updatedAt: "2020-05-10T09:47:40.770Z"
+updatedAt: "2020-05-16T11:52:57.647Z"
 type: "MARKDOWN_NOTE"
 folder: "326f242ccc19a4907a8b"
 title: "UML"
@@ -12,6 +12,17 @@ content: '''
   ![24f5f518.png](:storage/981fb3b4-3c78-4943-8f2b-6e7770b35d0d/24f5f518.png)
   
   
+  ### przykład:
+  
+  ![7f266246.png](:storage/981fb3b4-3c78-4943-8f2b-6e7770b35d0d/7f266246.png)
+  
+  #### kod reprezentowany przez diagram
+  ```java
+  public class User extends Object {
+      private LinkedList<String> notes;
+  }
+  
+  ```
 '''
 tags: []
 isStarred: false
