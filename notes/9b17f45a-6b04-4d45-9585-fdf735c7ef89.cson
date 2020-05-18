@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-02-11T19:57:15.743Z"
+updatedAt: "2020-05-18T20:17:56.765Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -14,6 +14,31 @@ content: '''
   ```typescript
   var a = 10;
   ```
+  
+  ## konfiguracja
+  ### tsconfig.ts
+  * Simple JSON text file named tsconfig.json
+  * Stores compiler options used with the project
+  * Specifies files to be included or excluded in compilation
+  * Supports configuration inheritance
+  
+  przykład:
+  ```typescript
+  {
+    "extends": "../tsconfig.base",
+    "compilerOptions": {
+      "removeComments": true
+    },
+    "include": [
+      "./**/*"
+    ]
+  }
+  ```
+  
+  ### linia poleceń
+  
+  * wersja : tsc -version
+  * 
 '''
 linesHighlighted: []
 isStarred: false
