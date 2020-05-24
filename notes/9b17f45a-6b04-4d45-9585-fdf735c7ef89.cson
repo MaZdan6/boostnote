@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-05-18T20:17:56.765Z"
+updatedAt: "2020-05-24T21:18:04.334Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -35,10 +35,63 @@ content: '''
   }
   ```
   
+  przykład 2
+  ```javascript
+  {
+    "extends": "../tsconfig.base", /**/rozszerza konfigurację z innego pliku
+    "compilerOptions": {
+      "removeComments": true /*usuwa komentarze w plikach skompilowanych*/
+    },
+    "include": [
+      "./**/*" /*kompiluje wszystkie pliki .ts w folderach*/
+    ]
+  }
+  ```
+  
+  #### popularne flagi
+  ```javascript
+   "target": "es5",/* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
+     
+  "sourceMap": true,/* Generates corresponding '.map' file. */
+     "outDir": "js",/* Redirect output structure to the directory. */
+     "strict": true,/* Enable all strict type-checking options. */
+     "watch":true
+  
+  ```
+  
   ### linia poleceń
   
   * wersja : tsc -version
-  * 
+  * inicjalizacja projektu (tworzy tsconfig.json): tsc init
+  * kompilowanie plików (w folderze z plikami .tsc): tsc
+  * uruchomienie: npm start
+  
+  ## Webpack
+  webpack.config.js
+  ```javascript 
+  module.exports = {
+    entry: './app/app.ts',
+    devtool: 'inline-source-map',
+    module: {
+      rules: [
+        {
+          test: /\\.tsx?$/, jakie pliki kompilować
+          use: 'ts-loader', uzywaj do kompilacji ts-loader
+          exclude: /node_modules/
+        }
+      ]
+    },
+    resolve: {
+      extensions: [ '.tsx', '.ts', '.js' ]
+    },
+    output: {
+      filename: 'bundle.js' info do przeglądarki gdzie są kody
+    },
+    devServer: {
+      inline: false
+    }
+  };
+  ```
 '''
 linesHighlighted: []
 isStarred: false
