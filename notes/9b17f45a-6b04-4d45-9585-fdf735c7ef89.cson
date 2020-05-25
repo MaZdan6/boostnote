@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-05-24T21:18:04.334Z"
+updatedAt: "2020-05-25T21:17:59.004Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -22,20 +22,9 @@ content: '''
   * Specifies files to be included or excluded in compilation
   * Supports configuration inheritance
   
-  przykład:
-  ```typescript
-  {
-    "extends": "../tsconfig.base",
-    "compilerOptions": {
-      "removeComments": true
-    },
-    "include": [
-      "./**/*"
-    ]
-  }
-  ```
   
-  przykład 2
+  
+  przykład 
   ```javascript
   {
     "extends": "../tsconfig.base", /**/rozszerza konfigurację z innego pliku
@@ -91,6 +80,74 @@ content: '''
       inline: false
     }
   };
+  ```
+  
+  ## 2 Typy danych
+  
+  ### Podstawowe typy danych
+  ```js
+  Boolean
+  let isDone: boolean = false;
+  
+  
+  Number
+  let decimal: number = 6;
+  let hex: number = 0xf00d;
+  let binary: number = 0b1010;
+  let octal: number = 0o744;
+  let big: bigint = 100n;
+  
+  String
+  
+  przykład: łączenie stringów z liczbami
+  let fullName: string = `Bob Bobbington`;
+  let age: number = 37;
+  let sentence: string = `Hello, my name is ${fullName}.
+  I'll be ${age + 1} years old next month.`;
+  
+  Array
+  let list: number[] = [1, 2, 3];
+  
+  lista z zadeklarowanym typem:
+  let list: Array<number> = [1, 2, 3];
+  
+  
+  Enum
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  }
+  let c: Color = Color.Green;
+  ```
+  
+  ### let - zmienna
+  ```js
+  let someString = 'Hello World';
+  console.log(someString);
+  
+  definiowanie typu zmiennej
+  let x: string = 'I will forever be a string.';
+  
+  przykład"
+  let x: string = 'I will forever be a string.';
+  x = 42; - błąd kompilacji, zmienna jest typu string
+  let y = 'I will also forever be a string.';
+  ```
+  ### var - 
+  
+  ```js
+  console.log(someString);
+  var someString = 'Hello World';
+  ```
+  
+  ### inne typy danych
+  ```js
+  Void
+  Null
+  Undefined
+  Never
+  Any
   ```
 '''
 linesHighlighted: []
