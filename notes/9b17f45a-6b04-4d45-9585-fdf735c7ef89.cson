@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-05-25T21:17:59.004Z"
+updatedAt: "2020-05-26T20:46:49.145Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -82,7 +82,7 @@ content: '''
   };
   ```
   
-  ## 2 Typy danych
+  ## 3 Typy danych
   
   ### Podstawowe typy danych
   ```js
@@ -121,7 +121,7 @@ content: '''
   let c: Color = Color.Green;
   ```
   
-  ### let - zmienna
+  ### let - zmienna z zakresem bloku
   ```js
   let someString = 'Hello World';
   console.log(someString);
@@ -134,7 +134,7 @@ content: '''
   x = 42; - błąd kompilacji, zmienna jest typu string
   let y = 'I will also forever be a string.';
   ```
-  ### var - 
+  ### var - zmienn z zakresem funkcji
   
   ```js
   console.log(someString);
@@ -149,6 +149,35 @@ content: '''
   Never
   Any
   ```
+  
+  ### Unia typów
+  zmienna może przyjąć wartości kilku typów
+  ```js
+  let someValue: number | string;
+  someValue = 42; PRZYJMIE LICZBĘ
+  someValue = 'Hello World'; PRZYJMIE STRING
+  someValue = true; BŁĄD, NIE MOZE PRZYJĄC BOOLENA
+  ```
+  
+  ### flaga strictNullChecks
+  sprawdza podczas kompilacji, czy żadna zmienna nie ma przypisanej pustej wartości
+  
+  należy ustawić flagę --strictNullChecks w pliku tsconfig.ts
+  
+  ```js
+  let basicString: string;
+  basicString = null;  BŁĄD
+  basicString = undefined;  BŁĄD
+  
+  let nullableString: string | null;
+  nullableString = null;
+  nullableString = undefined; BŁĄD
+  
+  let mysteryString: string | null | undefined;
+  mysteryString = null;
+  ```
+  
+  ## 4 funkcje
 '''
 linesHighlighted: []
 isStarred: false
