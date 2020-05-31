@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-05-26T20:46:49.145Z"
+updatedAt: "2020-05-31T18:07:35.224Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -178,6 +178,75 @@ content: '''
   ```
   
   ## 4 funkcje
+  ```js
+  function funFunc(score: number, message?: string): string {
+  return "I've got personality and I'm helpful! Be like me!";
+  }
+  
+  message?: string - parametr opcjonalny typu string
+  
+  funkcja zwrawca zmienną typu string
+  parametr score jest obowiązkowy
+  ```
+  
+  * domyślna wartość argumentu
+  ```js
+  function sendGreeting(greeting: string = 'Good morning!'): void {
+  }
+  
+  
+  wywołanie:
+  sendGreeting(); // Good morning!
+  sendGreeting('Good afternoon!'); // Good afternoon!
+  ```
+  * wyrażenia lambda (arrow function)
+  ```js
+  parameters => function body
+  
+  przykład:
+  let squareit = x => x * x;
+  let result = squareit(4); // 16
+  let adder = (a, b) => a + b;
+  let sum = adder(2, 3); // 5
+  let greeting = () => console.log('Hello World!');
+  
+  wyrażenie lambda w tablicy:
+  
+  let scores: number[] = [70, 125, 85, 110];
+  
+  let highScores: number[];
+  
+  highScores = scores.filter((element, index, array) => {
+    if (element > 100) {
+      return true;
+    }
+  });
+  ```
+  
+  ## 5 Obiektowość
+  
+  ### interface
+  ```javascript
+  Tworzenie:
+  
+  interface Employee {
+    //deklaracja zmiennych
+    name: string;
+    title: string;
+  }
+  
+  Rozszerzanie:
+  
+  interface Manager extends Employee {
+    
+    department: string;
+    numOfEmployees: number;
+    
+    //deklaracja metody
+    scheduleMeeting: (topic: string) => void;
+  }
+  
+  ```
 '''
 linesHighlighted: []
 isStarred: false
