@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-05-31T18:07:35.224Z"
+updatedAt: "2020-06-15T20:57:43.740Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -51,9 +51,10 @@ content: '''
   ### linia poleceń
   
   * wersja : tsc -version
-  * inicjalizacja projektu (tworzy tsconfig.json): tsc init
+  * inicjalizacja projektu (tworzy tsconfig.json): tsc --init
   * kompilowanie plików (w folderze z plikami .tsc): tsc
   * uruchomienie: npm start
+  * update wersji: npm install -g typescript@rc
   
   ## Webpack
   webpack.config.js

@@ -1,5 +1,5 @@
 createdAt: "2018-10-15T19:22:40.906Z"
-updatedAt: "2020-04-07T20:54:12.984Z"
+updatedAt: "2020-06-13T05:39:59.480Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Linux"
@@ -9,6 +9,7 @@ content: '''
   ## ogólne skróty klawiszowe
   - terminal: **Ctrl+Alt +T**
   - minimalizowanie okien **ctrl+windows+D**
+  - wersja : lsb_release -a
   
   ## Instalacja programów 
   - update repezytoriów: sudo apt-get update 
