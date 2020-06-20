@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-06-15T20:57:43.740Z"
+updatedAt: "2020-06-20T18:24:53.911Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -186,7 +186,7 @@ content: '''
   
   message?: string - parametr opcjonalny typu string
   
-  funkcja zwrawca zmienną typu string
+  funkcja zwraca zmienną typu string
   parametr score jest obowiązkowy
   ```
   
@@ -207,8 +207,10 @@ content: '''
   przykład:
   let squareit = x => x * x;
   let result = squareit(4); // 16
+  
   let adder = (a, b) => a + b;
   let sum = adder(2, 3); // 5
+  
   let greeting = () => console.log('Hello World!');
   
   wyrażenie lambda w tablicy:
@@ -246,6 +248,136 @@ content: '''
     //deklaracja metody
     scheduleMeeting: (topic: string) => void;
   }
+  
+  ```
+  
+  ### klasa
+  ```js
+  class Developer {
+    //pole publiczne
+    department: string;
+   
+    //pole prywatne
+    private _title: string;
+   
+    // gettery i settery
+    get title(): string {
+      return this._title;
+    }
+    
+    set title(newTitle: string) {
+      this._title = newTitle.toUpperCase();
+    }
+   
+    //funkcja (metoda)
+    documentRequirements(requirements: string): void {
+      console.log(requirements);
+    }
+  }
+  
+  
+  //dziedziczenie
+  class WebDeveloper extends Developer {
+  }
+  
+  
+  //instancja
+  let webdev: WebDeveloper = new WebDeveloper();
+  
+  
+  //constructor
+  class Developer {
+    
+    constructor() {
+      console.log('Creating a new developer.');
+    }
+  }
+  
+  class WebDeveloper extends Developer {
+    
+    readonly favoriteEditor: string;
+    
+    constructor(editor: string) {
+      //wywołanie konstruktora dziedziczonej klasy
+      super();
+      this.favoriteEditor = editor;
+    }
+  }
+  
+  
+  //pole statyczne
+  class WebDeveloper extends Developer {
+    static jobDescription: string = 'Build cool things!';
+    
+    static logFavoriteProtocol() {
+    console.log('HTTPS, of course!');
+    }
+    
+    logJobDescription(): void {
+    console.log(WebDeveloper.jobDescription);
+    }
+  }
+  WebDeveloper.logFavoriteProtocol();
+  
+  ```
+  
+  ## Tablice
+  ```js
+  let list: number[] = [1, 2, 3];
+  lub
+  let list: Array<number> = [1, 2, 3];
+  
+  ```
+  
+  dostęp do elementów
+  ```js
+  
+  
+  let fruits: string[] = ['Apple', 'Orange', 'Banana']; 
+  fruits[0]; // returns Apple
+  fruits[1]; // returns Orange
+  fruits[2]; // returns Banana
+  fruits[3]; // returns undefined
+  ```
+  
+  pętla for
+  ```js
+  let fruits: string[] = ['Apple', 'Orange', 'Banana']; 
+  
+  for(var index in fruits)
+  { 
+      console.log(fruits[index]);  // output: Apple Orange Banana
+  }
+  
+  for(var i = 0; i < fruits.length; i++)
+  { 
+      console.log(fruits[i]); // output: Apple Orange Banana
+  }
+  ```
+  
+  
+  metody
+  ```js
+  var fruits: Array<string> = ['Apple', 'Orange', 'Banana']; 
+  
+  //sortowanie
+  fruits.sort(); 
+  console.log(fruits); //output: [ 'Apple', 'Banana', 'Orange' ]
+  
+  //usuwanie ostatatniego elementu i zwrócenie go
+  console.log(fruits.pop()); //output: Orange
+  
+  //dodanie nowego elementu i zwrócenie nowej wielkości tablicy
+  fruits.push('Papaya'); 
+  console.log(fruits); //output: ['Apple', 'Banana', 'Papaya']
+  
+  //łączenie tablic
+  fruits = fruits.concat(['Fig', 'Mango']); 
+  console.log(fruits); //output: ['Apple', 'Banana', 'Papaya', 'Fig', 'Mango'] 
+  
+  //zwrócenie indexu elementu
+  console.log(fruits.indexOf('Papaya'));//output: 2
+  
   
   ```
 '''
