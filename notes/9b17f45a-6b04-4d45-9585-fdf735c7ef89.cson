@@ -1,5 +1,5 @@
 createdAt: "2019-06-16T07:31:39.360Z"
-updatedAt: "2020-06-20T18:24:53.911Z"
+updatedAt: "2020-06-30T21:13:52.479Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "TypeScript"
@@ -250,7 +250,23 @@ content: '''
   }
   
   ```
+  ## 6 import z modułów
+  ```js
+  // player.ts
+  import { Person, hireDeveloper } from './person';
+  let human: Person;
   
+  import Worker from './person';
+  let engineer: Worker = new Worker();
+  
+  //alias w imporcie
+  import { StaffMember as CoWorker } from './person';
+  let emp: CoWorker = new CoWorker();
+  
+  
+  import * as HR from './person';
+  HR.hireDeveloper();
+  ```
   ### klasa
   ```js
   class Developer {
@@ -380,6 +396,8 @@ content: '''
   
   
   ```
+  
+  
 '''
 linesHighlighted: []
 isStarred: false

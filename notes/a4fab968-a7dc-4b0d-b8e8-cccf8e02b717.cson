@@ -1,5 +1,5 @@
 createdAt: "2019-04-28T20:09:39.787Z"
-updatedAt: "2020-03-03T06:02:59.471Z"
+updatedAt: "2020-07-05T19:47:01.197Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular"
@@ -116,7 +116,7 @@ content: '''
                           <td>{{product.starRating}}</td>
                       </tr>
   ```
-  ## 4. Data binding and pipe
+  ## 6. Data binding and pipe
   ![e3f740b8.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/e3f740b8.png)
   ### Property Binding
    ![37095644.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/37095644.png)
@@ -142,7 +142,7 @@ content: '''
     used to format text
   ![5b0030b7.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/5b0030b7.png)
       
-  ## More on components
+  ## 7 More on components
   ### Interface
   * A specification identifying a related set of properties and methods.
   * A class commits to supporting the specification by implementing the interface.
@@ -178,7 +178,31 @@ content: '''
     * **OnDestroy**: Perform cleanup
     
     ![7a251af4.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/7a251af4.png)
-      
+    
+  
+  
+  
+  ## Wstrzykiwanie zależności
+  @Injectable - wskazuje, że klasa może być wstrzykiwana
+  
+  providedIn - poziom wstrzykiwanie
+  * root' : The application-level injector in most apps.
+  * 'platform' : A special singleton platform injector shared by all applications on the page.
+  * 'any' : Provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.
+  
+  
+  ```js```
+  //Oznaczenie klasy wstrzykiwanej
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class WeightService {
+  
+  //Wstrzykiwanie przez konstruktor
+    constructor(private weightService: WeightService) {
+    }
+  
+  ```
 '''
 tags: []
 isStarred: true
