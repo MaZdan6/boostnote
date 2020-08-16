@@ -1,0 +1,53 @@
+createdAt: "2020-08-16T18:42:27.814Z"
+updatedAt: "2020-08-16T19:47:05.257Z"
+type: "MARKDOWN_NOTE"
+folder: "f752f0b9ae476cbf3bbd"
+title: "Wskaźniki"
+tags: []
+content: '''
+  # Wskaźniki
+  
+  ## C/WK Cena do wartości księgowej
+  
+  C/WK < 3
+  
+  Przykładowo, przedsiębiorstwo posiadające 10 milionów złotych aktywów (nieruchomości, maszyn, gotówki, należności) i 5 milionów złotych zobowiązań (kredytów, długów wobec dostawców itp.) będzie miało wartość księgową 5 milionów złotych. W przypadku spółek akcyjnych, istotnym będzie iloraz bieżącej ceny rynkowej przedsiębiorstwa i wartości księgowej, czyli wskaźnik C/WK, czyli cena do wartości księgowej.
+  
+  W przypadku „zdrowych” przedsiębiorstw, generujących tak zwaną wartość dodaną dla swoich właścicieli, wskaźnik ten będzie wynosił więcej niż 1, czyli wartość rynkowa spółki będzie przekraczać wartość księgową. Wskaźnik C/WK poniżej 1 oznacza, że (teoretycznie) dane przedsiębiorstwo możemy kupić poniżej wartości aktywów pomniejszonych o długi. W takim przypadku opłacalne wydaje się kupienie przedsiębiorstwa w celu restrukturyzacji lub podziału i sprzedania na części (podobnie jak w przypadku handlu samochodami, więcej możemy uzyskać za samochód sprzedając go w częściach niż jako całość, o ile oczywiści części te możemy sprzedać).
+  
+  ## Cena do zysku
+  ![1197c398.png](:storage/f1b81374-c48d-4272-9c94-a260cb34e25a/1197c398.png)
+  
+  C/Z <20
+  
+  C/Z mówi ile lat zabierze spółce zarobienie wystarczającej ilości pieniędzy równej początkowej inwestycji w akcje spółki. Oczywiście jest to wartość prawdziwa tylko i wyłącznie w przypadku gdy zyski firmy pozostaną przez najbliższe lata niezmienne.
+  
+  
+  spółki z niskim potencjałem na rozwój posiadają niską wartość wskaźnika C/Z a firmy z dobrymi perspektywami duże. Często jednak rynek myli się w swoich szacunkach. Dlatego warto szukać spółek o stosunkowo niskich wartościach C/Z z potencjałem na wzrost. Są to właśnie prawdziwe okazje inwestycyjne. Jeśli chodzi o same poziomy C/Z spółek to generalnie im większa spółka tym mniejsza powinna być wartość wskaźnika. Chodzi przede wszystkim o to, że przy wysokich poziomach C/Z spółka musi szybko się rozwijać aby sprostać oczekiwaniom co w wypadku dużych spółek jest bardzo trudne. 
+  ## ROE - Rentowność kapitału własnego
+  [ROE - Rentowność kapitału własnego \\| Sindicator.net - Skaner Rynku Giełdowego](https://sindicator.net/baza_wiedzy/wskazniki_rentownosci_i_oceny_perspektyw_rozwojowych/roe_rentownosc_kapitalu_wlasnego)
+  ![34745ab8.png](:storage/f1b81374-c48d-4272-9c94-a260cb34e25a/34745ab8.png)
+  
+  
+  ## ROI return on investment, zwrot z inwestycji
+  ![c2eed8b4.png](:storage/f1b81374-c48d-4272-9c94-a260cb34e25a/c2eed8b4.png)
+  ## Wskaźnik ogólnego zadłużenia (ang. debt ratio, DR) 
+  ![31fa2f61.png](:storage/f1b81374-c48d-4272-9c94-a260cb34e25a/31fa2f61.png)
+  
+  DR<0,5
+  
+  ## Wskaźnik zysk na akcje (ang. earnings per share, EPS) 
+  ![70c084b6.png](:storage/f1b81374-c48d-4272-9c94-a260cb34e25a/70c084b6.png)
+  ## P/E
+  
+  ## P/BV
+  
+  ## P/B
+  
+  ## P/S
+  
+  ## EV/EBIDTA
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

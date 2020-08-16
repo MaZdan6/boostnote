@@ -1,5 +1,5 @@
 createdAt: "2019-04-28T20:09:39.787Z"
-updatedAt: "2020-07-05T19:47:01.197Z"
+updatedAt: "2020-07-08T21:03:37.684Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular"
@@ -183,9 +183,9 @@ content: '''
   
   
   ## Wstrzykiwanie zależności
-  @Injectable - wskazuje, że klasa może być wstrzykiwana
+  **@Injectable** - wskazuje, że klasa może być wstrzykiwana
   
-  providedIn - poziom wstrzykiwanie
+  **providedIn** - poziom wstrzykiwanie
   * root' : The application-level injector in most apps.
   * 'platform' : A special singleton platform injector shared by all applications on the page.
   * 'any' : Provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.
@@ -193,10 +193,12 @@ content: '''
   
   ```js```
   //Oznaczenie klasy wstrzykiwanej
-  @Injectable({
+  *Injectable({
     providedIn: 'root'
   })
   export class WeightService {
+  }
+  
   
   //Wstrzykiwanie przez konstruktor
     constructor(private weightService: WeightService) {
