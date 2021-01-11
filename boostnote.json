@@ -11,6 +11,11 @@
       "name": "narzędzia"
     },
     {
+      "key": "043ec9873e100c7b1aa4",
+      "color": "#B013A4",
+      "name": "dev_ops"
+    },
+    {
       "key": "aca1f8e65d06e28b00e0",
       "color": "#FF8E00",
       "name": "sql"
@@ -36,19 +41,9 @@
       "name": "spring"
     },
     {
-      "key": "fd5aba9232ecf0e2a51a",
-      "color": "#E8D252",
-      "name": "finanse"
-    },
-    {
-      "key": "dbe4e923f3375bbb496e",
-      "color": "#E8D252",
-      "name": "jpa"
-    },
-    {
       "key": "f752f0b9ae476cbf3bbd",
       "color": "#B013A4",
-      "name": "inwestowanie"
+      "name": "finanse"
     }
   ],
   "version": "1.0"

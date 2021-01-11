@@ -1,8 +1,9 @@
-createdAt: "2019-12-13T23:31:44.174Z"
-updatedAt: "2019-12-13T23:55:54.440Z"
+createdAt: "2021-01-02T11:55:34.674Z"
+updatedAt: "2021-01-02T11:55:37.026Z"
 type: "MARKDOWN_NOTE"
-folder: "fd5aba9232ecf0e2a51a"
+folder: "f752f0b9ae476cbf3bbd"
 title: "Rachunkowość finansowa"
+tags: []
 content: '''
   # Rachunkowość finansowa
   
@@ -15,7 +16,7 @@ content: '''
   **Debet (Dt) Winien (Wn)** - ewidencja operacji o charakterze **ujemnym**
   
   **Credit (Cr) Ma (Ma)** - ewidencja operacji o charakterze **dodatnim**
-  ![3e167871.png](:storage/24b43a4a-abad-4ac5-9053-9f69234c902c/3e167871.png)
+  ![3e167871.png](:storage/21ca7f8f-486b-4253-8331-0d805b3ecdc9/ab101175.png)
   
   ### Operacja gospodarcza 
   Udokumentowane i podlegające ewidencji księgowej zdarzenie gospodarcze
@@ -26,8 +27,8 @@ content: '''
   * po przeciwnych stronach kont (na jednym koncie zapis musi być po stronie Dt, a na drugim po stronie Cr)
   * w tej samej  kwocie (Wielkość po stronie Dt i Cr musi być identyczna)
   
-  ![f5a40f37.png](:storage/24b43a4a-abad-4ac5-9053-9f69234c902c/f5a40f37.png)
+  ![f5a40f37.png](:storage/21ca7f8f-486b-4253-8331-0d805b3ecdc9/b92471a4.png)
 '''
-tags: []
+linesHighlighted: []
 isStarred: false
 isTrashed: false

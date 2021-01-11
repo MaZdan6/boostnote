@@ -1,0 +1,24 @@
+createdAt: "2020-10-24T21:17:50.488Z"
+updatedAt: "2020-10-24T21:32:33.655Z"
+type: "MARKDOWN_NOTE"
+folder: "aca1f8e65d06e28b00e0"
+title: "Postgresql"
+tags: []
+content: '''
+  # Postgresql
+  
+  wersja: postgres --version
+  postgres -V
+  
+  ## shell
+  logowanie: sudo -u postgres psql
+  wylogowanie: \\q
+  
+  \\help
+  \\help [Command Name] -> \\help UPDATE
+  
+  istniejące bazy danych: \\list or \\l
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

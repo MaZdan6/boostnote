@@ -1,5 +1,5 @@
 createdAt: "2019-04-28T20:09:39.787Z"
-updatedAt: "2020-07-08T21:03:37.684Z"
+updatedAt: "2020-10-10T15:41:48.766Z"
 type: "MARKDOWN_NOTE"
 folder: "a7e795acb6fcea97a14c"
 title: "Angular"
@@ -181,11 +181,11 @@ content: '''
     
   
   
-  
-  ## Wstrzykiwanie zależności
+  ## 9 Service i wstrzykiwanie zależności
+  ### Wstrzykiwanie zależności
   **@Injectable** - wskazuje, że klasa może być wstrzykiwana
   
-  **providedIn** - poziom wstrzykiwanie
+  **providedIn** - poziom wstrzykiwania
   * root' : The application-level injector in most apps.
   * 'platform' : A special singleton platform injector shared by all applications on the page.
   * 'any' : Provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.
@@ -205,6 +205,152 @@ content: '''
     }
   
   ```
+  
+  ### Rejestracja serwisu
+  
+  3 sposoby rejestracji serwisu:
+  1) W serwisie definiujemy poziom wstrzykiwania
+  
+  ![825ef3ad.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/825ef3ad.png)
+  
+  2) Wstrzykujemy serwis w componencie
+  ![867c254d.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/867c254d.png)
+  3) Deklarujemy serwis w module
+  ![d6e20767.png](:storage/a4fab968-a7dc-4b0d-b8e8-cccf8e02b717/d6e20767.png)
+  
+  ## 10 HTTP 
+  ```ts
+  // 1. Pobieranie modułu HTTPCLIENT w AppModule
+    imports: [
+      HttpClientModule,
+      ...
+    ]
+  })
+  export class ApModule { }
+  
+  // 2. Wstrzkiwanie  HTTPCLIENT przez construktor
+  constructor(private http: HttpClient) {
+    }
+    
+  // 3. zwracanie listy przez obserwatora w serwisie
+    getWeights(): Observable<Weight[]> {
+      return this.http.get<Weight[]>(this.productUrl)
+        .pipe(
+          tap(data => console.log('All: ' + JSON.stringify(data))),
+          catchError(this.handleError)
+        );
+    }
+    
+  // 4. subskrybowanie obserwatora w komponencie
+  ngOnInit() {
+      this.weightService.getWeights().subscribe({
+        next: weight => {
+          this.weights = weight;
+        },
+        error: err => this.errorMessage = err
+      });
+    }
+  ```
+  
+  
+  ### CRUD
+  ```ts
+  //GET
+  getBookById(id: number): Observable<Book> {
+      return this.http.get<Book>('/api/books/${id}', {
+        headers: new HttpHeaders({
+          'Accept': 'application/json',
+          'Authorization': 'my-token'
+        })
+      });
+    }  
+  
+  //POST
+    addBook(newBook: Book): Observable<Book> {
+      return this.http.post<Book>('/api/books', newBook, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      });
+    }
+  
+  //UPDATE
+    updateBook(updatedBook: Book): Observable<void> {
+      return this.http.put<void>('/api/books/${updatedBook.bookID}', updatedBook, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      });
+    }
+  
+  //DELETE
+    deleteBook(bookID: number): Observable<void> {
+      return this.http.delete<void>(`/api/books/${bookID}`);
+    }
+  ```
+  
+  ## [Component Interaction](https://angular.io/guide/component-interaction#component-interaction)
+  
+  ### komunikacja przez serwis
+  ```ts
+  // 1. Wstrzykniecię serwisu (klasy obserwowana i obserwująca)
+  export class FitnessWeightAdd implements OnInit {
+  
+    constructor(private service: WeightService) {
+    }
+    }
+  
+  // 2. utworzenie obserwowanej zmiennej (serwis)
+  reloadWeightSubject = new Subject<boolean>();
+    reloadWeightObservable = this.reloadWeightSubject.asObservable();
+  
+  // 3. Modyfikacja obserwowanej zmiennej (klasa obserwowana)
+  this.service.reloadWeightSubject.next(true)
+  
+  // 4. subksrybcja obserowawanej zmiennej (klasa obserwująca)
+  this.subscription = weightService.reloadWeightObservable.subscribe(
+        reloadWeight => {
+          this.ngOnInit();
+          console.log('reloadWeight: ' + reloadWeight);
+        }
+      );
+  ```
+  
+  ### [Dialog](https://material.angular.io/components/dialog/overview)
+  
+  okno pop up z formularzem
+  ```ts
+  plik app.module.ts
+  // 1. import nowego modułu
+  imports: [
+          MatDialogModule
+    ],
+  // 2. konfuguracja dialogu
+  providers: [FitnessService,
+      {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}],
+      
+  // 3. dodatkowe info dla fabryki komponentów
+  entryComponents: [FitnessWeightHistoryComponent, FitnessWeightEditComponent],
+  
+  //utworzenie dialogu
+  // przycisk 
+  <button  type="button" class="btn btn-sm btn-warning" mat-raised-button (click)="openDialogEdit()">Edit</button>&nbsp;
+  
+  // metoda
+  openDialogEdit(): void {
+      const dialogRef = this.dialog.open(FitnessWeightEditComponent, {
+        width: '250px',
+        // data: {name: this.name, animal: this.animal}
+      });
+  ```
+  
+  ### [Pagination](https://material.angular.io/components/paginator/api)
+  komponent do stronicowania
+  
+  ### JWT autoryzacja
+  [Angular Security - Authentication With JWT: The Complete Guide](https://blog.angular-university.io/angular-jwt-authentication/)
+  
+  Sending the JWT back in the HTTP response body
 '''
 tags: []
 isStarred: true

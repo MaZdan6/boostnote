@@ -1,0 +1,30 @@
+createdAt: "2020-08-23T09:06:46.078Z"
+updatedAt: "2020-08-23T09:11:21.071Z"
+type: "MARKDOWN_NOTE"
+folder: "a7e795acb6fcea97a14c"
+title: "RxJS"
+tags: []
+content: '''
+  # RxJS
+  [RxJS](https://rxjs-dev.firebaseapp.com/guide/overview)
+  RxJS is a library for composing asynchronous and event-based programs by using observable sequences. It provides one core type, the Observable, satellite types (Observer, Schedulers, Subjects) and operators inspired by Array#extras (map, filter, reduce, every, etc) to allow handling asynchronous events as collections.
+  
+  [Diagramy wyjaśniające funkcje RxJS](https://rxmarbles.com/)
+  
+  ## funkcje
+  ### [tap()](https://rxjs-dev.firebaseapp.com/api/operators/tap)
+  Perform a side effect for every emission on the source Observable, but return an Observable that is identical to the source
+  
+  ```js
+  getProducts(): Observable<IProduct[]> {
+      return this.http.get<IProduct[]>(this.productUrl)
+        .pipe(
+          tap(data => console.log('All: ' + JSON.stringify(data))),
+          catchError(this.handleError)
+        );
+    }
+    ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

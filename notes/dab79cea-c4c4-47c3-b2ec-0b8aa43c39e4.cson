@@ -1,5 +1,5 @@
 createdAt: "2018-10-15T19:22:40.906Z"
-updatedAt: "2020-06-13T05:39:59.480Z"
+updatedAt: "2020-12-13T21:09:15.378Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Linux"
@@ -27,6 +27,8 @@ content: '''
   - Dodawanie repezytoriów  **add-apt-repositiry ppa:[repozytorium]**  
   - **sudo apr-get install [nazwa programu]** 
   - usuwanie nieużywanych programów **sudo apt-get autoremove** 
+  
+  ~/.dropbox-dist/dropboxd
   
   ### skrót do aplikacji
   1. uruchomić nowy plik
@@ -111,7 +113,7 @@ content: '''
   
     - cd / 
   
-    - cd .. 
+    - cd .. - katalog nadrzędny
   
     -  cd - 
   
@@ -170,6 +172,7 @@ content: '''
   - Wyświetlanie użycia CPU **iostat -c 3** 
   
   - Uruchomienie interfejsu wysokiego poziomu dla menedżera pakietów: **aptitude** 
+  - testowanie karty graficznej: **glmark2**
   
   
   
@@ -231,3 +234,4 @@ tags: [
 ]
 isStarred: false
 isTrashed: false
+linesHighlighted: []

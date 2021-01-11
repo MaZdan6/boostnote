@@ -1,0 +1,35 @@
+createdAt: "2020-12-06T14:22:30.694Z"
+updatedAt: "2020-12-08T22:29:37.701Z"
+type: "MARKDOWN_NOTE"
+folder: "043ec9873e100c7b1aa4"
+title: "Docker"
+tags: []
+content: '''
+  # Docker
+  
+  ## komendy
+  
+  ### docker run
+  [docker run \\| Docker Documentation](https://docs.docker.com/engine/reference/commandline/run/)
+  ```
+  docker run 
+  --rm 
+  --name spring-angular-keycloak-demo 
+  --network host michuu93/spring-angular-keycloak-demo
+  ```
+  
+  --rm - Automatically remove the container when it exits
+  --name
+  --network
+  
+  ### docker stop
+  
+  ### listowanie contenerów
+  ```
+  docker ps 
+  ```
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
