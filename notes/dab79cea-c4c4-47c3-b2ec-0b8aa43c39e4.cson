@@ -1,5 +1,5 @@
 createdAt: "2018-10-15T19:22:40.906Z"
-updatedAt: "2020-12-13T21:09:15.378Z"
+updatedAt: "2021-02-09T22:17:30.217Z"
 type: "MARKDOWN_NOTE"
 folder: "a38bc68bbb6e2970c167"
 title: "Linux"
@@ -42,7 +42,8 @@ content: '''
   ### zabijanie aplikacji zajmującej port
   fuser -k 8080/tcp
   
-  
+  ### Programy
+  listowanie serwisów : service --status-all 
   ## Operacje na paczkach i archiwach 
   
   ### Rozpakowanie

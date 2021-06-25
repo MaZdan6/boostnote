@@ -1,5 +1,5 @@
 createdAt: "2019-08-16T12:38:35.274Z"
-updatedAt: "2020-03-25T12:46:58.818Z"
+updatedAt: "2021-02-13T15:48:07.714Z"
 type: "MARKDOWN_NOTE"
 folder: "aca1f8e65d06e28b00e0"
 title: "T-SQL"
@@ -7,6 +7,7 @@ tags: []
 content: '''
   # T-SQL
   
+  [Blog firmy JSystems - Bezpłatny kurs T-SQL w SQL Server](http://blog.jsystems.pl/show_post/Bezp%C5%82atny_kurs_T-SQL_w_SQL_Server/)
   
   ## sp_executesql
   Skrypt tworzy sparametryzowane zapytanie i zapisuje jego wynik  w zmiennej

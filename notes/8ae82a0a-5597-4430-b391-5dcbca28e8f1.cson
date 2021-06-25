@@ -1,5 +1,5 @@
 createdAt: "2020-08-19T09:18:21.447Z"
-updatedAt: "2020-10-28T07:29:47.614Z"
+updatedAt: "2021-01-20T18:51:17.598Z"
 type: "MARKDOWN_NOTE"
 folder: "84427892d6bee884f6e4"
 title: "Conditionals  - okresy warunkowe"
@@ -74,14 +74,26 @@ content: '''
   ## Mixed conditionals
   
   * **If 2, 3rd**
-      If I were richer, I would have invested in shares.
-      If I drove, I would have picked you up from the station yesterday.
+  Drugi i trzeci okres warunkowy możemy także pomieszać mówiąc o obecnej sytuacji, która mogła zmienić jakąś sytuację w przeszłości.
+    * If Mary spoke French, she would have helped you with that translation.
+       Gdyby Mary mówiła po francusku, pomogłaby ci przy tłumaczeniu.
+      (ale nie zna i nie pomogła mu przetłumaczyć)
+    * If they weren't afraid of spiders they would have searched the basement too. 	Gdyby się nie bali pająków, przeszukaliby też piwnicę. 
+  
+  
+  If I were richer, I would have invested in shares.
+  If I drove, I would have picked you up from the station yesterday.
   
   * **if 3rd con, 2nd** past simple+  would have
+    * If he hadn't bought the car, he wouldn't be short of money now.
+  odnosimy się do czynności, która została wykonana w przeszłości ale ma konkretny wpływ na sytuację w tej chwili. Kupił drogi samochód rok temu i dziś ma kłopoty finansowe - przeszłość ma wpływ na teraźniejszość.
+    * If I had won the lottery, I would be rich. 
+  Gdybym wygrał w totka, byłbym teraz bogaty.
+  (ale nie wygrałem kiedyś tam i nie mam teraz góry pieniędzy)
+  
   If I hadn't started working for the bank, we wouldn't be having this lesson now.
   If I had istened to Mateusz about cryptocurrecy, I would have now twice as much I have.
       If I had asked a floor guy about the prices, I would know the price is gonna change. 
-  
       ![5457e27f.png](:storage/8ae82a0a-5597-4430-b391-5dcbca28e8f1/5457e27f.png)
       ![d0620910.png](:storage/8ae82a0a-5597-4430-b391-5dcbca28e8f1/d0620910.png)
 '''
